@@ -764,6 +764,27 @@ begin
   DeleteFile(ExpandConstant('{app}\miss14.mis.dml'));
   DeleteFile(ExpandConstant('{app}\miss15.mis.dml'));
   DeleteFile(ExpandConstant('{app}\miss16.mis.dml'));
+  { Clean any items leftover from old installations }
+  if FileExists(ExpandConstant('{app}\OSM\gamesys.dml')) then
+    DelTree(ExpandConstant('{app}\OSM\*'), False, True, True);
+#ifdef Mods
+  DelTree(ExpandConstant('{app}\RES\RESPATCH'), True, True, True);
+  DelTree(ExpandConstant('{app}\MISPATCH'), True, True, True);
+  DeleteFile(ExpandConstant('{app}\MODS\EP.crf'));
+  if DirExists(ExpandConstant('{app}\MODS\t2snd')) then begin
+    if not RenameFile(ExpandConstant('{app}\MODS\t2snd'), ExpandConstant('{app}\MODS\NewT2SFX')) then
+      DelTree(ExpandConstant('{app}\MODS\t2snd'), True, True, True);
+  end;
+  if DirExists(ExpandConstant('{app}\subtitles')) then begin
+    CreateDir(ExpandConstant('{app}\MODS\Subtitles'));
+    if not RenameFile(ExpandConstant('{app}\subtitles'), ExpandConstant('{app}\MODS\Subtitles\subtitles')) then
+      DelTree(ExpandConstant('{app}\subtitles'), True, True, True);
+  end;
+  if DirExists(ExpandConstant('{app}\T2FMDML')) then begin
+    if not RenameFile(ExpandConstant('{app}\T2FMDML'), ExpandConstant('{app}\MODS\T2FMDML')) then
+      DelTree(ExpandConstant('{app}\T2FMDML'), True, True, True);
+  end;
+#endif
 end;
 
 { Uninstall components that are not currently selected
