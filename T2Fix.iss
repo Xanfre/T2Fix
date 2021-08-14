@@ -142,39 +142,57 @@ Source: "{code:CDDir}\MOVIES\INTRO.AVI"; DestDir: "{app}\MOVIES"; Components: ne
 Source: "{code:CDDir}\MOVIES\SUCCESS.AVI"; DestDir: "{app}\MOVIES"; Components: newdark; Flags: external ignoreversion skipifsourcedoesntexist ignoresize
 Source: "{code:CDDir}\thief2.exe"; DestDir: "{app}"; Components: newdark; AfterInstall: BeforePatch; Flags: external ignoreversion skipifsourcedoesntexist ignoresize
 ; 1.18 patch data
-Source: "Resources\patch118\mis\*"; DestDir: "{app}"; Components: newdark; Check: ExtPatchMis; Flags: ignoreversion ignoresize
+Source: "Resources\patch118\*"; Excludes: "p118res.7z"; DestDir: "{app}"; Components: newdark; Check: ExtPatchMis; Flags: ignoreversion ignoresize
 Source: "Resources\patch118\p118res.7z"; DestDir: "{tmp}"; Components: newdark; Check: ExtPatchData; Flags: ignoreversion deleteafterinstall ignoresize
 ; Helper executables
 #ifdef Mods
 Source: "Resources\Helper\oggdec.exe"; DestDir: "{tmp}"; Components: newdark and mods\t2seep; Flags: ignoreversion deleteafterinstall ignoresize
 #endif
 Source: "Resources\Helper\7za.exe"; DestDir: "{tmp}"; Components: newdark; AfterInstall: GameConfig; Flags: ignoreversion deleteafterinstall ignoresize
-; Component files
+; NewDark 1.27
 Source: "Resources\newdark\*"; DestDir: "{app}"; Components: newdark; Flags: ignoreversion recursesubdirs createallsubdirs
-Source: "Resources\base\*"; DestDir: "{app}"; Components: newdark; Flags: ignoreversion ignoresize
+; Optional libraries
 Source: "Resources\libs\OpenAL32.dll"; DestDir: "{app}"; Components: newdark; Tasks: oalsoft; Flags: ignoreversion ignoresize
 Source: "Resources\libs\libmp3lame.dll"; DestDir: "{app}"; Components: newdark; Tasks: lame; Flags: ignoreversion ignoresize
+; Advanced options
 Source: "Resources\advanced\miss1.mis.dml"; DestDir: "{app}"; Components: newdark; Check: IsAdvOpChecked(8); Flags: ignoreversion ignoresize
 Source: "Resources\advanced\miss2.mis.dml"; DestDir: "{app}"; Components: newdark; Check: IsAdvOpChecked(8); Flags: ignoreversion ignoresize
 Source: "Resources\advanced\miss4.mis.dml"; DestDir: "{app}"; Components: newdark; Check: IsAdvOpChecked(8); Flags: ignoreversion ignoresize
 Source: "Resources\advanced\dark.gam.dml"; DestDir: "{app}"; Components: newdark; Check: IsAdvOpChecked(9); Flags: ignoreversion ignoresize
+; DromEd 1.27
 Source: "Resources\dromed\*"; DestDir: "{app}"; Components: dromed; Flags: ignoreversion
+; DromEd config files and tools (unnecessary if also instaling the toolkit)
+Source: "Resources\dromedcfg\*"; DestDir: "{app}"; Components: dromed and not dromed\toolkit; Flags: ignoreversion
+; DromEd Basic Toolkit
 Source: "Resources\dromedtk\*"; DestDir: "{app}"; Components: dromed\toolkit; Flags: ignoreversion recursesubdirs createallsubdirs
 #ifdef Mods
 Source: "Resources\osm\*"; DestDir: "{app}"; Components: osm; Flags: ignoreversion recursesubdirs createallsubdirs
+; Thief2 Fixed
 Source: "Resources\mods\Thief2 Fixed\*"; DestDir: "{app}\MODS\Thief2 Fixed"; Components: mods\thief2fixed; Flags: ignoreversion recursesubdirs createallsubdirs
+; Dark Mod Manager
 Source: "Resources\dmm\*"; DestDir: "{app}"; Components: dmm; Flags: ignoreversion
+; Carry body mod
 Source: "Resources\mods\CarryBody\*"; DestDir: "{app}\MODS\CarryBody"; Components: mods\carrybody; Flags: ignoreversion recursesubdirs createallsubdirs
+; Interactive candles
 Source: "Resources\mods\Candles\*"; DestDir: "{app}\MODS\Candles"; Components: mods\candles; Flags: ignoreversion
+; t2skies
 Source: "Resources\mods\t2skies\*"; DestDir: "{app}\MODS\t2skies"; Components: mods\t2skies; Flags: ignoreversion recursesubdirs createallsubdirs
+; t2water
 Source: "Resources\mods\t2water\*"; DestDir: "{app}\MODS\t2water"; Components: mods\t2water; Flags: ignoreversion recursesubdirs createallsubdirs
+; Thief Enhancement Pack
 Source: "Resources\mods\EP\*"; DestDir: "{app}\MODS\EP"; Components: mods\ep; Flags: ignoreversion recursesubdirs createallsubdirs
+; Sound enhancement pack
 Source: "Resources\mods\NewT2SFX\*"; DestDir: "{app}\MODS\NewT2SFX"; Components: mods\t2seep; AfterInstall: OggDecode; Flags: ignoreversion recursesubdirs createallsubdirs
+; English subtitles
 Source: "Resources\mods\Subtitles\*"; DestDir: "{app}\MODS\Subtitles"; Components: mods\subtitles; Flags: ignoreversion recursesubdirs createallsubdirs
+; T2FMDML
 Source: "Resources\mods\T2FMDML\*"; DestDir: "{app}\MODS\T2FMDML"; Components: mods\fmdml; Flags: ignoreversion recursesubdirs createallsubdirs
 #endif
+; NewDark multiplayer
 Source: "Resources\multiplayer\*"; DestDir: "{app}"; Components: multiplayer; Flags: ignoreversion recursesubdirs createallsubdirs
+; Legacy executables
 Source: "Resources\olddark\*"; DestDir: "{app}"; Components: olddark; Flags: ignoreversion recursesubdirs createallsubdirs
+; Config files
 Source: "Resources\config\cam.cfg"; DestDir: "{app}"; Components: newdark; AfterInstall: SetGameRes; Flags: ignoreversion onlyifdoesntexist ignoresize
 Source: "Resources\config\cam_mod.ini"; DestDir: "{app}"; Components: newdark; BeforeInstall: CheckModIni; AfterInstall: ConfigureMods; Flags: ignoreversion ignoresize
 Source: "Resources\config\cam_ext.cfg"; DestDir: "{app}"; Components: newdark; Check: not IsTaskSelected('nomodifycfg') or not FileExists(ExpandConstant('{app}\cam_ext.cfg')); AfterInstall: ConfigureVideo; Flags: ignoreversion ignoresize
@@ -709,7 +727,6 @@ begin
     DeleteFile(ExpandConstant('{app}\dromed license.txt'));
     DeleteFile(ExpandConstant('{app}\KEYBIND.CFG'));
     DeleteFile(ExpandConstant('{app}\SCHEMA.ZIP'));
-    DeleteFile(ExpandConstant('{app}\ddfix readme.txt'));
     DeleteFile(ExpandConstant('{app}\Icon.ico'));
   end;
   SetStatusCaption('Preparing installation directory...');
@@ -801,6 +818,13 @@ begin
     DeleteFile(ExpandConstant('{app}\troubleshooting_editor.txt'));
     DeleteFile(ExpandConstant('{app}\monolog.txt'));
     DeleteFile(ExpandConstant('{app}\darkdlgs.dll'));
+    DeleteFile(ExpandConstant('{app}\3DS2E.EXE'));
+    DeleteFile(ExpandConstant('{app}\BSP.EXE'));
+    DeleteFile(ExpandConstant('{app}\CSGMERGE.EXE'));
+    DeleteFile(ExpandConstant('{app}\DEFAULT.BND'));
+    DeleteFile(ExpandConstant('{app}\KEYBIND.CFG'));
+    DeleteFile(ExpandConstant('{app}\LICENSE.TXT'));
+    DeleteFile(ExpandConstant('{app}\MENUS.CFG'));
     DeleteFile(ExpandConstant('{app}\darkdlgs.dat'));
     DeleteFile(ExpandConstant('{app}\bsp.bin'));
     DeleteFile(ExpandConstant('{app}\inprog.cow'));
@@ -811,13 +835,11 @@ begin
   end;
   if not IsComponentSelected('dromed\toolkit') and DirExists(ExpandConstant('{app}\Tools')) then begin
     SetFilenameCaption('DromEd Basic Toolkit 1.14');
-    DeleteFile(ExpandConstant('{app}\Menus.cfg'));
     DeleteFile(ExpandConstant('{app}\Page001.pcx'));
-    DeleteFile(ExpandConstant('{app}\Default.bnd'));
     DeleteFile(ExpandConstant('{app}\editor.crf'));
-    DeleteFile(ExpandConstant('{app}\DromEd Basic Readme.txt'))
+    DeleteFile(ExpandConstant('{app}\DromEd Basic Readme.txt'));
+    DelTree(ExpandConstant('{app}\Cmds'), True, True, True);
     DelTree(ExpandConstant('{app}\Docs'), True, True, True);
-    DelTree(ExpandConstant('{app}\Schema'), True, True, True);
     DelTree(ExpandConstant('{app}\Tools'), True, True, True);
   end;
 #ifdef Mods
@@ -1048,7 +1070,7 @@ begin
     end;
     { Display a warning if the current install directory is 'Program Files' or 'Program Files (x86)' }
     if (WinVer >= $06000000) and not InitialPage and ((Pos(ExpandConstant('{pf32}'), ExpandConstant('{app}')) <> 0) or (IsWin64 and (Pos(ExpandConstant('{pf64}'), ExpandConstant('{app}')) <> 0))) and
-       (SuppressibleMsgBox('You have selected a protected folder in which to install {#FName}. This is not recommended. Would you continue anyway?', mbError, MB_YESNO, IDYES) = IDNO) then begin
+       (SuppressibleMsgBox('You have selected a protected folder in which to install {#FName}. This is not recommended. Would you like to continue anyway?', mbError, MB_YESNO, IDYES) = IDNO) then begin
       Result := False;
       Exit;
     end;
@@ -1194,9 +1216,9 @@ begin
     2: CompDesc := 'A toolkit for DromEd which includes improved menus and various utilities intended to aid in mapping and modding.';
 #ifdef Mods
     3: CompDesc := 'Common script modules used in fan missions and mods. Includes NVScript, tnhScript, and the Public Scripts.';
-    4: CompDesc := 'Complete Thief 2 mission and resource patch. Fixes numerous issues present in the original missions and provides updated resources. This is highly recommended.';
-    5: CompDesc := 'An easy-to-use mod manager for NewDark that allows fine control over installed mods and mod priorities. Requires Windows Vista SP2 or newer.';
-    6: CompDesc := 'Game modifications.';
+    4: CompDesc := 'An easy-to-use mod manager for NewDark that allows fine control over installed mods and mod priorities. Requires Windows Vista SP2 or newer.';
+    5: CompDesc := 'Game modifications.';
+    6: CompDesc := 'Complete Thief 2 mission and resource patch. Fixes numerous issues present in the original missions and provides updated resources. This is highly recommended.';
     7: CompDesc := 'High-detail models for carried bodies that properly match the AIs.';
     8: CompDesc := 'Interactive candles that add extinguishable flames to lit candles in the original missions. Thief2 Fixed is required for proper functionality.';
     9: CompDesc := 'Improved dynamic skies.';
@@ -1394,12 +1416,10 @@ begin
     DelTree(ExpandConstant('{app}\MODS\Thief2 Fixed\Obj\Disabled'), True, True, True);
     DeleteFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\bjachand.bin'));
     DeleteFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\txt16\bjhand.tga'));
-    DeleteFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\txt16\BLACJAC4.png'));
     DeleteFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\txt16\hiltsx.tga'));
     DeleteFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\txt16\swhand.tga'));
     RenameFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\Disabled\bjachand.bin'), ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\bjachand.bin'));
     RenameFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\Disabled\txt16\bjhand.tga'), ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\txt16\bjhand.tga'));
-    RenameFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\Disabled\txt16\BLACJAC4.png'), ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\txt16\BLACJAC4.png'));
     RenameFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\Disabled\txt16\Hiltsx.tga'), ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\txt16\Hiltsx.tga'));
     RenameFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\Disabled\txt16\swhand.tga'), ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\txt16\swhand.tga'));
     DelTree(ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\Disabled'), True, True, True);
