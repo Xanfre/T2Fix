@@ -1405,7 +1405,7 @@ begin
     RenameFile(ExpandConstant('{app}\squirrel.osm'), ExpandConstant('{app}\OSM\squirrel.osm'));
   end;
   { ...And also enable the improved meshes that come with Thief 2 Fixed if specified }
-  if IsComponentSelected('mods\thief2fixed') and AdvOp11.Enabled and AdvOp11.Checked then begin
+  if IsComponentSelected('mods\thief2fixed') and AdvOp12.Enabled and AdvOp12.Checked then begin
     DeleteFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Obj\blacjack.bin'));
     DeleteFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Obj\txt16\BLACJAC2.png'));
     DeleteFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Obj\txt16\BLACJAC4.png'));
@@ -1461,6 +1461,15 @@ begin
       'subtitles_bg_color 0 0 0 0' + #13#10 +
       'movsubtitles_bg_color 0 0 0 0' + #13#10, True);
 #endif
+  if IsComponentSelected('dromed') and AdvOp11.Enabled and AdvOp11.Checked then begin
+    LoadStringFromFile(ExpandConstant('{app}\DromEd.cfg'), A);
+    U := A;
+    StringChangeEx(U, 'edit_screen_depth 16' + #13#10, ';edit_screen_depth 16' + #13#10, True);
+    StringChangeEx(U, ';editor_disable_gdi' + #13#10, 'editor_disable_gdi' + #13#10, True);
+    StringChangeEx(U, ';edit_screen_depth 32' + #13#10, 'edit_screen_depth 32' + #13#10, True);
+    A := U;
+    SaveStringToFile(ExpandConstant('{app}\DromEd.cfg'), A, False);
+  end;
 end;
 
 #ifdef Mods
@@ -1499,13 +1508,21 @@ begin
       Invalidate := True;
     end;
   end;
-  { Enable the twelfth advanced option if the fixed missions are selected }
-  if IsComponentSelected('mods\thief2fixed') then begin
+  { Enable the eleventh advanced option if DromEd selected }
+  if IsComponentSelected('dromed') then begin
     AdvOp11.Visible := True;
     AdvOp11.Enabled := True;
   end else begin
     AdvOp11.Visible := False;
     AdvOp11.Enabled := False;
+  end;
+  { Enable the twelfth advanced option if the fixed missions are selected }
+  if IsComponentSelected('mods\thief2fixed') then begin
+    AdvOp12.Visible := True;
+    AdvOp12.Enabled := True;
+  end else begin
+    AdvOp12.Visible := False;
+    AdvOp12.Enabled := False;
   end;
   { Redraw the components list if required }
   if Invalidate then
@@ -1785,17 +1802,27 @@ begin
   AdvOp10.Checked := False;
   AdvOp10.Parent := AdvPage.Surface;
   AdvOp10.Anchors := [akRight, akTop];
-#ifdef Mods
   AdvOp11 := TNewCheckBox.Create(AdvPage);
   AdvOp11.Top:= ScaleY(120);
   AdvOp11.Left := AdvPage.SurfaceWidth div 2;
   AdvOp11.Width := AdvPage.SurfaceWidth div 2;
-  AdvOp11.Caption := 'Enable Improved Arm Meshes';
+  AdvOp11.Caption := 'Enable DromEd hardware rendering';
   AdvOp11.Checked := False;
   AdvOp11.Parent := AdvPage.Surface;
   AdvOp11.Anchors := [akRight, akTop];
   AdvOp11.Visible := False;
   AdvOp11.Enabled := False;
+#ifdef Mods
+  AdvOp12 := TNewCheckBox.Create(AdvPage);
+  AdvOp12.Top:= ScaleY(150);
+  AdvOp12.Left := AdvPage.SurfaceWidth div 2;
+  AdvOp12.Width := AdvPage.SurfaceWidth div 2;
+  AdvOp12.Caption := 'Enable Improved Arm Meshes';
+  AdvOp12.Checked := False;
+  AdvOp12.Parent := AdvPage.Surface;
+  AdvOp12.Anchors := [akRight, akTop];
+  AdvOp12.Visible := False;
+  AdvOp12.Enabled := False;
 #endif
   { Set up the 'Configuration Options' button }
   AdvBut := TNewButton.Create(WizardForm);
