@@ -154,10 +154,10 @@ Source: "Resources\newdark\*"; DestDir: "{app}"; Components: newdark; Flags: ign
 Source: "Resources\base\*"; DestDir: "{app}"; Components: newdark; Flags: ignoreversion ignoresize
 Source: "Resources\libs\OpenAL32.dll"; DestDir: "{app}"; Components: newdark; Tasks: oalsoft; Flags: ignoreversion ignoresize
 Source: "Resources\libs\libmp3lame.dll"; DestDir: "{app}"; Components: newdark; Tasks: lame; Flags: ignoreversion ignoresize
-Source: "Resources\advanced\miss1.mis.dml"; DestDir: "{app}"; Components: newdark; Check: IsAdvOpChecked(9); Flags: ignoreversion ignoresize
-Source: "Resources\advanced\miss2.mis.dml"; DestDir: "{app}"; Components: newdark; Check: IsAdvOpChecked(9); Flags: ignoreversion ignoresize
-Source: "Resources\advanced\miss4.mis.dml"; DestDir: "{app}"; Components: newdark; Check: IsAdvOpChecked(9); Flags: ignoreversion ignoresize
-Source: "Resources\advanced\dark.gam.dml"; DestDir: "{app}"; Components: newdark; Check: IsAdvOpChecked(10); Flags: ignoreversion ignoresize
+Source: "Resources\advanced\miss1.mis.dml"; DestDir: "{app}"; Components: newdark; Check: IsAdvOpChecked(8); Flags: ignoreversion ignoresize
+Source: "Resources\advanced\miss2.mis.dml"; DestDir: "{app}"; Components: newdark; Check: IsAdvOpChecked(8); Flags: ignoreversion ignoresize
+Source: "Resources\advanced\miss4.mis.dml"; DestDir: "{app}"; Components: newdark; Check: IsAdvOpChecked(8); Flags: ignoreversion ignoresize
+Source: "Resources\advanced\dark.gam.dml"; DestDir: "{app}"; Components: newdark; Check: IsAdvOpChecked(9); Flags: ignoreversion ignoresize
 Source: "Resources\dromed\*"; DestDir: "{app}"; Components: dromed; Flags: ignoreversion
 Source: "Resources\dromedtk\*"; DestDir: "{app}"; Components: dromed\toolkit; Flags: ignoreversion recursesubdirs createallsubdirs
 #ifdef Mods
@@ -279,13 +279,13 @@ end;
 { Check if the patched resources should be extracted }
 function ExtPatchData(): Boolean;
 begin
-  Result := NeedsPatch or AdvOp11.Checked;
+  Result := NeedsPatch or AdvOp10.Checked;
 end;
 
 { Check if the patched missions should be extracted }
 function ExtPatchMis(): Boolean;
 begin
-  Result := (NeedsPatch or NeedsMisPatch) or AdvOp11.Checked;
+  Result := (NeedsPatch or NeedsMisPatch) or AdvOp10.Checked;
 end;
 
 { Check if the specified advanced option is selected
@@ -605,7 +605,7 @@ end;
 procedure ApplyPatch();
 begin
   SetStatusCaption('Detecting Version...');
-  if (NeedsPatch or AdvOp11.Checked) then begin
+  if (NeedsPatch or AdvOp10.Checked) then begin
     SetStatusCaption('Applying Official Thief 2 Resource Patch...');
     SetFilenameCaption('Extracting Files');
     { Extract patched resources }
@@ -1383,7 +1383,7 @@ begin
     RenameFile(ExpandConstant('{app}\squirrel.osm'), ExpandConstant('{app}\OSM\squirrel.osm'));
   end;
   { ...And also enable the improved meshes that come with Thief 2 Fixed if specified }
-  if IsComponentSelected('mods\thief2fixed') and AdvOp12.Enabled and AdvOp12.Checked then begin
+  if IsComponentSelected('mods\thief2fixed') and AdvOp11.Enabled and AdvOp11.Checked then begin
     DeleteFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Obj\blacjack.bin'));
     DeleteFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Obj\txt16\BLACJAC2.png'));
     DeleteFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Obj\txt16\BLACJAC4.png'));
@@ -1481,11 +1481,11 @@ begin
   end;
   { Enable the twelfth advanced option if the fixed missions are selected }
   if IsComponentSelected('mods\thief2fixed') then begin
-    AdvOp12.Visible := True;
-    AdvOp12.Enabled := True;
+    AdvOp11.Visible := True;
+    AdvOp11.Enabled := True;
   end else begin
-    AdvOp12.Visible := False;
-    AdvOp12.Enabled := False;
+    AdvOp11.Visible := False;
+    AdvOp11.Enabled := False;
   end;
   { Redraw the components list if required }
   if Invalidate then
@@ -1614,7 +1614,6 @@ begin
   InstGame := TNewCheckBox.Create(SelDirPage);
   InstGame.Top:= WizardForm.DirEdit.Top + WizardForm.DirEdit.Height + ScaleY(30);
   InstGame.Width := SelDirPage.SurfaceWidth;
-  InstGame.Height := ScaleY(17);
   InstGame.Caption := 'Install Thief 2 in the above directory from original install media.';
   if Uppercase(ExpandConstant('{param:instgame|FALSE}')) = 'TRUE' then
     InstGame.Checked := True
@@ -1625,12 +1624,20 @@ begin
   { Set up the component description functionality }
   SetTimer(0, 0, 5, CreateCallback(@HoverTimerProc));
   WizardForm.ComponentsList.Width := ScaleX(278);
-  WizardForm.ComponentsList.Height := ScaleY(186);
+#ifdef Mods
+  WizardForm.SelectComponentsLabel.Height := ScaleY(26);
+  WizardForm.ComponentsList.Top := ScaleY(30)
+  WizardForm.ComponentsList.Height := ScaleY(206);
+#endif
   CompLabel := TLabel.Create(WizardForm);
   CompLabel.Parent := WizardForm.SelectComponentsPage;
   CompLabel.Left := WizardForm.ComponentsList.Width + ScaleX(11);
   CompLabel.Width := WizardForm.SelectComponentsLabel.Width - WizardForm.ComponentsList.Width - ScaleX(14);
+#ifdef Mods
   CompLabel.Height := WizardForm.ComponentsList.Height - ScaleY(42);
+#else
+  CompLabel.Height := WizardForm.ComponentsList.Height;
+#endif
   CompLabel.Top := WizardForm.ComponentsList.Top + ScaleY(8);
   CompLabel.AutoSize := False;
   CompLabel.WordWrap := True;
@@ -1641,7 +1648,11 @@ begin
   CompBevel.Left := CompLabel.Left - ScaleX(5);
   CompBevel.Top := WizardForm.ComponentsList.Top;
   CompBevel.Width := WizardForm.SelectComponentsLabel.Width - WizardForm.ComponentsList.Width - ScaleX(5);
+#ifdef Mods
   CompBevel.Height := WizardForm.ComponentsList.Height - ScaleY(26);
+#else
+  CompBevel.Height := WizardForm.ComponentsList.Height;
+#endif
   CompBevel.Anchors := [akRight, akTop];
   BevelCap := TLabel.Create(WizardForm);
   BevelCap.Parent := WizardForm.SelectComponentsPage;
@@ -1667,7 +1678,7 @@ begin
   AdvVLabel := TLabel.Create(WizardForm);
   AdvVLabel.Parent := AdvPage.Surface;
   AdvVLabel.Width := AdvPage.SurfaceWidth div 2;
-  AdvVLabel.Top := ScaleY(30);
+  AdvVLabel.Top := ScaleY(0);
   AdvVLabel.Height := ScaleY(17);
   AdvVLabel.Transparent := False;
   AdvVLabel.Caption := 'Video Configuration:';
@@ -1676,116 +1687,95 @@ begin
   AdvGLabel.Parent := AdvPage.Surface;
   AdvGLabel.Left := AdvPage.SurfaceWidth div 2;
   AdvGLabel.Width := AdvPage.SurfaceWidth div 2;
-  AdvGLabel.Top := ScaleY(30);
+  AdvGLabel.Top := ScaleY(0);
   AdvGLabel.Height := ScaleY(17);
   AdvGLabel.Transparent := False;
-  AdvGLabel.Caption := 'Game Configuration:';
+  AdvGLabel.Caption := 'General Configuration:';
   AdvGLabel.Anchors := [akRight, akTop];
   AdvOp1 := TNewCheckBox.Create(AdvPage);
-  AdvOp1.Top:= ScaleY(60);
+  AdvOp1.Top:= ScaleY(30);
   AdvOp1.Width := AdvPage.SurfaceWidth div 2;
-  AdvOp1.Height := ScaleY(17);
   AdvOp1.Caption := 'Enable Software Gamma';
   AdvOp1.Checked := False;
   AdvOp1.Parent := AdvPage.Surface;
   AdvOp1.Anchors := [akLeft, akTop];
   AdvOp2 := TNewCheckBox.Create(AdvPage);
-  AdvOp2.Top:= ScaleY(90);
+  AdvOp2.Top:= ScaleY(60);
   AdvOp2.Width := AdvPage.SurfaceWidth div 2;
-  AdvOp2.Height := ScaleY(17);
   AdvOp2.Caption := 'Force Windowed Mode';
   AdvOp2.Checked := False;
   AdvOp2.Parent := AdvPage.Surface;
   AdvOp2.Anchors := [akLeft, akTop];
   AdvOp3 := TNewCheckBox.Create(AdvPage);
-  AdvOp3.Top:= ScaleY(120);
+  AdvOp3.Top:= ScaleY(90);
   AdvOp3.Width := AdvPage.SurfaceWidth div 2;
-  AdvOp3.Height := ScaleY(17);
   AdvOp3.Caption := 'Force VSync';
   AdvOp3.Checked := True;
   AdvOp3.Parent := AdvPage.Surface;
   AdvOp3.Anchors := [akLeft, akTop];
   AdvOp4 := TNewCheckBox.Create(AdvPage);
-  AdvOp4.Top:= ScaleY(150);
+  AdvOp4.Top:= ScaleY(120);
   AdvOp4.Width := AdvPage.SurfaceWidth div 2;
-  AdvOp4.Height := ScaleY(17);
   AdvOp4.Caption := 'Enable Multisampling';
   AdvOp4.Checked := True;
   AdvOp4.Parent := AdvPage.Surface;
   AdvOp4.Anchors := [akLeft, akTop];
   AdvOp5 := TNewCheckBox.Create(AdvPage);
-  AdvOp5.Top:= ScaleY(180);
+  AdvOp5.Top:= ScaleY(150);
   AdvOp5.Width := AdvPage.SurfaceWidth div 2;
-  AdvOp5.Height := ScaleY(17);
   AdvOp5.Caption := 'Enable Postprocessing';
   AdvOp5.Checked := False;
   AdvOp5.Parent := AdvPage.Surface;
   AdvOp5.Anchors := [akLeft, akTop];
   AdvOp6 := TNewCheckBox.Create(AdvPage);
-  AdvOp6.Top:= ScaleY(210);
+  AdvOp6.Top:= ScaleY(180);
   AdvOp6.Width := AdvPage.SurfaceWidth div 2;
-  AdvOp6.Height := ScaleY(17);
   AdvOp6.Caption := 'Enable HDR Rendering';
   AdvOp6.Checked := False;
   AdvOp6.Parent := AdvPage.Surface;
   AdvOp6.Anchors := [akLeft, akTop];
   AdvOp7 := TNewCheckBox.Create(AdvPage);
-  AdvOp7.Top:= ScaleY(60);
-  AdvOp7.Left := AdvPage.SurfaceWidth div 2;
+  AdvOp7.Top:= ScaleY(210);
   AdvOp7.Width := AdvPage.SurfaceWidth div 2;
-  AdvOp7.Height := ScaleY(17);
   AdvOp7.Caption := 'Enable New Mantle';
   AdvOp7.Checked := True;
   AdvOp7.Parent := AdvPage.Surface;
-  AdvOp7.Anchors := [akRight, akTop];
+  AdvOp7.Anchors := [akLeft, akTop];
   AdvOp8 := TNewCheckBox.Create(AdvPage);
-  AdvOp8.Top:= ScaleY(90);
+  AdvOp8.Top:= ScaleY(30);
   AdvOp8.Left := AdvPage.SurfaceWidth div 2;
   AdvOp8.Width := AdvPage.SurfaceWidth div 2;
-  AdvOp8.Height := ScaleY(17);
-  AdvOp8.Caption := 'Enable Mantling Corrections';
+  AdvOp8.Caption := 'Disable Training Scripts';
   AdvOp8.Checked := False;
   AdvOp8.Parent := AdvPage.Surface;
   AdvOp8.Anchors := [akRight, akTop];
   AdvOp9 := TNewCheckBox.Create(AdvPage);
-  AdvOp9.Top:= ScaleY(120);
+  AdvOp9.Top:= ScaleY(60);
   AdvOp9.Left := AdvPage.SurfaceWidth div 2;
   AdvOp9.Width := AdvPage.SurfaceWidth div 2;
-  AdvOp9.Height := ScaleY(17);
-  AdvOp9.Caption := 'Disable Training Scripts';
+  AdvOp9.Caption := 'Enable Legacy Gamesys Exploits';
   AdvOp9.Checked := False;
   AdvOp9.Parent := AdvPage.Surface;
   AdvOp9.Anchors := [akRight, akTop];
   AdvOp10 := TNewCheckBox.Create(AdvPage);
-  AdvOp10.Top:= ScaleY(150);
+  AdvOp10.Top:= ScaleY(90);
   AdvOp10.Left := AdvPage.SurfaceWidth div 2;
   AdvOp10.Width := AdvPage.SurfaceWidth div 2;
-  AdvOp10.Height := ScaleY(17);
-  AdvOp10.Caption := 'Enable Legacy Gamesys Exploits';
+  AdvOp10.Caption := 'Always Install 1.18 Resources';
   AdvOp10.Checked := False;
   AdvOp10.Parent := AdvPage.Surface;
   AdvOp10.Anchors := [akRight, akTop];
+#ifdef Mods
   AdvOp11 := TNewCheckBox.Create(AdvPage);
-  AdvOp11.Top:= ScaleY(180);
+  AdvOp11.Top:= ScaleY(120);
   AdvOp11.Left := AdvPage.SurfaceWidth div 2;
   AdvOp11.Width := AdvPage.SurfaceWidth div 2;
-  AdvOp11.Height := ScaleY(17);
-  AdvOp11.Caption := 'Always Install 1.18 Resources';
+  AdvOp11.Caption := 'Enable Improved Arm Meshes';
   AdvOp11.Checked := False;
   AdvOp11.Parent := AdvPage.Surface;
   AdvOp11.Anchors := [akRight, akTop];
-#ifdef Mods
-  AdvOp12 := TNewCheckBox.Create(AdvPage);
-  AdvOp12.Top:= ScaleY(210);
-  AdvOp12.Left := AdvPage.SurfaceWidth div 2;
-  AdvOp12.Width := AdvPage.SurfaceWidth div 2;
-  AdvOp12.Height := ScaleY(17);
-  AdvOp12.Caption := 'Enable Improved Arm Meshes';
-  AdvOp12.Checked := False;
-  AdvOp12.Parent := AdvPage.Surface;
-  AdvOp12.Anchors := [akRight, akTop];
-  AdvOp12.Visible := False;
-  AdvOp12.Enabled := False;
+  AdvOp11.Visible := False;
+  AdvOp11.Enabled := False;
 #endif
   { Set up the 'Configuration Options' button }
   AdvBut := TNewButton.Create(WizardForm);
@@ -1798,20 +1788,18 @@ begin
   AdvBut.Anchors := [akLeft, akBottom];
   AdvBut.Visible := False;
   AdvBut.Enabled := False;
+#ifdef Mods
   { Modify default layout for components selection page }
   WizardForm.ComponentsDiskSpaceLabel.Top := CompBevel.Top + CompBevel.Height + ScaleY(5);
   WizardForm.ComponentsDiskSpaceLabel.Left := WizardForm.ComponentsList.Width + ScaleX(9);
   WizardForm.ComponentsDiskSpaceLabel.Anchors := [akRight, akBottom];
-#ifdef Mods
   { Disable selecting Dark Mod Manager if running a Windows version older than Vista SP2 }
   if (WinVer < $06000200) then
     WizardForm.ComponentsList.ItemEnabled[4] := False;
   { Interactive Candles and T2FMDML should be disabled by default }
   WizardForm.ComponentsList.ItemEnabled[8] := False;
   WizardForm.ComponentsList.ItemEnabled[14] := False;
-#endif
   { Overrides for components selection page events }
-#ifdef Mods
   OnCompClickOrig := WizardForm.ComponentsList.OnClickCheck;
   WizardForm.ComponentsList.OnClickCheck := @ComponentsClickCheck;
 #endif
