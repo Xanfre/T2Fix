@@ -1140,6 +1140,24 @@ begin
     end;
     AdvBut.Visible := True;
     AdvBut.Enabled := True;
+    { Enable the eleventh advanced option if DromEd selected }
+    if IsComponentSelected('dromed') then begin
+      AdvOp11.Visible := True;
+      AdvOp11.Enabled := True;
+    end else begin
+      AdvOp11.Visible := False;
+      AdvOp11.Enabled := False;
+    end;
+#ifdef Mods
+    { Enable the twelfth advanced option if the fixed missions are selected }
+    if IsComponentSelected('mods\thief2fixed') then begin
+      AdvOp12.Visible := True;
+      AdvOp12.Enabled := True;
+    end else begin
+      AdvOp12.Visible := False;
+      AdvOp12.Enabled := False;
+    end;
+#endif
   end else if (CurPageID = wpWelcome) and InitialPage then begin
     { Skip the info pages if the 'skiptocomp' parameter was specified }
     if Uppercase(ExpandConstant('{param:skiptocomp|FALSE}')) = 'TRUE' then begin
@@ -1508,22 +1526,6 @@ begin
       Invalidate := True;
     end;
   end;
-  { Enable the eleventh advanced option if DromEd selected }
-  if IsComponentSelected('dromed') then begin
-    AdvOp11.Visible := True;
-    AdvOp11.Enabled := True;
-  end else begin
-    AdvOp11.Visible := False;
-    AdvOp11.Enabled := False;
-  end;
-  { Enable the twelfth advanced option if the fixed missions are selected }
-  if IsComponentSelected('mods\thief2fixed') then begin
-    AdvOp12.Visible := True;
-    AdvOp12.Enabled := True;
-  end else begin
-    AdvOp12.Visible := False;
-    AdvOp12.Enabled := False;
-  end;
   { Redraw the components list if required }
   if Invalidate then
     WizardForm.ComponentsList.Invalidate;
@@ -1641,22 +1643,19 @@ end;
 
 { Set up various modifications to the wizard form }
 procedure InitializeWizard();
-var
-  SelDirPage: TWizardPage;
 begin
   { Get Windows version }
   WinVer := GetWindowsVersion;
   { Set up checkbox for installing the game from an external source }
-  SelDirPage:= PageFromID(wpSelectDir);
-  InstGame := TNewCheckBox.Create(SelDirPage);
+  InstGame := TNewCheckBox.Create(WizardForm.SelectDirPage);
   InstGame.Top:= WizardForm.DirEdit.Top + WizardForm.DirEdit.Height + ScaleY(30);
-  InstGame.Width := SelDirPage.SurfaceWidth;
+  InstGame.Width := WizardForm.SelectDirPage.Width;
   InstGame.Caption := 'Install Thief 2 in the above directory from original install media.';
   if Uppercase(ExpandConstant('{param:instgame|FALSE}')) = 'TRUE' then
     InstGame.Checked := True
   else
     InstGame.Checked := False;
-  InstGame.Parent := SelDirPage.Surface;
+  InstGame.Parent := WizardForm.SelectDirPage;
   InstGame.Anchors := [akRight, akLeft, akTop];
   { Set up the component description functionality }
   SetTimer(0, 0, 5, CreateCallback(@HoverTimerProc));
