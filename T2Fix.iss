@@ -233,8 +233,8 @@ Name: "custom"; Description: "Custom"; Flags: iscustom
 ; Define tasks
 [Tasks]
 Name: "vprehigh"; Description: "High Preset"; GroupDescription: "Video Configuration:"; Components: newdark; Flags: exclusive unchecked
-Name: "vpredef"; Description: "Default Preset"; GroupDescription: "Video Configuration:"; Components: newdark; Flags: exclusive
-Name: "vprelow"; Description: "Low Preset"; GroupDescription: "Video Configuration:"; Components: newdark; Flags: exclusive unchecked
+Name: "vpremed"; Description: "Medium Preset"; GroupDescription: "Video Configuration:"; Components: newdark; Flags: exclusive unchecked
+Name: "vprelow"; Description: "Low Preset"; GroupDescription: "Video Configuration:"; Components: newdark; Flags: exclusive
 Name: "nomodifycfg"; Description: "Do not modify existing configuration"; GroupDescription: "Video Configuration:"; Components: newdark; Flags: unchecked
 Name: "oalsoft"; Description: "Install OpenAL Soft"; GroupDescription: "Installation Options:"; Components: newdark; Flags: unchecked
 Name: "lame"; Description: "Install libmp3lame"; GroupDescription: "Installation Options:"; Components: newdark; Flags: unchecked
@@ -1545,7 +1545,7 @@ var
   I: Integer;
 begin
   if IsTaskSelected('nomodifycfg') and (TasksState[4] <> WizardForm.TasksList.State[4]) then begin
-    WizardForm.TasksList.CheckItem(2, coCheck);
+    WizardForm.TasksList.CheckItem(3, coCheck);
     WizardForm.TasksList.ItemEnabled[1] := False;
     WizardForm.TasksList.ItemEnabled[2] := False;
     WizardForm.TasksList.ItemEnabled[3] := False;
@@ -1577,7 +1577,7 @@ begin
     AdvOp4.Checked := True;
     AdvOp5.Checked := True;
     AdvOp6.Checked := True;
-  end else if IsTaskSelected('vpredef') and (TasksState[2] <> WizardForm.TasksList.State[2]) then begin
+  end else if IsTaskSelected('vpremed') and (TasksState[2] <> WizardForm.TasksList.State[2]) then begin
     AdvOp1.Checked := False;
     AdvOp2.Checked := False;
     AdvOp3.Checked := True;
@@ -1753,7 +1753,7 @@ begin
   AdvOp4.Top:= ScaleY(120);
   AdvOp4.Width := AdvPage.SurfaceWidth div 2;
   AdvOp4.Caption := 'Enable Multisampling';
-  AdvOp4.Checked := True;
+  AdvOp4.Checked := False;
   AdvOp4.Parent := AdvPage.Surface;
   AdvOp4.Anchors := [akLeft, akTop];
   AdvOp5 := TNewCheckBox.Create(AdvPage);
@@ -1865,7 +1865,7 @@ begin
   S := '';
   S := S + MemoDirInfo + NewLine + NewLine + MemoComponentsInfo + NewLine;
   if IsTaskSelected('nomodifycfg') then
-    StringChangeEx(MemoTasksInfo, 'Default Preset' + NewLine + Space + Copy(Space, 1, Length(Space) div 2), '', True);
+    StringChangeEx(MemoTasksInfo, 'Medium Preset' + NewLine + Space + Copy(Space, 1, Length(Space) div 2), '', True);
   if not (MemoTasksInfo = '') then
     S := S + NewLine + MemoTasksInfo + NewLine; 
   if not (CD = '') then
