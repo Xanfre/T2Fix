@@ -1238,13 +1238,13 @@ begin
     5: CompDesc := 'Game modifications.';
     6: CompDesc := 'Complete Thief 2 mission and resource patch. Fixes numerous issues present in the original missions and provides updated resources. This is highly recommended.';
     7: CompDesc := 'High-detail models for carried bodies that properly match the AIs.';
-    8: CompDesc := 'Interactive candles that add extinguishable flames to lit candles in the original missions. Thief2 Fixed is required for proper functionality.';
+    8: CompDesc := 'Interactive candles that add extinguishable flames to lit candles in the original missions. The common script modules and Thief2 Fixed are required for proper functionality.';
     9: CompDesc := 'Improved dynamic skies.';
     10: CompDesc := 'Improved water surfaces.';
     11: CompDesc := 'High-definition textures and objects.';
     12: CompDesc := 'Resampled and remastered Thief 2 sound effects.';
     13: CompDesc := 'English subtitles for spoken lines in the original missions.';
-    14: CompDesc := 'A large collection of fixes for known issues in many Thief 2 fan missions.';
+    14: CompDesc := 'A large collection of fixes for known issues in many Thief 2 fan missions. The common script modules are required for proper functionality.';
     15: CompDesc := 
 #else
     3: CompDesc :=
