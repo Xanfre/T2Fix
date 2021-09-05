@@ -193,7 +193,7 @@ Source: "Resources\multiplayer\*"; DestDir: "{app}"; Components: multiplayer; Fl
 ; Legacy executables
 Source: "Resources\olddark\*"; DestDir: "{app}"; Components: olddark; Flags: ignoreversion recursesubdirs createallsubdirs
 ; Config files
-Source: "Resources\config\cam.cfg"; DestDir: "{app}"; Components: newdark; AfterInstall: SetGameRes; Flags: ignoreversion onlyifdoesntexist ignoresize
+Source: "Resources\config\cam.cfg"; DestDir: "{app}"; Components: newdark; AfterInstall: ConfigureGeneral; Flags: ignoreversion onlyifdoesntexist ignoresize
 Source: "Resources\config\cam_mod.ini"; DestDir: "{app}"; Components: newdark; BeforeInstall: CheckModIni; AfterInstall: ConfigureMods; Flags: ignoreversion ignoresize
 Source: "Resources\config\cam_ext.cfg"; DestDir: "{app}"; Components: newdark; Check: not IsTaskSelected('nomodifycfg') or not FileExists(ExpandConstant('{app}\cam_ext.cfg')); AfterInstall: ConfigureVideo; Flags: ignoreversion ignoresize
 
@@ -606,7 +606,7 @@ begin
     'language ' + Lang + #13#10 +
     'resname_base .\RES' + #13#10 +
     'load_path .\' + #13#10 +
-    'script_module_path .\' + #13#10 +
+    'script_module_path .\OSM+.\' + #13#10 +
     'movie_path .\MOVIES' + #13#10, False);
   if IsComponentSelected('olddark') then
     SaveStringToFile(ExpandConstant('{app}\oldinst.cfg'),
@@ -1315,14 +1315,15 @@ Const
   SM_CXSCREEN = 0;
   SM_CYSCREEN = 1;
 
-{ Set the default game resolution to the current display resolution }
-procedure SetGameRes();
+{ Set general configuration options }
+procedure ConfigureGeneral();
 var
   X: Integer;
   Y: Integer;
   A: AnsiString;
   U: String;
 begin
+  { Set the default game resolution to the current display resolution }
   X := GetSystemMetrics(SM_CXSCREEN);
   Y := GetSystemMetrics(SM_CYSCREEN);
   if (X >= 640) and (Y >= 480) then begin
@@ -1330,6 +1331,16 @@ begin
     U := A;
     if (Pos('game_screen_size', U) = 0) then
       SaveStringToFile(ExpandConstant('{app}\cam.cfg'), 'game_screen_size ' + IntToStr(X) + ' ' + IntToStr(Y) + #13#10, True);
+  end;
+  { Enable DromEd hardware rendering if chosen }
+  if IsComponentSelected('dromed') and AdvOp11.Enabled and AdvOp11.Checked then begin
+    LoadStringFromFile(ExpandConstant('{app}\DromEd.cfg'), A);
+    U := A;
+    StringChangeEx(U, 'edit_screen_depth 16' + #13#10, ';edit_screen_depth 16' + #13#10, True);
+    StringChangeEx(U, ';editor_disable_gdi' + #13#10, 'editor_disable_gdi' + #13#10, True);
+    StringChangeEx(U, ';edit_screen_depth 32' + #13#10, 'edit_screen_depth 32' + #13#10, True);
+    A := U;
+    SaveStringToFile(ExpandConstant('{app}\DromEd.cfg'), A, False);
   end;
 end;
 
@@ -1417,12 +1428,7 @@ begin
   A := U;
   SaveStringToFile(ExpandConstant('{app}\cam_mod.ini'), A, False);
 #ifdef Mods
-  { Move the squirrel script module to the OSM directory if necessary }
-  if IsComponentSelected('osm') then begin
-    DeleteFile(ExpandConstant('{app}\OSM\squirrel.osm'));
-    RenameFile(ExpandConstant('{app}\squirrel.osm'), ExpandConstant('{app}\OSM\squirrel.osm'));
-  end;
-  { ...And also enable the improved meshes that come with Thief 2 Fixed if specified }
+  { Enable the improved meshes that come with Thief 2 Fixed if specified }
   if IsComponentSelected('mods\thief2fixed') and AdvOp12.Enabled and AdvOp12.Checked then begin
     DeleteFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Obj\blacjack.bin'));
     DeleteFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Obj\txt16\BLACJAC2.png'));
@@ -1451,6 +1457,7 @@ var
   A: AnsiString;
   U: String;
 begin
+  { Set cam_ext options }
   LoadStringFromFile(ExpandConstant('{app}\cam_ext.cfg'), A);
   U := A;
   if AdvOp1.Checked then
@@ -1472,6 +1479,7 @@ begin
   A := U;
   SaveStringToFile(ExpandConstant('{app}\cam_ext.cfg'), A, False);
 #ifdef Mods
+  { Configure subtitles if chosen }
   if IsComponentSelected('mods\subtitles') then
     SaveStringToFile (ExpandConstant('{app}\cam_ext.cfg'), #13#10 +
       '; enable and configure subtitles' + #13#10 + 
@@ -1479,15 +1487,6 @@ begin
       'subtitles_bg_color 0 0 0 0' + #13#10 +
       'movsubtitles_bg_color 0 0 0 0' + #13#10, True);
 #endif
-  if IsComponentSelected('dromed') and AdvOp11.Enabled and AdvOp11.Checked then begin
-    LoadStringFromFile(ExpandConstant('{app}\DromEd.cfg'), A);
-    U := A;
-    StringChangeEx(U, 'edit_screen_depth 16' + #13#10, ';edit_screen_depth 16' + #13#10, True);
-    StringChangeEx(U, ';editor_disable_gdi' + #13#10, 'editor_disable_gdi' + #13#10, True);
-    StringChangeEx(U, ';edit_screen_depth 32' + #13#10, 'edit_screen_depth 32' + #13#10, True);
-    A := U;
-    SaveStringToFile(ExpandConstant('{app}\DromEd.cfg'), A, False);
-  end;
 end;
 
 #ifdef Mods
@@ -1865,7 +1864,7 @@ begin
   S := '';
   S := S + MemoDirInfo + NewLine + NewLine + MemoComponentsInfo + NewLine;
   if IsTaskSelected('nomodifycfg') then
-    StringChangeEx(MemoTasksInfo, 'Medium Preset' + NewLine + Space + Copy(Space, 1, Length(Space) div 2), '', True);
+    StringChangeEx(MemoTasksInfo, 'Low Preset' + NewLine + Space + Copy(Space, 1, Length(Space) div 2), '', True);
   if not (MemoTasksInfo = '') then
     S := S + NewLine + MemoTasksInfo + NewLine; 
   if not (CD = '') then
