@@ -194,7 +194,11 @@ Source: "Resources\multiplayer\*"; DestDir: "{app}"; Components: multiplayer; Fl
 Source: "Resources\olddark\*"; DestDir: "{app}"; Components: olddark; Flags: ignoreversion recursesubdirs createallsubdirs
 ; Config files
 Source: "Resources\config\cam.cfg"; DestDir: "{app}"; Components: newdark; AfterInstall: ConfigureGeneral; Flags: ignoreversion onlyifdoesntexist ignoresize
+#ifdef Mods
 Source: "Resources\config\cam_mod.ini"; DestDir: "{app}"; Components: newdark; BeforeInstall: CheckModIni; AfterInstall: ConfigureMods; Flags: ignoreversion ignoresize
+#else
+Source: "Resources\config\cam_mod.ini"; DestDir: "{app}"; Components: newdark; Flags: ignoreversion onlyifdoesntexist ignoresize
+#endif
 Source: "Resources\config\cam_ext.cfg"; DestDir: "{app}"; Components: newdark; Check: not IsTaskSelected('nomodifycfg') or not FileExists(ExpandConstant('{app}\cam_ext.cfg')); AfterInstall: ConfigureVideo; Flags: ignoreversion ignoresize
 
 ; Define optional desktop icons
@@ -477,6 +481,8 @@ end;
 function GetIniSetting(S, Key: String; Param: Boolean): String;
 begin
   Result := '';
+  if (Pos(#13#10, S) = 0) then
+    Exit;
   if Param then begin
     if (Pos(#13#10 + Key, S) <> 0) or (Pos(Key, S) = 1) then begin
       if (Pos(#13#10 + Key, S) <> 0) then
@@ -784,6 +790,8 @@ begin
   { Clean any items leftover from old installations }
   if FileExists(ExpandConstant('{app}\OSM\gamesys.dml')) then
     DelTree(ExpandConstant('{app}\OSM\*'), False, True, True);
+  if DirExists(ExpandConstant('{app}\MPOSM')) then
+    DelTree(ExpandConstant('{app}\MPOSM'), True, True, True);
 #ifdef Mods
   DelTree(ExpandConstant('{app}\RES\RESPATCH'), True, True, True);
   DelTree(ExpandConstant('{app}\MISPATCH'), True, True, True);
@@ -901,7 +909,7 @@ begin
     DeleteFile(ExpandConstant('{app}\dark_net.dml'));
     DeleteFile(ExpandConstant('{app}\GlobalServer.zip'));
     DeleteFile(ExpandConstant('{app}\mp_release_notes.txt'));
-    DelTree(ExpandConstant('{app}\MPOSM'), True, True, True);
+    DeleteFile(ExpandConstant('{app}\genmp.osm'));
   end;
   if not IsComponentSelected('olddark') and FileExists(ExpandConstant('{app}\ddfix.dll')) then begin
     SetFilenameCaption('Legacy Executables');
@@ -929,7 +937,8 @@ begin
   if (CompareText(GetMD5OfFile(ExpandConstant('{app}\DARK.GAM')), 'D593B9A25EA320B1F1A3744FB45B5C68') = 0) or 
      (CompareText(GetMD5OfFile(ExpandConstant('{app}\GEN.OSM')), '92AB303703F098E7CA7770F1058F6BCA') = 0) then
     NeedsPatch := True;
-  if (CompareText(GetMD5OfFile(ExpandConstant('{app}\DARK.GAM')), '9F510C7ADBE415B287BA6FABF4D5F0EF') <> 0) then
+  if (CompareText(GetMD5OfFile(ExpandConstant('{app}\DARK.GAM')), '9F510C7ADBE415B287BA6FABF4D5F0EF') <> 0) or
+     (CompareText(GetMD5OfFile(ExpandConstant('{app}\GEN.OSM')), '0CC03C984A79DF89B341DFD208C8A362') <> 0) then
     NeedsMisPatch := True;
 end;
 
@@ -1344,6 +1353,7 @@ begin
   end;
 end;
 
+#ifdef Mods
 { Check and remember the options set in cam_mod.ini }
 procedure CheckModIni();
 var
@@ -1369,9 +1379,7 @@ procedure ConfigureMods();
 var
   A: AnsiString;
   U: String;
-#ifdef Mods
   Mods: String;
-#endif
 begin
   LoadStringFromFile(ExpandConstant('{app}\cam_mod.ini'), A);
   U := A;
@@ -1391,7 +1399,6 @@ begin
     if (Length(ModIniSettings[4]) <> 0) then
       StringChangeEx(U, ';no_unload_fmsel' + #13#10, ModIniSettings[4] + #13#10, True);
   end;
-#ifdef Mods
   Mods := '';
   if IsComponentSelected('mods\candles') then
     AddPath(Mods, '.\MODS\Candles');
@@ -1411,23 +1418,12 @@ begin
     AddPath(Mods, '.\MODS\Subtitles');
   if IsComponentSelected('mods\fmdml') then
     AddPath(Mods, '.\MODS\T2FMDML');
-#endif
-  if IsComponentSelected('multiplayer') then begin
-    Insert('mp_u_mod_path .\MPOSM' + #13#10, U, Pos(';uber_mod_path mods\UpToDateOSMs+MyGemMod' + #13#10, U)+43);
-#ifdef Mods
-    if IsComponentSelected('osm') then
-      Insert('+.\OSM', U, Pos('mp_u_mod_path .\MPOSM' + #13#10, U)+21);
-#endif
-  end;
-#ifdef Mods
   if IsComponentSelected('osm') then
     Insert('uber_mod_path .\OSM' + #13#10, U, Pos(';uber_mod_path mods\UpToDateOSMs+MyGemMod' + #13#10, U)+43);
   if (Length(Mods) <> 0) then
     Insert('mod_path ' + Mods + #13#10, U, Pos(';mod_path MyBowMod+.\TexturePack' + #13#10, U)+34);
-#endif
   A := U;
   SaveStringToFile(ExpandConstant('{app}\cam_mod.ini'), A, False);
-#ifdef Mods
   { Enable the improved meshes that come with Thief 2 Fixed if specified }
   if IsComponentSelected('mods\thief2fixed') and AdvOp12.Enabled and AdvOp12.Checked then begin
     DeleteFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Obj\blacjack.bin'));
@@ -1448,8 +1444,8 @@ begin
     RenameFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\Disabled\txt16\swhand.tga'), ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\txt16\swhand.tga'));
     DelTree(ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\Disabled'), True, True, True);
   end;
-#endif
 end;
+#endif
 
 { Configure settings in cam_ext.cfg }
 procedure ConfigureVideo();
@@ -1457,7 +1453,6 @@ var
   A: AnsiString;
   U: String;
 begin
-  { Set cam_ext options }
   LoadStringFromFile(ExpandConstant('{app}\cam_ext.cfg'), A);
   U := A;
   if AdvOp1.Checked then
