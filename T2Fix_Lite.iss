@@ -4,13 +4,13 @@
 ; Version information
 #define FName "T2Fix Lite"
 #define FLongName "Thief 2 Fixer Lite"
-#define FVer "1.27d-dev"
+#define FVer "1.27e"
 
 ; Define basic setup characteristics
 [Setup]
 AppName={#FLongName}
 AppVersion={#FVer}
-VersionInfoVersion=1.2.7.4
+VersionInfoVersion=1.2.7.5
 OutputBaseFilename=T2Fix_Lite_{#FVer}
 Compression=lzma2/ultra64
 DefaultDirName=C:\Games\Thief 2 The Metal Age

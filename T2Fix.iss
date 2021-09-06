@@ -4,13 +4,13 @@
 ; Version information
 #define FName "T2Fix"
 #define FLongName "Thief 2 Fixer"
-#define FVer "1.27d-dev"
+#define FVer "1.27e"
 
 ; Define basic setup characteristics
 [Setup]
 AppName={#FLongName}
 AppVersion={#FVer}
-VersionInfoVersion=1.2.7.4
+VersionInfoVersion=1.2.7.5
 #ifndef Mods
 OutputBaseFilename={#FName}_{#FVer}
 #else
