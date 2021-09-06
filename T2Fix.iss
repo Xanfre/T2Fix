@@ -577,6 +577,7 @@ procedure SetLang();
 var
   A: AnsiString;
   U: String;
+  Darkinst: String;
 begin
   SetStatusCaption('Configuring Language...');
   { Simply used the defined language if darkinst.cfg exists and the language field is set }
@@ -607,13 +608,19 @@ begin
       'While Thief 2 may work without issue, it is advised to confirm that the value of the language field in darkinst.cfg is correct after setup is complete.', mbError, MB_OK, IDOK);
   end;
   SetStatusCaption('Configuring Language: Applying...');
-  SaveStringToFile(ExpandConstant('{app}\darkinst.cfg'),
-    'install_path .\' + #13#10 +
+  Darkinst := 'install_path .\' + #13#10 +
     'language ' + Lang + #13#10 +
     'resname_base .\RES' + #13#10 +
     'load_path .\' + #13#10 +
-    'script_module_path .\OSM+.\' + #13#10 +
-    'movie_path .\MOVIES' + #13#10, False);
+    'script_module_path .\' + #13#10 +
+    'movie_path .\MOVIES' + #13#10;
+  if DirExists(ExpandConstant('{app}\OSM'))
+#ifdef Mods
+    or IsComponentSelected('osm')
+#endif
+  then
+    StringChangeEx(Darkinst, 'script_module_path .\', 'script_module_path .\OSM+.\', True);
+  SaveStringToFile(ExpandConstant('{app}\darkinst.cfg'), Darkinst, False);
   if IsComponentSelected('olddark') then
     SaveStringToFile(ExpandConstant('{app}\oldinst.cfg'),
     'install_path .\OLDFM+.\' + #13#10 +
@@ -1132,6 +1139,14 @@ procedure CurPageChanged(CurPageID: Integer);
 var
   I: Integer;
 begin
+  if PrevCompBut.Visible and (CurPageID <> wpSelectComponents) and not InitialPage then begin
+    PrevCompBut.Visible := False;
+    PrevCompBut.Enabled := False;
+  end;
+  if AdvBut.Visible and (CurPageID <> wpSelectTasks) then begin
+    AdvBut.Visible := False;
+    AdvBut.Enabled := False;
+  end;
   if (CurPageID = wpSelectComponents) then begin
     PrevCompBut.Visible := True;
     PrevCompBut.Enabled := True;
@@ -1175,14 +1190,6 @@ begin
       WizardForm.NextButton.OnClick(nil);
     end;
     InitialPage := False;
-  end;
-  if PrevCompBut.Visible and (CurPageID <> wpSelectComponents) then begin
-    PrevCompBut.Visible := False;
-    PrevCompBut.Enabled := False;
-  end;
-  if AdvBut.Visible and (CurPageID <> wpSelectTasks) then begin
-    AdvBut.Visible := False;
-    AdvBut.Enabled := False;
   end;
 end;
 
