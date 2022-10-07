@@ -28,7 +28,7 @@ if exist "%~dp0Resources" exit /b 0
 choice /C YN /M "Resources not found. Fetch them now?"
 if ERRORLEVEL 2 exit /b 1
 mkdir "%~dp0Resources"
-curl https://github.com/Xanfre/T2FixResources/raw/main/T2FixResources127e.zip --location --output "%~dp0Resources\Resources.zip"
+curl https://github.com/Xanfre/T2FixResources/releases/download/1.27e/T2FixResources127e.zip --location --output "%~dp0Resources\Resources.zip"
 tar -xf "%~dp0Resources\Resources.zip" -C "%~dp0Resources"
 del "%~dp0Resources\Resources.zip"
 if not exist "%~dp0Resources" exit /b 1
