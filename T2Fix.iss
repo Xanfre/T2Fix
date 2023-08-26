@@ -28,9 +28,9 @@ AppendDefaultDirName=no
 DisableWelcomePage=no
 DisableProgramGroupPage=yes
 #ifndef Mods
-InfoBeforeFile=info.rtf
+InfoBeforeFile=info.txt
 #else
-InfoBeforeFile=info_with_mods.rtf
+InfoBeforeFile=info_with_mods.txt
 #endif
 Uninstallable=no
 WizardStyle=modern
@@ -162,6 +162,9 @@ Source: "Resources\advanced\dark.gam.dml"; DestDir: "{app}"; Components: newdark
 ; DromEd 1.27
 Source: "Resources\dromed\*"; DestDir: "{app}"; Components: dromed; Flags: ignoreversion
 ; DromEd config files and tools (unnecessary if also instaling the toolkit)
+Source: "Resources\dromedtk\Tools\3ds to bin\3ds\Workshop\BSP.exe"; DestDir: "{app}"; Components: dromed and not dromed\toolkit; Flags: ignoreversion
+Source: "Resources\dromedtk\Tools\3ds to bin\3ds\Workshop\N3ds2e.exe"; DestDir: "{app}"; Components: dromed and not dromed\toolkit; Flags: ignoreversion
+Source: "Resources\dromedtk\Docs\DromEd2 License.txt"; DestDir: "{app}"; DestName: "LICENSE.TXT"; Components: dromed and not dromed\toolkit; Flags: ignoreversion
 Source: "Resources\dromedcfg\*"; DestDir: "{app}"; Components: dromed and not dromed\toolkit; Flags: ignoreversion
 ; DromEd Basic Toolkit
 Source: "Resources\dromedtk\*"; DestDir: "{app}"; Components: dromed\toolkit; Flags: ignoreversion recursesubdirs createallsubdirs
@@ -834,6 +837,7 @@ begin
     DeleteFile(ExpandConstant('{app}\monolog.txt'));
     DeleteFile(ExpandConstant('{app}\darkdlgs.dll'));
     DeleteFile(ExpandConstant('{app}\3DS2E.EXE'));
+    DeleteFile(ExpandConstant('{app}\N3ds2e.exe'));
     DeleteFile(ExpandConstant('{app}\BSP.EXE'));
     DeleteFile(ExpandConstant('{app}\CSGMERGE.EXE'));
     DeleteFile(ExpandConstant('{app}\DEFAULT.BND'));
@@ -856,6 +860,7 @@ begin
     DelTree(ExpandConstant('{app}\Cmds'), True, True, True);
     DelTree(ExpandConstant('{app}\Docs'), True, True, True);
     DelTree(ExpandConstant('{app}\Tools'), True, True, True);
+    RemoveDir(ExpandConstant('{app}\Schema'));
   end;
 #ifdef Mods
   if not IsComponentSelected('osm') and DirExists(ExpandConstant('{app}\OSM')) then begin
@@ -905,6 +910,8 @@ begin
     SetFilenameCaption('T2FMDML');
     DelTree(ExpandConstant('{app}\MODS\T2FMDML'), True, True, True);
   end;
+  if not IsComponentSelected('mods') then
+    RemoveDir(ExpandConstant('{app}\MODS'));
 #endif
   if not IsComponentSelected('multiplayer') and FileExists(ExpandConstant('{app}\Thief2MP.exe')) then begin
     SetFilenameCaption('Thief 2 Multiplayer');

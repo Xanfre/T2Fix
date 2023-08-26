@@ -1,0 +1,87 @@
+T2Fix 1.27e
+An Unofficial Comprehensive Patch for Thief 2
+
+More information and updates:
+https://www.ttlg.com/forums/showthread.php?t=149669
+
+========================================
+
+Important Notes:
+
+To view the included components, see the following section.
+
+Both the Visual C++ 2008 SP1 Redistributable and the DirectX End-User Runtimes must be installed prior to running setup. Most systems should already have these installed, but in the event that they are not, they are available through the links below.
+
+-Visual C++ 2008 SP1 Redistributable
+https://www.microsoft.com/en-us/download/details.aspx?id=26368
+-DirectX End-User Runtimes (June 2010)
+https://www.microsoft.com/en-us/download/details.aspx?id=8109
+
+A fully Direct3D 9-compatible system is required for the essential components to properly function.
+
+Windows 2000 or above is required.
+
+The supported game localizations are English, German, and French. Setup should automatically detect the appropriate language.
+
+To install additional mods, you can use the included Dark Mod Manager. Alternatively, you can manually edit your mod paths in cam_mod.ini, located in the same directory as the game executable.
+
+To uninstall or install additional components, simply run the patcher again and select the desired combination.
+
+Do not set any compatibility modes on the game executable or install the game to a protected directory such as Program Files.
+
+To install the game from the original CDs, check the box on the directory selection page and follow any additional instructions.
+
+========================================
+
+Patches and Modifications Included:
+
+Official Thief 2 v1.18 Patch
+http://www.thief-thecircle.com/media/patches/
+
+NewDark 1.27 and DromEd 1.27
+https://www.ttlg.com/forums/showthread.php?t=146448
+
+DromEd Basic Toolkit 1.14 by AntiMatter_16
+https://www.ttlg.com/forums/showthread.php?t=141708
+
+Common Script Modules by Nameless Voice and Telliamed
+https://www.ttlg.com/forums/showthread.php?t=134166
+https://dromed.whoopdedo.org/public_scripts/index
+https://dromed.whoopdedo.org/tnhscript/index
+
+Thief2 Fixed 1.3b by AntiMatter_16
+https://www.ttlg.com/forums/showthread.php?t=141121
+
+T2 Carry Body Mod by R Soul
+https://www.ttlg.com/forums/showthread.php?t=145616
+
+T2 Interactive Candles by voodoo47
+https://www.ttlg.com/forums/showthread.php?t=131106&p=2392449
+
+t2skies by jermi
+https://www.ttlg.com/forums/showthread.php?t=131652
+
+t2water by jermi
+https://www.ttlg.com/forums/showthread.php?t=131984
+
+Thief Enhancement Pack by Nameless Voice
+https://www.ttlg.com/forums/showthread.php?t=118999
+
+Thief 2 Sound Effects Enhancement Pack by Child of Karras
+https://www.ttlg.com/forums/showthread.php?t=119405
+
+Thief 2 Subtitles by Taffingtaffer
+https://www.ttlg.com/forums/showthread.php?t=148560
+
+T2FMDML Release 4
+https://www.ttlg.com/forums/showthread.php?t=149949
+
+Thief 2 Multiplayer Beta
+https://www.ttlg.com/forums/showthread.php?t=146448
+
+Legacy Thief 2 Executables
+
+
+All credit goes to the authors who compiled these packages.
+
+========================================
