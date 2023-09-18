@@ -1,0 +1,122 @@
+; Thief 1 Default Bindings
+
+climb_touch 0
+goal_notify 0
+auto_search 0
+auto_equip 1
+joystick_enable 0
+bow_zoom 1
+mouse_invert 0
+lookspring 0
+freelook 1
+mouse_sensitivity 3.0
+
+; bindings
+bind shift +creepon
+bind alt +slideon
+
+bind w +walkfast
+bind keypad_up +walkfast
+bind up +walkfast
+
+bind s +walk
+bind keypad_center +walk
+
+bind x +backfast
+bind keypad_down +backfast
+bind down +backfast
+
+bind z +moveleftfast
+bind keypad_end +moveleftfast
+
+bind c +moverightfast
+bind keypad_pgdn +moverightfast
+
+bind a +turnleftfast
+bind keypad_left +turnleftfast
+bind left +turnleftfast
+
+bind d +turnrightfast
+bind keypad_right +turnrightfast
+bind right +turnrightfast
+
+bind t +lookup
+bind pgup +lookup
+
+bind g +lookdown
+bind pgdn +lookdown
+
+bind v lookcenter
+bind keypad_del lookcenter
+
+bind q +leanleft
+bind keypad_home +leanleft
+
+bind e +leanright
+bind keypad_pgup +leanright
+
+bind w+alt+shift +leanforward
+
+bind f crouch
+bind keypad_enter crouch
+
+bind space +jumpblock
+
+bind keypad_ins +jumpblock
+
+bind mouse1 +use_weapon
+bind mouse2 +use_item
+bind mouse3 +block
+bind mouse_axisx mturn
+bind mouse_axisy mlook
+
+bind keypad_minus +block
+
+bind r drop_item
+
+bind tab next_item
+bind tab+shift prev_item
+
+bind keypad_star next_item
+bind keypad_slash prev_item
+
+bind ] next_item
+bind [ prev_item
+
+bind backspace clear_item
+bind ` clear_weapon
+bind ~ clear_weapon
+bind 1 "inv_select sword"
+bind 2 "inv_select blackjack"
+bind 3 "inv_select broadhead"
+bind 4 "inv_select water"
+bind 5 "inv_select firearr"
+bind 6 "inv_select EarthArrow"
+bind 7 "inv_select GasArrow"
+bind 8 "inv_select RopeyArrow"
+bind 9 "inv_select noise"
+
+bind F1  "inv_select HealingPotion"
+bind F2  "inv_select AirPotion"
+bind F3  "inv_select HolyH2o"
+bind F4  "inv_select LockPickSM"
+bind F5  "inv_select LockPickLG"
+bind F6  "inv_select FlashBomb"
+bind F7  "inv_select GasMine"
+bind F8  "inv_select Mine"
+bind F9	"inv_select compass2"
+bind F10  screen_dump 
+bind F11  quick_save
+bind F12  quick_load
+
+bind m automap
+bind o objectives
+
+bind v+alt+shift dark_version
+
+bind ESC sim_menu
+
+bind - gamma_down
+bind + gamma_up
+bind = gamma_up
+

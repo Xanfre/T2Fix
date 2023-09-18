@@ -1,0 +1,236 @@
+; $Header: r:/t2repos/thief2/src/default.bnd,v 1.12 2000/02/24 23:23:17 patmac Exp $
+;
+; TABLE OF CONTENTS:
+;
+;  sections:
+;
+;      unshifted
+;      +SHIFT
+;      +ALT
+;      +CTRL
+;      +ALT+SHIFT
+;      +CTRL+SHIFT
+;      +ALT+CTRL
+;      +ALT+CTRL+SHIFT
+;
+
+; playtest commands
+
+game bind q+shift "+fly  1"
+game bind e+shift "+fly -1"
+game bind p       "unfly" 
+
+; unshifted
+
+edit bind F1 help                ; print all commands
+edit bind F2 cycle_mode         ; cycle through rendering modes for cur camera
+edit bind F3 toggle_3d          ; current camera is 2d/3d
+edit bind f10 mission_loop
+edit bind a "cam_rotate 2"      ; Terra Nova movement
+edit bind c "cam_slew 4"        ; Terra Nova movement
+edit bind d "cam_rotate 5"      ; Terra Nova movement
+edit bind e "cam_slew 5"        ; up = e
+edit bind f "cam_level"         ; Terra Nova movement
+edit bind h "set_medium 0"      ; make brush solid
+edit bind j "set_medium 1"      ; make brush air
+edit bind k "set_medium 2"      ; make brush water
+edit bind l "set_medium 3"      ; make brush flood (air->water,solid->solid)
+edit bind m "cycle_media 1"     ; cycle media forward
+edit bind q "cam_slew 2"        ; down = q
+edit bind r "cam_rotate 4"      ; Terra Nova movement
+edit bind s "cam_slew 0"        ; forward = s as well
+edit bind t "cycle_tex 1"       ; cycle texture forward
+edit bind v "cam_rotate 1"      ; Terra Nova movement
+edit bind w "cam_slew 0"        ; forward = w
+edit bind x "cam_slew 3"        ; backward = x
+edit bind z "cam_slew 1"        ; sidestep = z,c
+edit bind o "solo_toggle"       ; toggle this window to/from full screen
+
+edit bind tab "cycle_brush 1"
+;edit bind backspace delete_brush
+edit bind del delete_brush
+edit bind end vBrush_EOT        ; make this brush last in time
+edit bind ins insert_brush      ; clone current brush
+edit bind keypad_end "num_scroll 1"
+edit bind keypad_down "num_scroll 2"
+edit bind keypad_pgdn "num_scroll 3"
+edit bind keypad_left "num_scroll 4"
+edit bind keypad_right "num_scroll 6"
+edit bind keypad_home "num_scroll 7"
+edit bind keypad_up "num_scroll 8"
+edit bind keypad_pgup "num_scroll 9"
+
+all bind home "move_game_camera 0.0,0.0,0.0" ; return camera to default pos
+
+all bind print_screen screen_dump
+all bind : edit_command
+
+edit bind 1 "cam_rotate 3"
+edit bind 2 "cam_unroll"
+edit bind 3 "cam_rotate 0"
+edit bind + "zoom_all 0.5"      ; zoom in
+edit bind , "cycle_face -1"     ; reverse through above
+edit bind - "zoom_all 2.0"      ; zoom out
+edit bind . "cycle_face 1"      ; select a different brush face
+edit bind / "cam_spotlight"     ; toggles spotlight in solid 3d mode
+edit bind < "global_scale 0"    ; zoom in & move cameras more slowly
+edit bind = "zoom_all 0.5"      ; zoom in
+edit bind > "global_scale 1"    ; zoom out & move cameras more rapidly
+edit bind [ "cycle_view 0"      ; make previous camera current
+edit bind ] "cycle_view 1"      ; make next camera current
+
+
+;      SHIFT-
+
+edit bind d+shift store_group
+edit bind m+shift "cycle_media -1"      ; cycle media backward
+edit bind t+shift "cycle_tex -1"        ; cycle texture backward
+edit bind s+shift set_grid              ; grid snap current brush
+
+edit bind ins+shift "brush_to_room 5"   ; clones brush as a room brush, 5%
+                                        ; bigger
+
+edit bind tab+shift "cycle_brush -1"
+edit bind keypad_plus+shift "brush_translate 5"
+edit bind keypad_minus+shift "brush_translate 2"
+edit bind keypad_down+shift "brush_translate 0"
+edit bind keypad_left+shift "brush_translate 4"
+edit bind keypad_right+shift "brush_translate 1"
+edit bind keypad_up+shift "brush_translate 3"
+
+;      ALT-
+
+all bind f1+alt mono_debug
+
+edit bind b+alt "edit_command save_group"
+edit bind c+alt "edit_command clear_world"
+bind e+alt edit_mode
+all bind g+alt game_mode                ; go into proto game mode
+edit bind l+alt "edit_command load_file"
+edit bind o+alt "edit_command edit_obj" ; Object editor
+edit bind p+alt auto_portalize          ; toggle portalizing after every edit
+all bind q+alt foot_sounds
+edit bind r+alt reset_brush             ; 0 all brush rotation
+edit bind s+alt "eval world_file edit_command save_mission %s"
+edit bind t+alt texture_pal             ; texture palette
+edit bind v+alt "edit_command load_group"
+edit bind space+alt quick_resynch       ; synch all windows, rerender, desynch them
+
+edit bind keypad_plus+alt "brush_rotate 2"
+edit bind keypad_minus+alt "brush_rotate 5"
+edit bind keypad_down+alt "brush_rotate 0"
+edit bind keypad_left+alt "brush_rotate 4"
+edit bind keypad_right+alt "brush_rotate 1"
+edit bind keypad_up+alt "brush_rotate 3"
+
+all bind 1+alt "game_mode 320,240"      ; go into 320x240 game mode
+all bind 2+alt "game_mode 400,300"      ; go into 400x300 game mode
+all bind 3+alt "game_mode 512,384"      ; go into 512x384 game mode
+all bind 4+alt "game_mode 640,480"      ; go into 640x480 game mode
+all bind 5+alt "game_mode 800,600"      ; go into 800x600 game mode
+
+all bind 6+alt show_poly_edges
+all bind 7+alt show_all_edges
+all bind 8+alt show_cell
+all bind 9+alt show_mip
+all bind 0+alt show_poly
+
+all bind ?+alt "render_info 30"         ; more info about current rendered scene
+edit bind ++alt "grid_scale 0.5"
+edit bind -+alt "grid_scale 2.0"
+all bind /+alt "render_info 10"         ; info about current rendered scene
+edit bind =+alt "grid_scale 0.5"
+all bind `+shift+alt screen_dump
+
+;      CTRL-
+
+edit bind d+ctrl dissolve_group         ; break cur group into individual brushes
+edit bind g+ctrl grid_toggle            ; Should place operation grid snap or not
+edit bind l+ctrl raycast_light          ; toggle on shadow casting
+all bind o+ctrl lit_obj_toggle
+all bind p+ctrl "history_cmd -1"        ; bring up cmdterm on last command
+edit bind q+ctrl brush_relative
+edit bind r+ctrl "relight_level 0"      ; relight the level
+edit bind u+ctrl undo
+edit bind w+ctrl "cycle_group 0"        ; go to last group
+edit bind x+ctrl xmouse                 ; toggle auto-camera selection
+edit bind z+ctrl undo                   ; windows compaitible, eh?
+edit bind space+ctrl redraw_all         ; refresh all views
+
+edit bind ins+ctrl "new_brush 1"        ; make a cube
+edit bind keypad_plus+ctrl "brush_stretch 5"
+edit bind keypad_minus+ctrl "brush_stretch 2"
+edit bind keypad_down+ctrl "brush_stretch 3"
+edit bind keypad_left+ctrl "brush_stretch 4"
+edit bind keypad_right+ctrl "brush_stretch 1"
+edit bind keypad_up+ctrl "brush_stretch 0"
+
+edit bind tab+ctrl "cycle_context 1"
+
+edit bind 7+ctrl "brush_color 1"
+edit bind 8+ctrl "brush_color 2"
+edit bind 9+ctrl "brush_color 3"
+
+;      ALT-SHIFT-
+
+edit bind d+alt+shift hello_debugger
+edit bind e+alt+shift draw_paths
+edit bind f+alt+shift follow_test
+edit bind l+alt+shift draw_links
+edit bind m+alt+shift merge_node                ; force "perfect" levels with coplanar polys
+all bind n+alt+shift "patrol_test 2"
+edit bind o+alt+shift "edit_command obj_tree"   ; edit hierarchy
+edit bind p+alt+shift ai_build_path_database
+edit bind q+alt+shift draw_ais
+all bind r+alt+shift draw_path_cells
+all bind s+alt+shift show_stats
+all bind t+alt+shift draw_path_cell_links
+
+all bind u+alt+shift path_test
+all bind w+alt+shift draw_move_suggestions
+all bind x+alt+shift quit_game                  ;  quit
+edit bind y+alt+shift create_ai
+
+;      CTRL-SHIFT-
+
+edit bind p+ctrl+shift portalize                ; portalize the level so you can see it in solid 3d
+edit bind u+ctrl+shift redo
+edit bind w+ctrl+shift "cycle_group 1"
+
+edit bind tab+ctrl+shift "cycle_context -1"
+
+
+;      ALT-CTRL-
+
+all bind f1+alt+ctrl "edit_mode 640,480"
+all bind f2+alt+ctrl "edit_mode 800,600"
+all bind f3+alt+ctrl "edit_mode 1024,768"
+
+all bind d+alt+ctrl "dump_cmds cmd.txt"         ; produce list of all commands
+all bind o+alt+ctrl "rend_name_toggle 23"
+edit bind w+alt+ctrl "cycle_group -1"
+
+;      ALT-CTRL-SHIFT  - what does fake physics do, anyway?
+all bind p+alt+ctrl+shift fake_physics
+all bind s+alt+ctrl+shift stats_full
+all bind t+alt+ctrl+shift time_stats
+
+; show network status of objects -- colors are hex GBR
+all bind o+alt+ctrl+shift "rend_net_name_toggle 1b00000, 100b000, 10000b0"
+
+; ROOM EAX STUFF
+edit bind f1+ctrl "set_room_type 1"
+edit bind f2+ctrl "set_room_type 2"
+edit bind f3+ctrl "set_room_type 20"
+edit bind f4+ctrl "set_room_type 19"
+edit bind f5+ctrl "set_room_type 5"
+edit bind f6+ctrl "set_room_type 8"
+edit bind f7+ctrl "set_room_type 11"
+edit bind f8+ctrl "set_room_type 12"
+edit bind f9+ctrl "set_room_type 13"
+edit bind f10+ctrl "set_room_type 14"
+edit bind f11+ctrl "set_room_type 9"
+edit bind f12+ctrl "set_room_type 21"
+edit bind s+ctrl "set_room_type 15"
+edit bind a+ctrl "next_room"
+

@@ -1,0 +1,104 @@
+; Unreal Bindings
+
+bind ' +slideon
+bind 1 "inv_select sword"
+bind 2 "inv_select blackjack"
+bind 3 "inv_select broadhead"
+bind 4 "inv_select water"
+bind 5 "inv_select firearr"
+bind 6 "inv_select eartharrow"
+bind 7 "inv_select gasarrow"
+bind 8 "inv_select ropeyarrow"
+bind 9 "inv_select noise"
+bind : edit_command
+bind [ prev_item
+bind ] next_item
+bind ` clear_weapon
+bind `+alt+shift screen_dump
+bind a +moveleftfast
+bind alt +use_item
+bind backspace clear_item
+bind c crouch
+bind ctrl +use_weapon
+bind d +moverightfast
+bind del +lookup
+bind down +backfast
+bind e +leanright
+bind end lookcenter
+bind esc sim_menu
+bind f +block
+bind f1 "inv_select healingpotion"
+bind f1+alt "gamma 0.7"
+bind f10+alt "gamma 1.3"
+bind f2 "inv_select airpotion"
+bind f2+alt "gamma 0.8"
+bind f3 "inv_select invisipotion"
+bind f3+alt "gamma 0.85"
+bind f4 "inv_select slowfall"
+bind f5 "inv_select speedpotion"
+bind f6 "inv_select lockpicksm"
+bind f4+alt "gamma 0.9"
+bind f7 "inv_select lockpicklg"
+bind f5+alt "gamma 0.95"
+bind f8 "inv_select flashbomb"
+bind f6+alt "gamma 1.0"
+bind f9 "inv_select gasmine"
+bind f7+alt "gamma 1.05"
+bind f10 "inv_select mine"
+bind f8+alt "gamma 1.1"
+bind f10+alt screen_dump
+bind f9+alt "gamma 1.2"
+
+bind f11    "inv_select cameragrenade"
+bind f12    "inv_select compass2"
+
+bind keypad_center +backfast
+bind keypad_del crouch
+bind keypad_home +turnleftfast
+bind keypad_ins +jump
+bind keypad_left +moveleftfast
+bind keypad_minus +block
+bind keypad_pgup +turnrightfast
+bind keypad_right +moverightfast
+bind lalt +use_item
+bind lctrl +use_weapon
+bind left +turnleftfast
+bind lshift +creepon
+bind m +freelookon
+bind mouse1 +use_weapon
+bind mouse2 +use_item
+bind mouse3 +walkfast
+bind mouse_axisx mturn
+bind mouse_axisy mlook
+bind o objectives
+bind pgdn +lookdown
+bind print_screen screen_dump
+bind q +leanleft
+bind r drop_item
+bind ralt +use_item
+bind rctrl +use_weapon
+bind right +turnrightfast
+bind rshift +creepon
+bind shift +creepon
+bind space +jump
+bind up +walkfast
+bind v+alt+shift dark_version
+bind w+alt+shift +leanforward
+bind x+alt+shift quit_game
+bind z +slideon
+bind ~ clear_weapon
+
+bind ctrl+alt+shift+end "win_mission"
+
+climb_touch 0
+goal_notify 1
+auto_search 0
+auto_equip 1
+joystick_enable 0
+bow_zoom 1
+lookspring 0
+mouse_invert 0
+freelook 1
+mouse_sensitivity 3.0
+
+

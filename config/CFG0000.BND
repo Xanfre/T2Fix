@@ -1,0 +1,150 @@
+; Thief 2 Default
+
+climb_touch 0
+goal_notify 1
+auto_search 0
+auto_equip 1
+joystick_enable 0
+bow_zoom 1
+mouse_invert 0
+lookspring 0
+freelook 1
+mouse_sensitivity 3.0
+
+; bindings
+bind shift +runon
+bind keypad_enter +runon
+bind alt +slideon
+
+bind w +walk
+bind keypad_up +walk
+bind up +walk
+
+bind s +backfast
+bind keypad_center +backfast
+bind down +backfast
+
+bind x crouch
+bind keypad_down crouch
+bind keypad_del +crouchhold
+
+bind a +moveleftfast
+bind keypad_left +moveleftfast
+bind left +moveleftfast
+
+bind d +moverightfast
+bind keypad_right +moverightfast
+bind right +moverightfast
+
+bind z +turnleftfast
+bind keypad_end +turnleftfast
+
+bind c +turnrightfast
+bind keypad_pgdn +turnrightfast
+
+bind t +lookup
+bind pgup +lookup
+
+bind g +lookdown
+bind pgdn +lookdown
+
+bind v lookcenter
+bind del lookcenter
+
+bind q +leanleft
+bind keypad_home +leanleft
+
+bind e +leanright
+bind keypad_pgup +leanright
+
+bind w+alt +leanforward
+
+bind space +jump
+bind keypad_ins +jump
+
+bind mouse1 +use_weapon
+bind mouse2 +use_item
+bind mouse3 +block
+bind mouse_axisx mturn
+bind mouse_axisy mlook
+
+bind b +block
+
+bind r drop_item
+
+bind enter +use_item
+
+bind tab next_item
+bind tab+shift prev_item
+
+bind keypad_star next_item
+bind keypad_slash prev_item
+bind mouse_wheel next_item
+
+bind backspace clear_item
+
+bind keypad_plus next_weapon
+bind keypad_minus prev_weapon
+
+bind ~ clear_weapon
+bind ` clear_weapon
+bind 1 "inv_select sword"
+bind 2 "inv_select blackjack"
+bind 3 "inv_select broadhead"
+bind 4 "inv_select water"
+bind 5 "inv_select firearr"
+bind 6 "inv_select EarthArrow"
+bind 7 "inv_select GasArrow"
+bind 8 "inv_select RopeyArrow"
+bind 9 "inv_select noise"
+
+bind F1  "inv_select HealingPotion"
+bind F2  "inv_select AirPotion"
+bind F3  "inv_select invisipotion"
+bind F4  "inv_select slowfall"
+bind F5  "inv_select speedpotion"
+bind F6  "inv_select LockPickSM"
+bind F7  "inv_select LockPickLG"
+bind F8  "inv_select FlashBomb"
+bind F9  "inv_select GasMine"
+bind F10 "inv_select Mine"
+bind F11 "inv_select cameragrenade"
+bind F12 "inv_select compass2"
+bind f   "inv_select flare"
+
+bind F10+alt screen_dump
+
+bind ] zoominsome
+bind [ zoomoutsome
+bind p zoomoutfull
+
+bind m automap
+bind o objectives
+
+bind v+alt+shift dark_version
+
+bind ESC sim_menu
+
+bind alt+s quick_save
+bind alt+l  quick_load
+
+bind - "gamma_delta 0.025"
+bind _ "gamma_delta 0.025"
+bind + "gamma_delta -0.025"
+bind = "gamma_delta -0.025"
+
+bind + gamma_up
+bind = gamma_up
+bind - gamma_down
+bind _ gamma_down
+
+bind < main_volume_down
+bind , main_volume_down
+bind > main_volume_up
+bind . main_volume_up
+
+bind joy_axisx +joyxaxis
+bind joy_axisy +joyforward
+bind joy_axisr rudderturn
+
+bind ctrl+alt+shift+end "win_mission"
