@@ -1,0 +1,5 @@
+fmsel.h
+oldfm
+oldfm.exe*
+*.o
+*.obj
