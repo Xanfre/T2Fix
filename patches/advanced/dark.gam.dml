@@ -1,0 +1,6 @@
+DML1
+
+// Dark Gamesys - Enable legacy gamesys exploits
+
+// Allow the player to blow open metal doors with explosives
+-Receptron "MatMetal" "FireStim"

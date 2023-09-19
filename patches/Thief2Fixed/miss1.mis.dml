@@ -1,0 +1,18 @@
+DML1
+
+// Running Interference
+
+FINGERPRINT
+{
+    QVAR "T2origmis" == 1
+}
+
+// Make front gates behave like double doors
++Link 271 270 "ScriptParams"
+{
+    "" Double
+}
++Link 9 10 "ScriptParams"
+{
+    "" Double
+}

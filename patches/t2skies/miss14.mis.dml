@@ -1,0 +1,31 @@
+DML1
+
+FINGERPRINT
+{
+	953 [976 -686 -111]
+	328 [954 -907 -154]
+	1153 [889 -788 -150]
+	349 [652 -826 -192]
+	98 [694 -703 -3]
+	1017 [642 -747 -4]
+	11 [551 -746 10]
+	995 [612 -749 -149]
+	QVAR "goal_target_1" == 429
+}
+
+FINGERPRINT
+{
+	QVAR "T2origmis" == 1
+}
+
+//Mod Name       T2Skies
+//Mission Name   Precious Cargo
+//Mission File   miss14.mis
+
+
+// NewSky:CloudDeck
+TagBlock "CLOUDOBJVAR"
+{
+	"Texture" clouds95
+	"Alpha" 1.00
+}

@@ -1,0 +1,72 @@
+DML1
+
+FINGERPRINT
+{
+	1521 [-113 -95 29]
+	688 [-111 93 30]
+	2022 [17 94 34]
+	1104 [64 -101 34]
+	1293 [12 101 33]
+	1413 [81 -45 38]
+	114 [-45 85 32]
+	1853 [86 27 32]
+	QVAR "goal_target_3" == 934
+}
+
+FINGERPRINT
+{
+	QVAR "T2origmis" == 1
+}
+
+//Mod Name       T2Skies
+//Mission Name   Masks
+//Mission File   miss13.mis
+
+
+// NewSky:Celestial1
+TagBlock "CELOBJVAR1"
+{
+	"Enable Fog" TRUE
+	"Texture" pmoonec
+	"Alpha" 1.00
+	"Angular Size" 7.00
+	"Rotation" 330.00
+	"Color" 0.30, 0.30, 0.30
+}
+
+
+// NewSky:CloudDeck
+TagBlock "CLOUDOBJVAR"
+{
+	"Texture" clouds95
+	"Alpha" 1.00
+	"Height" 50.00
+	"Tile size" 100.00
+	"Wind velocity" 1.00, 0.50, 0.00
+	"Overall color" 0.05, 0.05, 0.07
+	"Subtile alpha start" 4
+	"Glow color" 0.20, 0.05, 0.00
+	"Glow tiles" 3
+	"Enable Fog" TRUE
+}
+
+
+// NewSky:DistantArt
+TagBlock "DISTOBJVAR"
+{
+	"Texture #1" distcit
+	"Texture #2" distcit
+	"Distance" 200.00
+	"Top Latitutde" 62.00
+	"Bottom Latitutde" 108.00
+	"# of panels" 240
+	"# of panels/texture" 120
+	"Alpha" 0.40
+}
+
+
+// NewSky:Sky
+TagBlock "SKYOBJVAR"
+{
+	"Atmosphere radius" 50050.00
+}

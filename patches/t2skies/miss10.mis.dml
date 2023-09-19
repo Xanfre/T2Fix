@@ -1,0 +1,33 @@
+DML1
+
+FINGERPRINT
+{
+	131 [-667 -54 -30]
+	1421 [-717 120 -48]
+	1449 [-781 150 -46]
+	359 [-789 268 -50]
+	1015 [-451 148 -78]
+	756 [-287 89 -77]
+	951 [25 221 1]
+	1030 [26 99 6]
+	QVAR "goal_target_0" == 429
+}
+
+FINGERPRINT
+{
+	QVAR "T2origmis" == 1
+}
+
+//Mod Name       T2Skies
+//Mission Name   Trail of Blood
+//Mission File   miss10.mis
+
+
+// NewSky:Celestial1
+TagBlock "CELOBJVAR1"
+{
+	"Enable Fog" TRUE
+	"Texture" pmoon09
+	"Angular Size" 7.00
+	"Rotation" 210.00
+}

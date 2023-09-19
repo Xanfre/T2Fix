@@ -1,0 +1,18 @@
+DML1
+
+// Add proper alpha to avoid sharp edges on plants
+ObjProp "VineDecal1" "RenderAlpha" = 0.9999
+ObjProp "VineDecal2" "RenderAlpha" = 0.9999
+ObjProp "VineDecal2" "RenderAlpha" = 0.9999
+ObjProp "DetBush1Summer" "RenderAlpha" = 0.9999
+ObjProp "DetBush2Summer" "RenderAlpha" = 0.9999
+ObjProp "FlowerPlant" "RenderAlpha" = 0.9999
+ObjProp "Grass1" "RenderAlpha" = 0.9999
+ObjProp "FernPlant" "RenderAlpha" = 0.9999
+// Add proper alpha to avoid sharp edges on blood stains
++ObjProp "bloodstain" "RenderAlpha" = 0.9999
+// Fix hammer dimensions
++ObjProp "Hammers" "PhysDims"
+{
+    "Radius 1" 0.34
+}

@@ -1,0 +1,13 @@
+DML1
+
+// Masks
+
+FINGERPRINT
+{
+    QVAR "T2origmis" == 1
+}
+
+// Fix library apparition
++Link 979 2183 "ControlDevice"
+{
+}

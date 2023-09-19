@@ -1,0 +1,46 @@
+DML1
+
+FINGERPRINT
+{
+	1269 [161 6 3]
+	542 [18 159 3]
+	459 [-4 -87 -12]
+	135 [66 -138 4]
+	1716 [-110 -161 38]
+	319 [0 -122 3]
+	341 [7 15 18]
+	1048 [-17 -31 36]
+	QVAR "goal_target_0" == 1125
+}
+
+FINGERPRINT
+{
+	QVAR "T2origmis" == 1
+}
+
+//Mod Name       T2Skies
+//Mission Name   First City Bank and Trust
+//Mission File   miss7.mis
+
+
+// NewSky:Celestial1
+TagBlock "CELOBJVAR1"
+{
+	"Enable Fog" TRUE
+	"Texture" pmoon07
+	"Angular Size" 6.00
+	"Rotation" 250.00
+}
+
+
+// NewSky:DistantArt
+TagBlock "DISTOBJVAR"
+{
+	"Texture #1" distcit
+	"Texture #2" distcit
+	"Top Latitutde" 72.00
+	"Bottom Latitutde" 118.00
+	"# of panels" 240
+	"# of panels/texture" 120
+	"Alpha" 0.90
+}

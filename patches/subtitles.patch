@@ -1,0 +1,120 @@
+diff -ur a/SUBTITLES/MOVIES.SUB b/SUBTITLES/MOVIES.SUB
+--- a/SUBTITLES/MOVIES.SUB	2016-07-13 01:19:23.047909200 -0500
++++ b/SUBTITLES/MOVIES.SUB	2019-08-31 02:35:54.000000000 -0500
+@@ -19,6 +19,4 @@
+ 	SrtSub	"movie/CS05" "MOVIE_CS05.SRT"
+ 	SrtSub	"movie/CS10" "MOVIE_CS10.SRT"
+ 	SrtSub	"movie/CS16" "MOVIE_CS16.SRT"
+-	SrtSub	"movie/INTRO" "MOVIE_INTRO.SRT"
+-	SrtSub	"movie/SUCCESS" "MOVIE_SUCCESS.SRT"
+ }
+\ No newline at end of file
+diff -ur a/SUBTITLES/SUBTITLES.SUB b/SUBTITLES/SUBTITLES.SUB
+--- a/SUBTITLES/SUBTITLES.SUB	2018-01-06 15:10:59.782427700 -0600
++++ b/SUBTITLES/SUBTITLES.SUB	2023-08-26 17:32:59.021756047 -0500
+@@ -44,7 +44,7 @@
+ 
+ 	Sub	"GAR0112"	{	Text	"Well, that's her door. Guess Basso can open it. He's not much of a sneak, but he can sure handle a lock."	}
+ 
+-	Sub	"GAR0113"	{	Text	"Looks like the coast is clear for Basso, now."	}
++	Sub	"GAR0113"	{	Text	"Looks like the coast is clear for Basso now."	}
+ }
+ 
+ {
+@@ -107,7 +107,7 @@
+ 	Type	"convo"
+ 	Descr	"Basso"
+ 
+-	Sub	"BAS0101B"	{	Text	"Jenni, it's me!  Basso!"	}
++	Sub	"BAS0101B"	{	Text	"Jenni, it's me! Basso!"	}
+ }
+ 
+ {
+@@ -196,7 +196,7 @@
+ 	MultiSub	"NO10201C"
+ 	{
+ 		{	Time	"0"	Length	"8000"	Text	"Well, my cranky friend, head this way and I'll show you to your shipment."	}
+-		{	Time	"4000"	Length	"8000"	Text	"You know, you Hammers used to bring a lot of money my way, but I haven't seen you around, lately."	}
++		{	Time	"4000"	Length	"8000"	Text	"You know, you Hammers used to bring a lot of money my way, but I haven't seen you around lately."	}
+ 	}
+ }
+ 
+@@ -957,7 +957,7 @@
+ 
+ 	MultiSub	"KAR0609A"
+ 	{
+-		{	Time	"2900"	Length	"10000"	Text	"(Servant speaking) Let me go. Let me go. Someone free me [here?]"	}
++		{	Time	"2900"	Length	"10000"	Text	"(Servant speaking) Let me go. Let me go. Someone free me."	}
+ 		{	Time	"9000"	Length	"15000"	Text	"(Karras speaking) Behold, Sheriff Truart! From the lowly street rot emerges the loyal worker. That which I call...'The Servant.'"	}
+ 		{	Time	"17200"	Length	"10000"	Text	"(Truart speaking) This is one of the tramps I delivered to you? The transformation is spectacular!"	}
+ 		{	Time	"22500"	Length	"8000"	Text	"(Karras speaking) And neither want nor worry has he."	}
+@@ -2344,7 +2344,7 @@
+ 	MultiSub	"SG11101E"
+ 	{
+ 		{	Time	"0"	Length	"12000"	Text	"Such slander will not be tolerated while we're on watch! You'd best run and rescue your helpless limp lord, before he founders on his own vomit,"	}
+-		{	Time	"8500"	Length	"10000"	Text	"or wakes up naked in a hen-coop! Scurry off! Or you'll require some unnecessary ventilation!"	}
++		{	Time	"8500"	Length	"10000"	Text	"or wakes up naked in a hencoop! Scurry off! Or you'll acquire some unnecessary ventilation!"	}
+ 	}
+ }
+ 
+@@ -2363,7 +2363,7 @@
+ 	Type	"convo"
+ 	Descr	"Guard 1"
+ 
+-	Sub	"SG11101G"	{	Text	"You've gone–you've gone too far this time, you camel-mannered, tunic-wearing, molly-coddle! An arrow to the throat ought to shut you up!"	}
++	Sub	"SG11101G"	{	Text	"You've gone--you've gone too far this time, you camel-mannered, tunic-wearing, molly-coddle! An arrow to the throat ought to shut you up!"	}
+ }
+ 
+ {
+@@ -3354,7 +3354,7 @@
+ 	MultiSub	"SG11201F"
+ 	{
+ 		{	Time	"0"	Length	"12000"	Text	"I don't know and I don't care. We go through this all the time. You ask these stupid questions and then something goes wrong."	}
+-		{	Time	"8000"	Length	"12000"	Text	"Lord Bafford, Lord Donal, Sheriff Truart–we've worked for all of them and always gotten fired because someone broke in, something got stolen, or someone got killed!"	}
++		{	Time	"8000"	Length	"12000"	Text	"Lord Bafford, Lord Donal, Sheriff Truart--we've worked for all of them and always gotten fired because someone broke in, something got stolen, or someone got killed!"	}
+ 		{	Time	"17000"	Length	"10000"	Text	"I'm always gettin' distracted answering your stupid questions! When this job is over you're on your own. I'm done with ya."	}
+ 	}
+ }
+@@ -5791,7 +5791,7 @@
+ 
+ 	Sub	"SG3A0MU5"	{	Text	"I wish I had a re--[Long, low vocal rumbling sounds like 'r?-?-r?-?-?'] nice coat...eh-hmm..."	}
+ 
+-	Sub	"SG3A0MU6"	{	Text	"Oh, I wish I just had a better] fastener ann' a...cold annnn'...ice..."	}
++	Sub	"SG3A0MU6"	{	Text	"Oh, I wish I just had a better fastener ann' a...cold annnn'...ice..."	}
+ 
+ 	Sub	"SG3A0MU7"	{	Text	"This one has...got holes in the sleeves and holes in my...elbows..."	}
+ 
+@@ -6562,7 +6562,7 @@
+ 
+ 	Sub	"SG4ATB_3"	{	Text	"Catch!"	}
+ 
+-	Sub	"SG4ATN_1"	{	Text	"Here 's one!"	}
++	Sub	"SG4ATN_1"	{	Text	"Here's one!"	}
+ 
+ 	Sub	"SG4ATN_2"	{	Text	"Got you!"	}
+ 
+@@ -6578,7 +6578,7 @@
+ 
+ 	Sub	"SG4BAK_3"	{	Text	"It's never really anything..."	}
+ 
+-	Sub	"SG4BAK_4"	{	Text	"Hmm... May be next time."	}
++	Sub	"SG4BAK_4"	{	Text	"Hmm... Maybe next time."	}
+ 
+ 	Sub	"SG4BAK_5"	{	Text	"Imagining things now."	}
+ 
+@@ -7333,7 +7333,7 @@
+ 	Type	"bark"
+ 	Descr	"Guard"
+ 
+-	Sub	"SG6A0MU1"	{	Text	"Mm-rocks are nice. Ol' blue rocks are the best. M-better than brown rocks, an'...definitely gray rocks. Don't see many blue rocks around (sighs). Oh, rocks don't tell you...not to slack on the job, y'know. Rocks don't take your best boots [unintelligible] money. Even th' gray rocks, they don't, no...good rocks...th' gray ones."	}
++	Sub	"SG6A0MU1"	{	Text	"Mm-rocks are nice. Ol' blue rocks are the best. M-better than brown rocks, an'...definitely gray rocks. Don't see many blue rocks around (sighs). Oh, rocks don't tell you...not to slack on the job, y'know. Rocks don't take your best boots and get 'em all muddy. Even th' gray rocks, they don't, no...good rocks...th' gray ones."	}
+ 
+ 	Sub	"SG6A0MU2"	{	Text	"Hm-my shift's supposed to be over by now. He prolly forgot to come and change. He's prolly still sleepin', lazy bastard. I never do that...come late when I'm s'posed t'be on duty. (Fed up sigh) He always does this (tsks lightly). If I were the Sir, I'd boot 'im out on his ear. (Fed up sigh)"	}
+ 
+@@ -11253,4 +11253,4 @@
+ 	Sub	"TH2TELR5"	{	Text	"There he is!"	}
+ 
+ 	Sub	"TH2TORC1"	{	Text	"Hmm, they should spend a little of that money they got on some decent lighting."	}
+-}
+\ No newline at end of file
++}

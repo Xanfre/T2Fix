@@ -1,0 +1,12 @@
+DML1
+
+// Precious Cargo
+
+FINGERPRINT
+{
+    QVAR "T2origmis" == 1
+}
+
+// Fix disappearing goals
+-Link 251 662 "ControlDevice"
+-Link 158 330 "ControlDevice"

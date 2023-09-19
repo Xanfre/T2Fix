@@ -1,0 +1,56 @@
+DML1
+
+FINGERPRINT
+{
+	670 [21 -99 -8]
+	293 [-74 -3 -5]
+	990 [-29 109 -8]
+	1960 [45 115 -5]
+	300 [60 46 -3]
+	1077 [-51 26 4]
+	1603 [140 115 -9]
+	856 [284 15 16]
+	QVAR "goal_target_0" == 307
+}
+
+FINGERPRINT
+{
+	QVAR "T2origmis" == 1
+}
+
+//Mod Name       T2Skies
+//Mission Name   Shipping... and Receiving
+//Mission File   miss2.mis
+
+
+// NewSky:Celestial3
+TagBlock "CELOBJVAR3"
+{
+	"Enable Fog" TRUE
+	"Texture" pmoon09
+	"Angular Size" 6.00
+	"Rotation" 240.00
+}
+
+
+// NewSky:CloudDeck
+TagBlock "CLOUDOBJVAR"
+{
+	"Texture" clouds75
+	"Alpha" 0.90
+	"Overall color" 0.07, 0.07, 0.07
+	"Subtile alpha start" 4
+	"Glow color" 0.15, 0.15, 0.15
+	"Glow tiles" 3
+}
+
+// Thief2 Fixed
+TagBlock "CELOBJVAR3"
+{
+	"Latitude" 30.0
+	"Longitude" 45.0
+}
+TagBlock "SKYOBJVAR"
+{
+	"Glow scale" 0.0
+}

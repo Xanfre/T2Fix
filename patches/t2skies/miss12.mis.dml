@@ -1,0 +1,58 @@
+DML1
+
+FINGERPRINT
+{
+	1826 [-80 -103 2]
+	42 [4 -119 6]
+	172 [84 0 3]
+	1503 [121 100 15]
+	1031 [109 118 4]
+	1000 [-13 99 5]
+	362 [107 -127 19]
+	174 [142 -40 17]
+	QVAR "goal_target_10" == 767
+}
+
+FINGERPRINT
+{
+	QVAR "T2origmis" == 1
+}
+
+//Mod Name       T2Skies
+//Mission Name   Casing The Joint
+//Mission File   miss12.mis
+
+
+// NewSky:Celestial1
+TagBlock "CELOBJVAR1"
+{
+	"Enable Fog" TRUE
+	"Texture" pmoon05
+	"Angular Size" 7.00
+	"Rotation" 330.00
+}
+
+
+// NewSky:CloudDeck
+TagBlock "CLOUDOBJVAR"
+{
+	"Texture" clouds75
+	"Alpha" 1.00
+	"Height" 700.00
+	"Wind velocity" 7.00, 7.00, 0.00
+	"Overall color" 0.06, 0.06, 0.06
+	"Subtile alpha start" 4
+	"Glow color" 0.20, 0.20, 0.20
+}
+
+
+// NewSky:DistantArt
+TagBlock "DISTOBJVAR"
+{
+	"Texture #1" distcit
+	"Texture #2" distcit
+	"Top Latitutde" 62.00
+	"Bottom Latitutde" 108.00
+	"# of panels" 240
+	"# of panels/texture" 120
+}

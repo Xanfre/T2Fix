@@ -1,0 +1,18 @@
+DML1
+
+// Life of the Party
+
+FINGERPRINT
+{
+    QVAR "T2origmis" == 1
+}
+
+// Fix key stacking issue
+ObjProp 1126 "KeySrc"
+{
+    "LockID" 14
+}
+ObjProp 1894 "KeyDst"
+{
+    "LockID" 14
+}

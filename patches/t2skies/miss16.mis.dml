@@ -1,0 +1,48 @@
+DML1
+
+FINGERPRINT
+{
+	1527 [129 -15 4]
+	1479 [-128 -11 2]
+	1428 [-237 -42 2]
+	811 [-329 -76 -7]
+	644 [-670 56 -82]
+	1833 [-651 -196 -21]
+	741 [-644 -76 21]
+	874 [-763 -244 73]
+	QVAR "goal_target_7" == 910
+}
+
+FINGERPRINT
+{
+	QVAR "T2origmis" == 1
+}
+
+//Mod Name       T2Skies
+//Mission Name   Sabotage at Soulforge
+//Mission File   miss16.mis
+
+
+// NewSky:Celestial1
+TagBlock "CELOBJVAR1"
+{
+	"Enable Fog" TRUE
+	"Texture" pmoon08
+	"Alpha" 1.00
+	"Angular Size" 7.00
+	"Rotation" 220.00
+	"Color" 0.63, 0.63, 0.70
+}
+
+
+// NewSky:DistantArt
+TagBlock "DISTOBJVAR"
+{
+	"Texture #1" distcit
+	"Texture #2" distcit
+	"Top Latitutde" 52.00
+	"Bottom Latitutde" 98.00
+	"# of panels" 240
+	"# of panels/texture" 120
+	"Alpha" 0.90
+}

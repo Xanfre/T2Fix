@@ -1,0 +1,16 @@
+DML1
+
+// Kidnap
+
+FINGERPRINT
+{
+    QVAR "T2origmis" == 1
+}
+
+#script "squirrel"
+
+// Fix carried over vine arrows becoming rope arrows
+ObjProp 438 "Scripts"
+{
+    "Script 2" T2FRopeToVine
+}

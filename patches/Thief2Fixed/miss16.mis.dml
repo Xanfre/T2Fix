@@ -1,0 +1,34 @@
+DML1
+
+// Sabotage at Soulforge
+
+FINGERPRINT
+{
+    QVAR "T2origmis" == 1
+}
+
+// Fix alarm relay
+ObjProp 587 "Scripts"
+{
+    "Script 0" TrapCapacitor
+    "Script 1" ""
+    "Don't Inherit" true
+}
++ObjProp 2203 "Scripts"
+{
+    "Script 0" TrapRelay
+    "Script 1" ""
+    "Script 2" ""
+    "Script 3" ""
+    "Don't Inherit" false
+}
++ObjProp 2203 "TrapFlags"
+{
+    "" Invert
+}
++Link 2203 587 "ControlDevice"
+{
+}
++Link 585 2203 "ControlDevice"
+{
+}

@@ -1,0 +1,12 @@
+DML1
+
+//Mod Name       T2Skies
+//Mission Name   All Missions
+//Mission File   *.mis
+
+
+// NewSky:Stars
+TagBlock "STAROBJVAR"
+{
+	"Max Sky Intensity" 1000000.00
+}

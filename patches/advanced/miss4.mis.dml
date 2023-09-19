@@ -1,0 +1,28 @@
+DML1
+
+// Framed: Disable training scripts
+
+FINGERPRINT
+{
+    1233 [185 94 -47]
+    452 [166 119 -48]
+    931 [-6 102 -68]
+    239 [-57 137 -46]
+    1858 [-4 196 -37]
+    1586 [110 84 -42]
+    339 [-50 45 -33]
+    24 [-16 -8 -32]
+    QVAR "goal_target_4" == 690
+}
+
+FINGERPRINT
+{
+    QVAR "T2origmis" == 1
+}
+
+ObjProp 956 "DiffDestroy"
+{
+    "quest var values" 0,1,2
+}
+-ObjProp 1752 "DiffDestroy"
+-Link 2034 158 "ControlDevice"

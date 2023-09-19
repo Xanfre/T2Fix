@@ -1,0 +1,60 @@
+DML1
+
+FINGERPRINT
+{
+	499 [126 74 9]
+	70 [120 64 20]
+	340 [-78 64 7]
+	977 [-5 18 4]
+	655 [21 -7 6]
+	285 [-68 -48 12]
+	202 [-241 260 7]
+	671 [-298 -224 25]
+	QVAR "goal_target_0" == 392
+}
+
+FINGERPRINT
+{
+	QVAR "T2origmis" == 1
+}
+
+//Mod Name       T2Skies
+//Mission Name   Ambush!
+//Mission File   miss5.mis
+
+
+// NewSky:Celestial1
+TagBlock "CELOBJVAR1"
+{
+	"Enable Fog" TRUE
+	"Texture" pmoon06
+	"Alpha" 1.00
+	"Angular Size" 7.00
+	"Rotation" 250.00
+	"Color" 0.56, 0.56, 0.35
+}
+
+
+// NewSky:CloudDeck
+TagBlock "CLOUDOBJVAR"
+{
+	"Texture" clouds75
+	"Alpha" 1.00
+	"Overall color" 0.06, 0.06, 0.06
+	"Subtile alpha start" 5
+	"Glow color" 0.12, 0.12, 0.08
+}
+
+
+// NewSky:DistantArt
+TagBlock "DISTOBJVAR"
+{
+	"Texture #1" distcit
+	"Texture #2" distcit
+	"Color" 1.00, 1.00, 1.00
+	"Top Latitutde" 52.00
+	"Bottom Latitutde" 98.00
+	"# of panels" 240
+	"# of panels/texture" 120
+	"Alpha" 0.80
+}

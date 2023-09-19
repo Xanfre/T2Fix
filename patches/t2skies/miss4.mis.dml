@@ -1,0 +1,67 @@
+DML1
+
+FINGERPRINT
+{
+	1233 [185 94 -47]
+	452 [166 119 -48]
+	931 [-6 102 -68]
+	239 [-57 137 -46]
+	1858 [-4 196 -37]
+	1586 [110 84 -42]
+	339 [-50 45 -33]
+	24 [-16 -8 -32]
+	QVAR "goal_target_4" == 690
+}
+
+FINGERPRINT
+{
+	QVAR "T2origmis" == 1
+}
+
+//Mod Name       T2Skies
+//Mission Name   Framed
+//Mission File   miss4.mis
+
+
+// NewSky:Celestial1
+TagBlock "CELOBJVAR1"
+{
+	"Enable Fog" TRUE
+	"Texture" pmoonfr
+	"Alpha" 1.00
+	"Angular Size" 7.00
+	"Rotation" 230.00
+}
+
+
+// NewSky:CloudDeck
+TagBlock "CLOUDOBJVAR"
+{
+	"Texture" clouds75
+	"Alpha" 0.80
+	"Height" 50.00
+	"Tile size" 100.00
+	"Wind velocity" 0.50, 0.50, 0.00
+	"Overall color" 0.04, 0.04, 0.04
+	"Glow color" 0.10, 0.10, 0.10
+}
+
+
+// NewSky:DistantArt
+TagBlock "DISTOBJVAR"
+{
+	"Texture #1" distcit
+	"Texture #2" distcit
+	"Top Latitutde" 57.00
+	"Bottom Latitutde" 103.00
+	"# of panels" 240
+	"# of panels/texture" 120
+	"Alpha" 0.60
+}
+
+
+// NewSky:Sky
+TagBlock "SKYOBJVAR"
+{
+	"Atmosphere radius" 50050.00
+}

@@ -1,0 +1,126 @@
+diff -ur a/miss1.mis.dml b/miss1.mis.dml
+--- a/miss1.mis.dml	2013-04-28 17:02:08.515625000 -0500
++++ b/miss1.mis.dml	2021-01-15 04:55:36.000000000 -0600
+@@ -1,5 +1,23 @@
+ DML1
+ 
++FINGERPRINT
++{
++	75 [115 21 9]
++	271 [89 2 11]
++	162 [62 119 4]
++	521 [18 77 3]
++	361 [-87 5 28]
++	959 [-53 -54 17]
++	789 [45 -103 1]
++	542 [22 -73 4]
++	NAME 75 "Basso"
++}
++
++FINGERPRINT
++{
++	QVAR "T2origmis" == 1
++}
++
+ //sword guards in this mission use different models
+ +ObjProp 533 "invlimbmodel" = "LMarcher01"
+ +ObjProp 521 "invlimbmodel" = "LMarcher01"
+@@ -12,4 +30,4 @@
+ 
+ //Basso and Jenivere
+ +ObjProp 75 "invlimbmodel" = "LMbasso"
+-+ObjProp 177 "invlimbmodel" = "LMjenv"
+\ No newline at end of file
+++ObjProp 177 "invlimbmodel" = "LMjenv"
+diff -ur a/miss11.mis.dml b/miss11.mis.dml
+--- a/miss11.mis.dml	2013-04-26 17:20:46.015625000 -0500
++++ b/miss11.mis.dml	2021-01-15 04:55:38.000000000 -0600
+@@ -1,5 +1,23 @@
+ DML1
+ 
++FINGERPRINT
++{
++	227 [102 394 21]
++	376 [116 221 28]
++	159 [22 93 9]
++	1896 [38 197 30]
++	327 [-11 171 13]
++	1065 [-362 144 69]
++	455 [-391 131 86]
++	14 [-396 132 70]
++	QVAR "goal_target_0" == 356
++}
++
++FINGERPRINT
++{
++	QVAR "T2origmis" == 1
++}
++
+ //Two of the arguing archers
+ +ObjProp 161 "invlimbmodel" = "LMarcher02"
+ +ObjProp 376 "invlimbmodel" = "LMarcher02"
+@@ -12,4 +30,6 @@
+ +ObjProp 786 "invlimbmodel" = "LMnoblem03"
+ +ObjProp 789 "invlimbmodel" = "LMnoblew02"
+ //Sleeping nobleman
+-+ObjProp 86 "invlimbmodel" = "LMnoblem03"
+\ No newline at end of file
+++ObjProp 86 "invlimbmodel" = "LMnoblem03"
++//Standing noble
+++ObjProp 100 "invlimbmodel" = "LMnoblem01"
+diff -ur a/miss2.mis.dml b/miss2.mis.dml
+--- a/miss2.mis.dml	2013-01-29 18:47:24.562500000 -0600
++++ b/miss2.mis.dml	2021-01-15 04:55:38.000000000 -0600
+@@ -1,4 +1,22 @@
+ DML1
+ 
++FINGERPRINT
++{
++	670 [21 -99 -8]
++	293 [-74 -3 -5]
++	990 [-29 109 -8]
++	1960 [45 115 -5]
++	300 [60 46 -3]
++	1077 [-51 26 4]
++	1603 [140 115 -9]
++	856 [284 15 16]
++	QVAR "goal_target_0" == 307
++}
++
++FINGERPRINT
++{
++	QVAR "T2origmis" == 1
++}
++
+ //GuyTwo isn't a guy
+-+ObjProp 1604 "invlimbmodel" = "LMwomsev02"
+\ No newline at end of file
+++ObjProp 1604 "invlimbmodel" = "LMwomsev02"
+diff -ur a/miss5.mis.dml b/miss5.mis.dml
+--- a/miss5.mis.dml	2013-01-29 19:14:40.281250000 -0600
++++ b/miss5.mis.dml	2021-01-15 04:55:38.000000000 -0600
+@@ -1,4 +1,22 @@
+ DML1
+ 
++FINGERPRINT
++{
++	499 [126 74 9]
++	70 [120 64 20]
++	340 [-78 64 7]
++	977 [-5 18 4]
++	655 [21 -7 6]
++	285 [-68 -48 12]
++	202 [-241 260 7]
++	671 [-298 -224 25]
++	QVAR "goal_target_0" == 392
++}
++
++FINGERPRINT
++{
++	QVAR "T2origmis" == 1
++}
++
+ //Prostitute
+-+ObjProp 978 "invlimbmodel" = "LMprisw01"
+\ No newline at end of file
+++ObjProp 978 "invlimbmodel" = "LMprisw01"

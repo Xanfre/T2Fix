@@ -1,0 +1,96 @@
+diff -ur a/README.html b/README.html
+--- a/README.html	2010-04-06 00:06:14.000000000 -0500
++++ b/README.html	2023-08-26 22:30:43.334691251 -0500
+@@ -4,52 +4,66 @@
+ 
+ <p>&nbsp;</p>
+ 
+-<h2><a href="http://jermi.dyndns.org/~jermi/stuff/Thief/t2skies.zip">t2skies</a> - Enhanced skies for Thief 2: The Metal Age</h2>
++<h2><a href="https://www.ttlg.com/forums/showthread.php?t=131652">t2skies</a> - Enhanced skies for Thief 2: The Metal Age</h2>
+ 
+ <h3>Contents</h3>
+ 
+ <ul>
+-<li>Realistic star field, generated with <a href="http://www.ttlg.com/forums/showthread.php?t=130094&p=1947142&viewfull=1#post1947142">t2stars</a> (with default parameters).
+-<li>High resolution texture replacements for
++<li>Realistic star field, generated with <a href="https://www.ttlg.com/forums/showthread.php?t=130094&p=1947142&viewfull=1#post1947142">t2stars</a> (with default parameters).</li>
++<li>High resolution texture replacements for</li>
+ <ul>
+-<li>The Moon (<a href="http://www.ttlg.com/forums/showthread.php?t=130440&p=1950463&viewfull=1#post1950463">t2moon</a>).
+-<li>Clouds.
+-<li>Distant art.
++<li>The Moon (<a href="https://www.ttlg.com/forums/showthread.php?t=130440&p=1950463&viewfull=1#post1950463">t2moon</a>).</li>
++<li>Clouds.</li>
++<li>Distant art.</li>
+ </ul>
+-<li>t2skies.[c|exe] - a program that patches the celestial, sky, cloud deck and distant art parameters in the mis files (obsoletes <a href="http://www.ttlg.com/forums/showthread.php?t=117616&p=1951184&viewfull=1#post1951184">t2fogskies</a>, unless you <i>don't</i> want to use the high-resolution clouds and distant art).
++<li>t2skies.exe - a program that patches the celestial, sky, cloud deck and distant art parameters in the mis files (obsoletes <a href="https://www.ttlg.com/forums/showthread.php?t=117616&p=1951184&viewfull=1#post1951184">t2fogskies</a>, unless you <i>don't</i> want to use the high-resolution clouds and distant art). Source included (GPL).</li>
+ </ul>
+ 
+ <h3>Installation</h3>
+ 
+-<p>
+-Requires <a href="http://www.ttlg.com/forums/showthread.php?t=121449">ddfix</a> 1.4.3_alpha or later.
++<p>Requires <a href="https://www.ttlg.com/forums/showthread.php?t=121449">ddfix</a>.</p>
+ 
+ <ol>
+-<li>Backup your *.mis files - or, if you installed t2moon or t2fogskies previously, restore from the backups you should have made.
+-<li>Extract this package (with paths) into your Thief2 installation directory. If you've previously installed t2stars or t2moon, some files may need to be overwritten.
+-<li>Navigate to the t2skies directory and double-click on t2skies.exe. You will be prompted for
+-each patching (type "y" and &lt;enter&gt;).
+-<li>Put these settings in your ddfix.ini:
+-<ul>
+-<li>Thief2Extensions=1
+-<li>EnableFogFix=1
+-<li>EnableLifeOfThePartyFogFix=1
+-</ul>
+-<li>If your ddfix replacement texture path is not the default (RES/ddfix), then move the directory RES/ddfix/t2skies to the correct place (to the directory pointed to by "TexturePath" in ddfix.ini).
+-<li>If you installed t2moon previously, the "pmoon" replacement texture directory is now unused and can be removed.
++<li>Uninstall any installed FM (in Darkloader, select "Original (Thief 2: The Metal Age)" -&gt; Install Only).</li>
++<li>Backup your *.mis files - or, if you installed t2moon or t2fogskies previously, restore from the backups you should have made.</li>
++<li>Extract this package (with paths) into your Thief2 installation directory. If you've previously installed t2stars or t2moon, some files may need to be overwritten.</li>
++<li>Navigate to the t2skies directory and double-click on t2skies.exe. You will be prompted for each file to be patched (type "y" and &lt;enter&gt;).</li>
++<li>Put this setting in your ddfix.ini: TextureReplacement=1</li>
++<li>If your ddfix replacement texture path is not the default (RES/ddfix), then move the directory RES/ddfix/t2skies to the correct place (to the directory pointed to by "TexturePath" in ddfix.ini).</li>
++<li>If you installed t2moon previously, the "pmoon" replacement texture directory is now unused and can be removed.</li>
+ </ol>
+ 
++<p>After installation, if you load a game that was saved during a mission, you'll need to restart the mission for the changes to take effect. </p>
++
++<h3>Fan Missions</h3>
++
++<p>Re-run t2skies.exe every time after installing an FM to fix the stars. (<i>Or</i> temporarily remove FAM/skyhw/STARS.BIN to go back to the original stars).</p>
++
++<p>To fix the stars in T2X, run t2skies.exe from the command line with the -d option, for example "t2skies.exe -d c:\Games\Thief2\T2X" (without the quotes).</p>
++
++<p>Currently, the only thing this mod touches in FMs is the stars.</p>
++
+ <h3>Uninstallation</h3>
+ 
+ <ul>
+-<li>Remove the file FAM/skyhw/STARS.BIN (and to save space and avoid clutter, any and all files extracted from this package).
+-<li>Restore the mis files from backups that you made before installation.
++<li>Remove the file FAM/skyhw/STARS.BIN (and to save space and avoid clutter, any and all files extracted from this package).</li>
++<li>Restore the mis files from backups that you made before installation.</li>
+ </ul>
+ 
+-<h3>Screenshot</h3>
++<h3>Screenshots</h3>
++
++<p>Running Interference</p>
++<img src="images/t2skies_interference.jpg">
++
++<p>Ambush!</p>
++<img src="images/t2skies.jpg">
++
++<p>Masks</p>
++<img src="images/t2skies_masks.jpg">
++
++<h3>Desktop Background</h3>
+ 
+-<p>Ambush! with t2skies<br>
+-<img src="http://jermi.dyndns.org/~jermi/stuff/Thief/t2skies.jpg">
++<img src="images/distcit_desktop.jpg">
+ 
+ </blockquote>
+ </blockquote>

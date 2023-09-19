@@ -1,0 +1,11 @@
+DML1
+
+// Eavesdropping
+
+FINGERPRINT
+{
+    QVAR "T2origmis" == 1
+}
+
+// Fix bell material
+-MetaProp 1023 "MatWood"

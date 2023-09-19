@@ -1,0 +1,53 @@
+diff -ur a/README.html b/README.html
+--- a/README.html	2010-05-06 23:34:18.000000000 -0500
++++ b/README.html	2023-08-26 20:53:40.385038326 -0500
+@@ -4,39 +4,34 @@
+ 
+ <p>&nbsp;</p>
+ 
+-<h2><a href="http://jermi.dyndns.org/~jermi/stuff/Thief/t2water.zip">t2water</a> - Enhanced Water for Thief 2: The Metal Age</h2>
++<h2><a href="https://www.ttlg.com/forums/showthread.php?t=131984">t2water</a> - Enhanced Water for Thief 2: The Metal Age</h2>
+ 
+-<p>This package contains 32-bit texture replacements for Thief2 water (blue and green). To work properly, the green water requires a modified ddfix.dll, which does not support fog. Use the modified ddfix.dll only with missions that have green water and no fog (Receiving, Eavesdropping, Kidnap, Sabotage). Framed has green water, and it originally has no fog, but if you're using <a href="http://www.ttlg.com/forums/showthread.php?t=131652">t2skies</a>, then it has fog. Precious Cargo has both green water and fog.
++<p>This package contains 32-bit texture replacements for Thief2 water (blue and green).</p>
+ 
+ <h3>Installation</h3>
+ 
+-<p>
+-Requires <a href="http://www.ttlg.com/forums/showthread.php?t=121449">ddfix</a> 1.3.11 or later pre-installed.
++<p>Requires <a href="https://www.ttlg.com/forums/showthread.php?t=121449">ddfix</a>.</p>
+ 
+ <ol>
+-<li>Backup your ddfix.dll.
+-<li>Extract ddfix.dll from <a href="http://jermi.dyndns.org/~jermi/stuff/Thief/ddfix_1.3.11.1.zip">ddfix 1.3.11.1</a> into your Thief2 installation directory.
+-<li>Extract this package (with paths) into your Thief2 installation directory.
+-<li>Put this setting in your ddfix.ini: Thief2Extensions=1
+-</ul>
+-<li>If your ddfix replacement texture path is not the default (RES/ddfix), then move the directory RES/ddfix/t2water to the correct place (to the directory pointed to by "TexturePath" in ddfix.ini).
++<li>Extract this package (with paths) into your Thief2 installation directory.</li>
++<li>Put this setting in your ddfix.ini: TextureReplacement=1</li>
++<li>If your ddfix replacement texture path is not the default (RES/ddfix), then move the directory RES/ddfix/t2water to the correct place (to the directory pointed to by "TexturePath" in ddfix.ini).</li>
+ </ol>
+ 
+ <h3>Uninstallation</h3>
+ 
+ <ul>
+-<li>Remove any and all files extracted from this package.
+-<li>Restore your ddfix.dll from the backup that you made before installation.
++<li>Remove any and all files extracted from this package.</li>
+ </ul>
+ 
+ <h3>Video</h3>
+ 
+-<p><a href="http://www.youtube.com/watch?v=_sxdcviP0NI">Shipping and Receiving, Ambush and Trail of Blood with t2water.</a>
++<p><a href="https://www.youtube.com/watch?v=_sxdcviP0NI">Shipping and Receiving, Ambush and Trail of Blood with t2water.</a></p>
+ 
+ <h3>Screenshot</h3>
+ 
+-<p>Ambush with t2water<br>
+-<img src="http://jermi.dyndns.org/~jermi/stuff/Thief/t2water_ambush.jpg">
++<p>Ambush with t2water</p>
++<img src="images/t2water_ambush.jpg">
+ 
+ </blockquote>
+ </blockquote>

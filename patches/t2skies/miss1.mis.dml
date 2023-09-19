@@ -1,0 +1,60 @@
+DML1
+
+FINGERPRINT
+{
+	75 [115 21 9]
+	271 [89 2 11]
+	162 [62 119 4]
+	521 [18 77 3]
+	361 [-87 5 28]
+	959 [-53 -54 17]
+	789 [45 -103 1]
+	542 [22 -73 4]
+	NAME 75 "Basso"
+}
+
+FINGERPRINT
+{
+	QVAR "T2origmis" == 1
+}
+
+//Mod Name       T2Skies
+//Mission Name   Running Interference
+//Mission File   miss1.mis
+
+
+// NewSky:Celestial1
+TagBlock "CELOBJVAR1"
+{
+	"Enable Fog" TRUE
+	"Texture" pmoon08
+	"Angular Size" 8.00
+	"Rotation" 220.00
+	"Color" 0.73, 0.57, 0.22
+}
+
+
+// NewSky:CloudDeck
+TagBlock "CLOUDOBJVAR"
+{
+	"Texture" clouds75
+	"Alpha" 1.00
+	"Height" 1400.00
+	"Tiles per side" 5
+	"# subtiles" 3
+	"Overall color" 0.05, 0.04, 0.03
+	"Subtile alpha start" 3
+	"Glow color" 0.10, 0.06, 0.01
+}
+
+
+// NewSky:DistantArt
+TagBlock "DISTOBJVAR"
+{
+	"Texture #1" citcoun
+	"Texture #2" citcoun
+	"Color" 0.75, 0.75, 0.75
+	"Top Latitutde" 59.50
+	"# of panels" 240
+	"# of panels/texture" 60
+}

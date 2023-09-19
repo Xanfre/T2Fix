@@ -1,0 +1,45 @@
+DML1
+
+FINGERPRINT
+{
+	1025 [-280 24 -13]
+	941 [-293 -108 -17]
+	579 [170 2 -10]
+	145 [61 25 -10]
+	183 [4 38 -9]
+	470 [19 -29 5]
+	238 [60 -45 18]
+	509 [-44 -28 4]
+	QVAR "goal_target_0" == 230
+}
+
+FINGERPRINT
+{
+	QVAR "T2origmis" == 1
+}
+
+//Mod Name       T2Skies
+//Mission Name   Blackmail
+//Mission File   miss9.mis
+
+
+// NewSky:Celestial1
+TagBlock "CELOBJVAR1"
+{
+	"Enable Fog" TRUE
+	"Texture" pmoon08
+	"Alpha" 1.00
+	"Rotation" 200.00
+	"Color" 0.72, 0.72, 0.80
+}
+
+
+// NewSky:DistantArt
+TagBlock "DISTOBJVAR"
+{
+	"Texture #1" citcoun
+	"Texture #2" citcoun
+	"Color" 0.60, 0.60, 0.60
+	"# of panels" 240
+	"# of panels/texture" 60
+}

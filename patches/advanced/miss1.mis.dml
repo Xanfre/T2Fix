@@ -1,0 +1,29 @@
+DML1
+
+// Running Interference: Disable training scripts
+
+FINGERPRINT
+{
+    75 [115 21 9]
+    271 [89 2 11]
+    162 [62 119 4]
+    521 [18 77 3]
+    361 [-87 5 28]
+    959 [-53 -54 17]
+    789 [45 -103 1]
+    542 [22 -73 4]
+    NAME 75 "Basso"
+}
+
+FINGERPRINT
+{
+    QVAR "T2origmis" == 1
+}
+
+-ObjProp 245 "Scripts"
++ObjProp 245 "Scripts"
+{
+    "Script 0" VictoryCheck
+}
+-Link 401 400 "ControlDevice"
+-Link 314 377 "ControlDevice"

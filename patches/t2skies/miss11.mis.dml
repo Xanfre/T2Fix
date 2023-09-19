@@ -1,0 +1,58 @@
+DML1
+
+FINGERPRINT
+{
+	227 [102 394 21]
+	376 [116 221 28]
+	159 [22 93 9]
+	1896 [38 197 30]
+	327 [-11 171 13]
+	1065 [-362 144 69]
+	455 [-391 131 86]
+	14 [-396 132 70]
+	QVAR "goal_target_0" == 356
+}
+
+FINGERPRINT
+{
+	QVAR "T2origmis" == 1
+}
+
+//Mod Name       T2Skies
+//Mission Name   Life of the Party
+//Mission File   miss11.mis
+
+
+// NewSky:Celestial1
+TagBlock "CELOBJVAR1"
+{
+	"Texture" pmoon03
+	"Angular Size" 6.00
+	"Rotation" 340.00
+}
+
+
+// NewSky:CloudDeck
+TagBlock "CLOUDOBJVAR"
+{
+	"Texture" clouds95
+	"Alpha" 1.00
+	"Height" 110.00
+	"Tile size" 220.00
+	"Wind velocity" 1.10, 1.10, 0.00
+	"Overall color" 0.25, 0.20, 0.20
+	"Glow color" 0.00, 0.00, 0.00
+}
+
+
+// NewSky:DistantArt
+TagBlock "DISTOBJVAR"
+{
+	"Texture #1" distcit
+	"Texture #2" distcit
+	"Distance" 150.00
+	"Bottom Latitutde" 120.00
+	"# of panels" 240
+	"# of panels/texture" 120
+	"Alpha" 0.30
+}

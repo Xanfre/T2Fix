@@ -1,0 +1,48 @@
+DML1
+
+FINGERPRINT
+{
+	849 [58 -47 -55]
+	118 [0 27 -57]
+	91 [-75 22 -56]
+	208 [-67 52 -44]
+	22 [-21 46 77]
+	109 [-71 41 -75]
+	412 [68 50 -56]
+	386 [40 -34 -39]
+	QVAR "goal_target_1" == 1023
+}
+
+FINGERPRINT
+{
+	QVAR "T2origmis" == 1
+}
+
+//Mod Name       T2Skies
+//Mission Name   Eavesdropping
+//Mission File   miss6.mis
+
+
+// NewSky:Celestial1
+TagBlock "CELOBJVAR1"
+{
+	"Enable Fog" TRUE
+	"Texture" pmoon06
+	"Alpha" 1.00
+	"Angular Size" 6.00
+	"Rotation" 270.00
+	"Color" 0.63, 0.63, 0.49
+}
+
+
+// NewSky:DistantArt
+TagBlock "DISTOBJVAR"
+{
+	"Texture #1" distcit
+	"Texture #2" distcit
+	"Top Latitutde" 72.00
+	"Bottom Latitutde" 118.00
+	"# of panels" 240
+	"# of panels/texture" 120
+	"Alpha" 0.90
+}

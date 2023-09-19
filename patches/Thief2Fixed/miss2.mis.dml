@@ -1,0 +1,11 @@
+DML1
+
+// Shipping... and Receiving
+
+FINGERPRINT
+{
+    QVAR "T2origmis" == 1
+}
+
+// Fix door
+-ObjProp 507 "KeyDst"

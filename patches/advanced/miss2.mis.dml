@@ -1,0 +1,27 @@
+DML1
+
+// Shipping... and Receiving: Disable training scripts
+
+FINGERPRINT
+{
+    670 [21 -99 -8]
+    293 [-74 -3 -5]
+    990 [-29 109 -8]
+    1960 [45 115 -5]
+    300 [60 46 -3]
+    1077 [-51 26 4]
+    1603 [140 115 -9]
+    856 [284 15 16]
+    QVAR "goal_target_0" == 307
+}
+
+FINGERPRINT
+{
+    QVAR "T2origmis" == 1
+}
+
+-ObjProp 109 "Scripts"
++ObjProp 109 "Scripts"
+{
+    "Script 0" VictoryCheck
+}
