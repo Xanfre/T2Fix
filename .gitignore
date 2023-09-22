@@ -1,3 +1,5 @@
-IS/
-Output/
-Resources/
+Output
+Resources
+cache
+config.sh
+oggenc*

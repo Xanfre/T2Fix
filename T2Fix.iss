@@ -142,8 +142,8 @@ Source: "{code:CDDir}\MOVIES\INTRO.AVI"; DestDir: "{app}\MOVIES"; Components: ne
 Source: "{code:CDDir}\MOVIES\SUCCESS.AVI"; DestDir: "{app}\MOVIES"; Components: newdark; Flags: external ignoreversion skipifsourcedoesntexist ignoresize
 Source: "{code:CDDir}\thief2.exe"; DestDir: "{app}"; Components: newdark; AfterInstall: BeforePatch; Flags: external ignoreversion skipifsourcedoesntexist ignoresize
 ; 1.18 patch data
-Source: "Resources\patch118\*"; Excludes: "p118res.7z"; DestDir: "{app}"; Components: newdark; Check: ExtPatchMis; Flags: ignoreversion ignoresize
-Source: "Resources\patch118\p118res.7z"; DestDir: "{tmp}"; Components: newdark; Check: ExtPatchData; Flags: ignoreversion deleteafterinstall ignoresize
+Source: "Resources\patch118\*"; Excludes: "res.7z"; DestDir: "{app}"; Components: newdark; Check: ExtPatchMis; Flags: ignoreversion ignoresize
+Source: "Resources\patch118\res.7z"; DestDir: "{tmp}"; Components: newdark; Check: ExtPatchData; Flags: ignoreversion deleteafterinstall ignoresize
 ; Helper executables
 #ifdef Mods
 Source: "Resources\Helper\oggdec.exe"; DestDir: "{tmp}"; Components: newdark and mods\t2seep; Flags: ignoreversion deleteafterinstall ignoresize
@@ -162,10 +162,11 @@ Source: "Resources\advanced\dark.gam.dml"; DestDir: "{app}"; Components: newdark
 ; DromEd 1.27
 Source: "Resources\dromed\*"; DestDir: "{app}"; Components: dromed; Flags: ignoreversion
 ; DromEd config files and tools (unnecessary if also instaling the toolkit)
-Source: "Resources\dromedtk\Tools\3ds to bin\3ds\Workshop\BSP.exe"; DestDir: "{app}"; Components: dromed and not dromed\toolkit; Flags: ignoreversion
-Source: "Resources\dromedtk\Tools\3ds to bin\3ds\Workshop\N3ds2e.exe"; DestDir: "{app}"; Components: dromed and not dromed\toolkit; Flags: ignoreversion
+Source: "Resources\dromedtk\Tools\3ds_to_bin\3ds\Workshop\BSP.exe"; DestDir: "{app}"; Components: dromed and not dromed\toolkit; Flags: ignoreversion
+Source: "Resources\dromedtk\Tools\3ds_to_bin\3ds\Workshop\N3ds2e.exe"; DestDir: "{app}"; Components: dromed and not dromed\toolkit; Flags: ignoreversion
 Source: "Resources\dromedtk\Docs\DromEd2 License.txt"; DestDir: "{app}"; DestName: "LICENSE.TXT"; Components: dromed and not dromed\toolkit; Flags: ignoreversion
-Source: "Resources\dromedcfg\*"; DestDir: "{app}"; Components: dromed and not dromed\toolkit; Flags: ignoreversion
+Source: "Resources\config\MENUS.CFG"; DestDir: "{app}"; Components: dromed and not dromed\toolkit; Flags: ignoreversion
+Source: "Resources\config\DEFAULT.BND"; DestDir: "{app}"; Components: dromed and not dromed\toolkit; Flags: ignoreversion
 ; DromEd Basic Toolkit
 Source: "Resources\dromedtk\*"; DestDir: "{app}"; Components: dromed\toolkit; Flags: ignoreversion recursesubdirs createallsubdirs
 #ifdef Mods
@@ -649,15 +650,11 @@ begin
     Execute(ExpandConstant('"{sys}\attrib.exe"'), ExpandConstant('-R "{app}\RES\*.CRF"'));
     { Install patched resources }
     SetFilenameCaption('Patching fam.crf');
-    Execute(ExpandConstant('"{tmp}\7za.exe"'), ExpandConstant('a "{app}\RES\fam.crf" "{tmp}\res\fam\*"'));
-    SetFilenameCaption('Patching intrface.crf');
-    Execute(ExpandConstant('"{tmp}\7za.exe"'), ExpandConstant('a "{app}\RES\intrface.crf" "{tmp}\res\intrface\*"'));
+    Execute(ExpandConstant('"{tmp}\7za.exe"'), ExpandConstant('a "{app}\RES\fam.crf" "{tmp}\fam\*"'));
     SetFilenameCaption('Patching mesh.crf');
-    Execute(ExpandConstant('"{tmp}\7za.exe"'), ExpandConstant('a "{app}\RES\mesh.crf" "{tmp}\res\mesh\*"'));
+    Execute(ExpandConstant('"{tmp}\7za.exe"'), ExpandConstant('a "{app}\RES\mesh.crf" "{tmp}\mesh\*"'));
     SetFilenameCaption('Patching obj.crf');
-    Execute(ExpandConstant('"{tmp}\7za.exe"'), ExpandConstant('a "{app}\RES\obj.crf" "{tmp}\res\obj\*"'));
-    SetFilenameCaption('Patching snd.crf');
-    Execute(ExpandConstant('"{tmp}\7za.exe"'), ExpandConstant('a "{app}\RES\snd.crf" "{tmp}\res\snd\*"'));
+    Execute(ExpandConstant('"{tmp}\7za.exe"'), ExpandConstant('a "{app}\RES\obj.crf" "{tmp}\obj\*"'));
     { Install English-specific patched resources }
     if not (Pos('english', Lang) = 0) then begin
       SetFilenameCaption('Patching books.crf (English)');
@@ -1445,17 +1442,17 @@ begin
     DeleteFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Obj\txt16\BLACJAC4.png'));
     DeleteFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Obj\txt16\hiltsx.tga'));
     RenameFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Obj\Disabled\blacjack.bin'), ExpandConstant('{app}\MODS\Thief2 Fixed\Obj\blacjack.bin'));
-    RenameFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Obj\Disabled\txt16\BLACJAC4.png'), ExpandConstant('{app}\MODS\Thief2 Fixed\Obj\txt16\BLACJAC4.png'));
-    RenameFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Obj\Disabled\txt16\hiltsx.tga'), ExpandConstant('{app}\MODS\Thief2 Fixed\Obj\txt16\hiltsx.tga'));
+    RenameFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Obj\txt16\Disabled\BLACJAC4.png'), ExpandConstant('{app}\MODS\Thief2 Fixed\Obj\txt16\BLACJAC4.png'));
+    RenameFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Obj\txt16\Disabled\hiltsx.tga'), ExpandConstant('{app}\MODS\Thief2 Fixed\Obj\txt16\hiltsx.tga'));
     DelTree(ExpandConstant('{app}\MODS\Thief2 Fixed\Obj\Disabled'), True, True, True);
     DeleteFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\bjachand.bin'));
     DeleteFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\txt16\bjhand.tga'));
     DeleteFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\txt16\hiltsx.tga'));
     DeleteFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\txt16\swhand.tga'));
     RenameFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\Disabled\bjachand.bin'), ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\bjachand.bin'));
-    RenameFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\Disabled\txt16\bjhand.tga'), ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\txt16\bjhand.tga'));
-    RenameFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\Disabled\txt16\Hiltsx.tga'), ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\txt16\Hiltsx.tga'));
-    RenameFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\Disabled\txt16\swhand.tga'), ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\txt16\swhand.tga'));
+    RenameFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\txt16\Disabled\bjhand.tga'), ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\txt16\bjhand.tga'));
+    RenameFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\txt16\Disabled\Hiltsx.tga'), ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\txt16\Hiltsx.tga'));
+    RenameFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\txt16\Disabled\swhand.tga'), ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\txt16\swhand.tga'));
     DelTree(ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\Disabled'), True, True, True);
   end;
 end;

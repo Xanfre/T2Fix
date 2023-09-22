@@ -66,7 +66,7 @@ ALL_OBJS = $(SCR_OBJS) $(BASE_OBJS) $(OSM_OBJS) $(MISC_OBJS) $(RES_OBJS)
 all: $(bindirectories) miss16.osm
 
 clean:
-	del /y /q $(bindir)\*.*
+	del /q $(bindir)\*.*
 	del /q *.osm *.lib *.exp *.manifest
 
 $(bindir):
