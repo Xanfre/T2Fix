@@ -1,0 +1,139 @@
+T2Fix Changelog
+
+next
+-Included a minor mission fix
+    -Fix misplaced ambient markers at the entrances to Angelwatch in Life of
+     the Party
+-Added a NewDark-compatible LgScript distribution
+-Updated NVScript to 1.3.0
+-Updated OpenAL Soft to 1.23.1
+-Updated various components in the DromEd Basic Toolkit
+    -Updated GoalMaster to 1.01
+    -Updated ConvMaster to 2.0.1
+    -Replaced DEOCI with BinMaster
+-Updated ddfix to 1.5.13
+-NVScript is now compatible with Windows 2000
+-It is now possible to use FMSel with the legacy executables
+-The multiplayer scripts can now be safely used with the singleplayer
+ executable
+-It is now possible to complete the final mission with the multiplayer script
+ modules
+-Fixed the mouse sensitivity issue when deselecting an active weapon
+-Fixed water arrow culpability
+
+v1.27e
+-Added the Dark Mod Manager component
+-Updated T2FMDML to Release 4
+-The DromEd Basic Toolkit is now separately selectable from DromEd proper
+-Scripts are now an optional component
+-Updated NVScript to the latest beta
+-Included more minor mission fixes
+    -Filled in an air pocket under a bed of lava in Kidnap
+    -Fixed a missing room brush in Life of the Party
+-Setup no longer requires elevated privileges for normal operation
+-Added an option to preserve existing video configuration
+-Changes to the Wizard Form:
+    -Added 'Restore Previous Setup' button on the component selection page
+-Additional minor changes
+
+v1.27d
+-Updated T2FMDML to Release 3
+-Included a few mission fixes
+    -Addressed a missing texture in Kidnap
+    -Reaching the streets in Life of the Party will more consistently fail the
+     mission
+-Fixed a couple of objects with textures that failed to animate
+-OpenAL Soft is no longer the default OpenAL device
+-Updated NVScript to the latest beta
+-Fixed a problem in T2Fix.osm that could cause issues in some missions
+-Changes to the Wizard Form
+    -Added an 'Always install 1.18 Resources' button to the advanced options
+-Additional minor changes
+
+v1.27c
+-FMSel will now generate fan mission mission flags if required upon installing
+a mission
+    -Can be enabled or disabled under "Install Options" in the FMSel UI
+-Implemented a more thorough resource check
+-Included a few minor mission fixes
+    -Fixed an issue with a door in Shipping
+    -Fixed an issue with an alarm relay in Soulforge
+-EP is no longer selected by default on the 'Standard' installation type
+-Updated NVScript to 1.27
+-Updated OpenAL Soft to 1.20.1
+-All fixed first-party scripts are now contained within T2Fix.osm
+-Changes to the Wizard Form:
+    -'Advanced' button now scales properly on high-DPI displays
+-Additional minor changes
+
+v1.27b
+-Updated Thief2 Fixed to 1.3b
+-Updated T2FMDML to Release 2
+-Separated Thief 2 Multiplayer script modules to avoid compatibility issues
+-Subtitiles are now configured in cam_ext.cfg rather than user.cfg
+-Fixed EP's elevbut.bin
+-Fixed scripts
+    -LoadUp and Tally
+    -TrigRoomDeposit
+    -ZombieRegen
+    -Teleport
+    -ExtractionRoom
+    -VersionCheck (Public Scripts)
+-tnhScript is now loaded by default
+-Significantly reduced size of setup executable
+-Changes to the Wizard Form:
+    -Added 'Advanced Options' page that accessible from the Components
+     selection page
+-Various minor changes
+
+v1.27a
+-Added T2FMDML component
+-Fixed incorrect zombie parts
+-Mantling changes are now implemented with the removeable dark.gam.dml
+-Changes to the Wizard Form:
+    -Improved behavior of the components selection page
+    -Modified layour of the components selection page
+
+v1.27
+-Updated all core files to NewDark 1.27
+-Added Thief 2 Multiplayer component as it was included with NewDark 1.27
+-The fixed schemas are now only installed if DromEd is selected
+-Fixed a texture in Running Interference
+-EP now accounts for books\parch2
+-Removed the cave texture family fix introduced in version 1.26b because it is
+ no longer necessary
+-Setup will now issue a warning if the installation directory and install media
+ location are the same
+-The default component description text is now colored gray
+-Other minor changes
+
+v1.26b
+-Properly configured t2skies for Masks
+-Tweaked loading behavior of the included scripts
+-Added missing family palette to the cave texture family
+-Modified DARK.CFG to increase the default object limit
+-Several minor mission fixes
+-Fixed an issue that caused the Legacy Executables to crash intermittently
+ during gameplay
+-Setup will now warn the user if the "Program Files" directory is selected (This
+ warning can be ignored if desired)
+-Reduced the physical size of the setup executable
+-Changes to the Wizard Form:
+    -The Wizard window is now larger by default
+    -The Wizard window can now be resized
+    -Colors have been tweaked to be more appealing
+-Various under-the-hood improvements
+
+v1.26a
+-Updated libmp3lame to version 3.100
+-script-t2.osm is now autoloaded again
+-script.osm is now present in the OSM directory
+-The FMs folder is now created while patching
+-Mission Fixes
+    -Fixed instances of incorrect scaling in "Running Interference" and
+     "Shipping ... and Receiving"
+    -Fixed several floating objects in "Casing the Joint" and "Masks"
+
+v1.26
+-Initial Release
+
