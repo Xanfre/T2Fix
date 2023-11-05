@@ -95,7 +95,7 @@ char g_gameBinary[MAX_CFG_BUF] = "thief2_ddfix.exe";
 #else
 char g_gameBinary[MAX_CFG_BUF] = "thief2_ddfix.sh";
 #endif
-char g_FMDir[MAX_CFG_BUF] = "OLDFMs";
+char g_FMDir[MAX_CFG_BUF] = "OldFMs";
 char g_FMName[MAX_CFG_BUF] = "";
 
 /*

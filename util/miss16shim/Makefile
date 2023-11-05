@@ -65,7 +65,7 @@ LDFLAGS = -mwindows -mdll -Wl,--enable-auto-image-base
 LIBDIRS = -L. -L$(LGDIR)
 LIBS = $(LGLIB) -luuid
 INCLUDES = -I. -I$(srcdir) -I$(LGDIR)
-CXXFLAGS = -W -Wall -masm=intel
+CXXFLAGS = -Wall -Wextra -masm=intel
 DLLFLAGS = --add-underscore
 
 OSM_OBJS = $(bindir)/ScriptModule.o $(bindir)/Script.o $(bindir)/Allocator.o $(bindir)/exports.o

@@ -1,5 +1,8 @@
 Output
+p_*.isl
 Resources
+.t2fix
 cache
 config.sh
 oggenc*
+todo.txt

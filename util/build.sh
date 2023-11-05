@@ -1,5 +1,10 @@
 #!/bin/sh
 # Build utilities.
+#
+# NOTE: This script is indended to be used with Microsoft Visual C++ 9, which is
+# included with Visual Studio 2008. If you plan to use other tools (i.e. MinGW),
+# build them manually using the provided makefiles prior to fetching resources
+# and building the installers.
 
 cd $(dirname $0)
 
@@ -12,7 +17,8 @@ fi
 nmake()
 {
 	# In config.sh, set VSPATH and SDKPATH to the locations of your base Visual
-	# Studio installation and your Windows SDK installation, respectively.
+	# Studio 2008 or Visual C++ 9 installation and your Windows SDK installation,
+	# respectively.
 	# Also, set WINE to 'wine' or the location of your Wine binary if you need
 	# to use it.
 	ARGS=$1

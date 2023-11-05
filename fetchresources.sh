@@ -142,6 +142,7 @@ extract t2_v127.zip cache/t2_v127 new_dark.zip\ contrib.zip\ editor.zip\ mp.zip\
 for i in newdark config advanced multiplayer; do mkdir -p Resources/$i; done
 extract t2_v127/new_dark.zip Resources/newdark
 for i in cam_ext.cfg cam_mod.ini; do mv Resources/newdark/$i Resources/config/; done
+printf '\r\n;use high-quality object textures\r\nObjTextures16\r\nMeshTextures16\r\n' >> Resources/config/cam_ext.cfg
 for i in txt exe; do cp -p cache/t2_v127/*.$i Resources/newdark/; done
 extract t2_v127/contrib.zip Resources/newdark/
 extract t2_v127/mp.zip Resources/multiplayer/
@@ -162,6 +163,7 @@ for i in fam mesh obj; do mkdir -p Resources/patch118/$i; extract ../Resources/p
 for i in books intrface snd strings; do mkdir -p Resources/patch118/english/$i; extract ../Resources/patch118/english/$i.crf Resources/patch118/english/$i; rm -f Resources/patch118/$i.crf; done
 for i in books intrface strings; do mkdir -p Resources/patch118/german/$i; extract ../Resources/patch118/german/$i.crf Resources/patch118/german/$i; rm -f Resources/patch118/$i.crf; done
 cd Resources/patch118
+rm -rf *.crf english/*.crf german/*.crf
 archive res.7z fam\ mesh\ obj\ english\ german
 rm -rf fam mesh obj english german
 cd ../..
@@ -280,6 +282,7 @@ for i in Sword SwordCon Swords; do rm -f Resources/mods/EP/Obj/$i.bin; done
 for i in BladeSP SwordBl sw2_blade; do rm -f Resources/mods/EP/Obj/Txt16/$i.gif; done
 cp -p patches/ep/obj/*.bin Resources/mods/EP/Obj/
 cp -p patches/ep/obj/txt16/*.[gG][iI][fF] Resources/mods/EP/Obj/Txt16/
+rm -rf cache/EP
 # Thief 2 Sound Effects Enhancement Mod
 extract Thief2SoundFXEnhancement.exe cache SoundUpdate/NewT2SFX.7z
 mkdir -p Resources/mods/NewT2SFX/snd

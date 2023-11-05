@@ -1,12 +1,21 @@
 ﻿; T2Fix Lite
 ; Setup Script
 
-; Version information
+; Version Information
 #define FName "T2Fix Lite"
 #define FLongName "Thief 2 Fixer Lite"
 #define FVer "1.27e"
 
-; Define basic setup characteristics
+; Language File Processing Routines
+#include "lang.iss"
+
+; IS5 Compatibility
+#if Ver < 0x06000000
+#pragma message "Building with IS5 Compatibility"
+#define IS5
+#endif
+
+; Define basic setup characteristics.
 [Setup]
 AppName={#FLongName}
 AppVersion={#FVer}
@@ -25,16 +34,22 @@ DisableProgramGroupPage=yes
 DisableReadyPage=yes
 Uninstallable=no
 WizardStyle=modern
+#ifndef IS5
+MinVersion=6.0
+#endif
 
-; Define files to be included within the setup executable
+; Define files to be included within the setup executable.
 [Files]
 Source: "Resources\newdark\*"; DestDir: "{app}"; Flags: ignoreversion recursesubdirs createallsubdirs
 Source: "Resources\config\cam_mod.ini"; DestDir: "{app}"; Flags: ignoreversion
 Source: "Resources\config\cam_ext.cfg"; DestDir: "{app}"; Flags: ignoreversion
 
-; Pascal script for more thorough setup customization and work
+[Languages]
+Name: "english"; MessagesFile: "compiler:Default.isl,{#ProcessLanguage("en.isl")}"
+
+; Pascal script for more thorough setup customization and work.
 [Code]
-{ Detect if setup has write access to the currently-selected directory }
+{ Detect if setup has write access to the currently-selected directory. }
 function HaveDirWriteAccess(): Boolean;
 var
   FileName: String;
@@ -45,33 +60,20 @@ begin
     DeleteFile(FileName);
 end;
 
-{ Handle checks necessary when moving to the next page }
+{ Handle checks necessary when moving to the next page. }
 function NextButtonClick(PageId: Integer): Boolean;
 begin
   Result := True;
   if (PageId = wpSelectDir) then begin
     if not FileExists(ExpandConstant('{app}\thief2.exe')) then begin
-      SuppressibleMsgBox('A valid Thief 2 install was not detected. Please select a directory in which the game is installed.', mbError, MB_OK, IDOK);
+      SuppressibleMsgBox(CustomMessage('T2Invalid'), mbError, MB_OK, IDOK);
       Result := False;
       Exit;
     end;
     if not HaveDirWriteAccess then begin
-      SuppressibleMsgBox('{#FName} cannot write to the specified directory. Please choose a directory to which you have write access.', mbError, MB_OK, IDOK);
+      SuppressibleMsgBox(CustomMessage('NoDirWrite'), mbError, MB_OK, IDOK);
       Result := False;
       Exit;
     end
   end;
 end;
-
-[Messages]
-SetupAppTitle={#FName}
-SetupWindowTitle={#FLongName} {#FVer}
-FinishedHeadingLabel={#FLongName} Setup Complete 
-FinishedLabelNoIcons=Setup has finished installing.
-FinishedLabel=Setup has finished installing.
-ExitSetupTitle=Exit {#FName}
-ExitSetupMessage=Are you sure you want to exit?
-SelectDirDesc=Select the location of your existing Thief 2 installation.
-SelectDirLabel3=Setup will install {#FName} into the following directory.
-PreparingDesc=Setup is preparing to install {#FName} on your computer.
-InstallingLabel=Please wait while Setup installs {#FName} on your computer.
