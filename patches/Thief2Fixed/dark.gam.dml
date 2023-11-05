@@ -4,22 +4,22 @@ DML1
 
 #script "squirrel"
 
-// Use fixed transformer model
+// Use fixed transformer model.
 ObjProp "Transformer03" "ModelName"
 {
-    "" etranfix
+	"" etranfix
 }
-// Fix zombie parts
+// Fix zombie parts.
 CreateArch "MetaProperty" "M-T2FZombieParts"
 {
-    +ObjProp "Scripts"
-    {
-        "Script 0" T2FZombieParts
-        "Script 1" ""
-        "Script 2" ""
-        "Script 3" ""
-        "Don't Inherit" false
-    }
+	+ObjProp "Scripts"
+	{
+		"Script 0" T2FZombieParts
+		"Script 1" ""
+		"Script 2" ""
+		"Script 3" ""
+		"Don't Inherit" false
+	}
 }
 MetaProp "ZombieTypes" "M-T2FZombieParts"
 -Link "M-ZombieParts" "ZomHand" "CorpsePart"
@@ -30,7 +30,7 @@ MetaProp "ZombieTypes" "M-T2FZombieParts"
 }
 +ObjProp "ZomLeg+Foot" "PhysDims"
 {
-    "Radius 1" 0.30
+	"Radius 1" 0.30
 }
 -ObjProp "ZomHand" "CollisionType"
 +ObjProp "ZomHand" "PhysType"
@@ -41,113 +41,113 @@ MetaProp "ZombieTypes" "M-T2FZombieParts"
 }
 ObjProp "BodyParts" "CfgTweqDelete"
 {
-    "AnimC" OffScreen
-    "Rate" 10000
+	"AnimC" OffScreen
+	"Rate" 10000
 }
 +ObjProp "BodyParts" "PhysAIColl"
 {
-    "" true
+	"" true
 }
 ObjProp "ZomHead" "ModelName"
 {
-    "" zom3a
+	"" zom3a
 }
 ObjProp "ZomTorso" "ModelName"
 {
-    "" zom3b
+	"" zom3b
 }
 ObjProp "ZomArm+Hand" "ModelName"
 {
-    "" zom3c
+	"" zom3c
 }
 ObjProp "ZomPelvis+Thigh" "ModelName"
 {
-    "" zom3d
+	"" zom3d
 }
 ObjProp "ZomLeg" "ModelName"
 {
-    "" zom3e
+	"" zom3e
 }
 ObjProp "ZomLeg+Foot" "ModelName"
 {
-    "" zom3f
+	"" zom3f
 }
 CreateArch "ZomHead" "FreshZomHead"
 {
-    +ObjProp "ModelName"
-    {
-        "" zom1a
-    }
+	+ObjProp "ModelName"
+	{
+		"" zom1a
+	}
 }
 CreateArch "ZomTorso" "FreshZomTorso"
 {
-    +ObjProp "ModelName"
-    {
-        "" zom1b
-    }
+	+ObjProp "ModelName"
+	{
+		"" zom1b
+	}
 }
 CreateArch "ZomHand" "FreshZomHand"
 {
-    +ObjProp "ModelName"
-    {
-        "" zom1c
-    }
+	+ObjProp "ModelName"
+	{
+		"" zom1c
+	}
 }
 CreateArch "ZomArm+Hand" "FreshZomArm+Hand"
 {
-    +ObjProp "ModelName"
-    {
-        "" zom1d
-    }
+	+ObjProp "ModelName"
+	{
+		"" zom1d
+	}
 }
 CreateArch "ZomPelvis+Thigh" "FreshZomPelvis+Thigh"
 {
-    +ObjProp "ModelName"
-    {
-        "" zom1e
-    }
+	+ObjProp "ModelName"
+	{
+		"" zom1e
+	}
 }
 CreateArch "ZomLeg+Foot" "FreshZomLeg+Foot"
 {
-    +ObjProp "ModelName"
-    {
-        "" zom1f
-    }
+	+ObjProp "ModelName"
+	{
+		"" zom1f
+	}
 }
 CreateArch "ZomHead" "FemZomHead"
 {
-    +ObjProp "ModelName"
-    {
-        "" zom2a
-    }
+	+ObjProp "ModelName"
+	{
+		"" zom2a
+	}
 }
 CreateArch "ZomTorso" "FemZomTorso"
 {
-    +ObjProp "ModelName"
-    {
-        "" zom2b
-    }
+	+ObjProp "ModelName"
+	{
+		"" zom2b
+	}
 }
 CreateArch "ZomArm+Hand" "FemZomArm+Hand"
 {
-    +ObjProp "ModelName"
-    {
-        "" zom2c
-    }
+	+ObjProp "ModelName"
+	{
+		"" zom2c
+	}
 }
 CreateArch "ZomHand" "FemZomHand"
 {
-    +ObjProp "ModelName"
-    {
-        "" zom2d
-    }
+	+ObjProp "ModelName"
+	{
+		"" zom2d
+	}
 }
 CreateArch "ZomPelvis+Thigh" "FemZomPelvis+Thigh"
 {
-    +ObjProp "ModelName"
-    {
-        "" zom2e
-    }
+	+ObjProp "ModelName"
+	{
+		"" zom2e
+	}
 }
 CreateArch "M-ZombieBehaviors" "M-FreshZombieParts"
 CreateArch "M-ZombieBehaviors" "M-FemZombieParts"

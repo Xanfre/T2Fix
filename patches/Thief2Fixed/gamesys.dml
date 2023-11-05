@@ -1,6 +1,6 @@
 DML1
 
-// Add proper alpha to avoid sharp edges on plants
+// Add proper alpha to avoid sharp edges on plants.
 ObjProp "VineDecal1" "RenderAlpha" = 0.9999
 ObjProp "VineDecal2" "RenderAlpha" = 0.9999
 ObjProp "VineDecal2" "RenderAlpha" = 0.9999
@@ -9,10 +9,33 @@ ObjProp "DetBush2Summer" "RenderAlpha" = 0.9999
 ObjProp "FlowerPlant" "RenderAlpha" = 0.9999
 ObjProp "Grass1" "RenderAlpha" = 0.9999
 ObjProp "FernPlant" "RenderAlpha" = 0.9999
-// Add proper alpha to avoid sharp edges on blood stains
+// Add proper alpha to avoid sharp edges on blood stains.
 +ObjProp "bloodstain" "RenderAlpha" = 0.9999
-// Fix hammer dimensions
+// Fix hammer dimensions.
 +ObjProp "Hammers" "PhysDims"
 {
     "Radius 1" 0.34
 }
+// Fix water arrow culpability.
+-ObjProp "water" "ParticleType"
++Link "water" "H2OCore" "Corpse"
+{
+}
+-ObjProp "HolyH2OArrow" "ParticleType"
++Link "HolyH2OArrow" "HolyH2OCore" "Corpse"
+{
+}
+// Fix weapon deselect mouse sensitivity issue.
+CreateArch "MetaProperty" "M-T2FWeaponFix"
+{
+    +ObjProp "Scripts"
+    {
+        "Script 0" T2FWeaponFix
+        "Script 1" ""
+        "Script 2" ""
+        "Script 3" ""
+        "Don't Inherit" false
+    }
+}
+MetaProp "Blackjack" "M-T2FWeaponFix"
+MetaProp "Sword" "M-T2FWeaponFix"
