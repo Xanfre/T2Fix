@@ -16,6 +16,43 @@ ObjProp "FernPlant" "RenderAlpha" = 0.9999
 {
     "Radius 1" 0.34
 }
+// Fix carried body bitmaps.
+-ObjProp "Creature" "InvRendType"
++ObjProp "Haunt" "InvRendType"
+{
+	"Type" Alternate Bitmap
+	"Resource" hauntca
+}
++ObjProp "ham guard" "InvRendType"
+{
+	"Type" Alternate Bitmap
+	"Resource" hamgca
+}
++ObjProp "HammerCorpse" "InvRendType"
+{
+	"Type" Alternate Bitmap
+	"Resource" hamgca
+}
++ObjProp "Mech_priest" "InvRendType"
+{
+	"Type" Alternate Bitmap
+	"Resource" cmecprs
+}
++ObjProp "KeeperAgent" "InvRendType"
+{
+	"Type" Alternate Bitmap
+	"Resource" ckeeper
+}
++ObjProp "hamguard2" "InvRendType"
+{
+	"Type" Alternate Bitmap
+	"Resource" hamgca
+}
+// Fix zombies standing up sometimes when loading
++ObjProp "M-ZombiePossum" "MotActorTagList"
+{
+	"tags" Nothing 0
+}
 // Fix water arrow culpability.
 -ObjProp "water" "ParticleType"
 +Link "water" "H2OCore" "Corpse"
