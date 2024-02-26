@@ -198,8 +198,10 @@ cp -p Resources/config/cam.cfg Resources/olddark/old.cfg
 sed -i "s|darkinst|oldinst|" Resources/olddark/old.cfg
 cp -p util/oldfm/oldfm.exe Resources/olddark/
 cp -p config/oldfm.cfg Resources/olddark/
-# NVScript
+# Squirrel
 mkdir -p Resources/osm/OSM
+cp -p Resources/newdark/squirrel.osm Resources/osm/OSM/
+# NVScript
 extract NVScript-T2.zip Resources/osm/OSM
 # tnhScript
 extract tnhscript21-final.zip Resources/osm/OSM tnhScript.osm\ Readme.txt
@@ -231,6 +233,7 @@ mv Resources/mods/Thief2\ Fixed/Mesh/bjachand.bin Resources/mods/Thief2\ Fixed/M
 for i in Hiltsx.tga bjhand.tga swhand.tga; do mv Resources/mods/Thief2\ Fixed/Mesh/txt16/$i Resources/mods/Thief2\ Fixed/Mesh/txt16/disabled/; done
 for i in *.dml sq_scripts; do cp -rp patches/Thief2Fixed/$i Resources/mods/Thief2\ Fixed/; done
 cp -p patches/Thief2Fixed/obj/*.bin Resources/mods/Thief2\ Fixed/Obj/
+cp -p patches/Thief2Fixed/obj/*.pcx Resources/mods/Thief2\ Fixed/Obj/
 cp -p patches/Thief2Fixed/obj/txt/* Resources/mods/Thief2\ Fixed/Obj/txt/
 cp -p patches/Thief2Fixed/obj/txt16/* Resources/mods/Thief2\ Fixed/Obj/Txt16/
 cp -p patches/Thief2Fixed/mesh/*.bin Resources/mods/Thief2\ Fixed/Mesh/
