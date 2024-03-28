@@ -76,7 +76,7 @@ curl_fetch ddfix.zip https://github.com/Xanfre/ddfix/releases/download/1.5.13-20
 curl_fetch thief2-118.zip http://aluigi.altervista.org/patches/thief2-118.zip 1692d4c9aa0ea4cf99b2c668e0ff664e4846f6c2007c542eb494b07108757414
 curl_fetch oldlgvid.zip "https://drive.google.com/uc?export=download&id=1V3_1ZLUoht_SO7MWcOyx_UR11F8N5xok" b94c257cd97219bb62405647a2c899dbcf01169e95cdb2ce3397f855991a1537
 # NVScript
-curl_fetch NVScript-T2.zip https://github.com/Xanfre/nvscript/releases/download/v1.3.0/NVScript-T2.zip 631b4714a3d52d67485bee6ae1ca706a8caa03fa7e20f6201faf02d9667b6338
+curl_fetch NVScript-T2.zip https://github.com/Xanfre/nvscript/releases/download/v1.3.1/NVScript-T2.zip 7cd394f45e08528c74ff3239e81be46444855291b6f1de9ee9f2369b117bb09f
 # tnhScript
 curl_fetch tnhscript21-final.zip https://whoopdedo.org/tnhscript21-final.zip a86ce9ade83956d72ae1aeac2251c69ceb3521e20df527cc4423d333dc48b219
 # Public Scripts
@@ -85,7 +85,7 @@ curl_fetch pubscripts22.zip https://github.com/Xanfre/publicscripts/releases/dow
 # LgScript
 curl_fetch lgscript1.zip https://github.com/Xanfre/lgscript/releases/download/1.0-20230917/lgscript1.zip 86cb2f04b2e4f50b366ce882926e17190454191a6a7af6eba74ddf40087114bb
 # DMM
-curl_fetch dmm.exe https://github.com/pshjt/dmm/releases/download/v1.0.1/dmm.exe d556ba53cc9d21ba6d63b029c4b77baec8f8a15f5d7ca2535c879094563e18c9
+curl_fetch dmm.exe https://github.com/pshjt/dmm/releases/download/v1.1.1/dmm.exe 6533e8149b6b2a7845ee1b05c06dd514d2b5442150b187295436ccaa60f9803e
 # AM16's Thief2 Fixed
 test -f "cache/AM16's_Thief2_Fixed_${T2FIXED_VER}.zip" || curl -o cache/mfmeta "https://www.mediafire.com/file/pm5v0ie9j8yukmr/AM16's_Thief2_Fixed_${T2FIXED_VER}.zip/file"
 curl_fetch "AM16's_Thief2_Fixed_${T2FIXED_VER}.zip" $(grep -o "https://download.*\.mediafire.com/.*" cache/mfmeta | cut -f1 -d\") 39545018017256ebc7195fe0b6f1ff7a4fdb7f18fdfde8dc636b90d237525130
