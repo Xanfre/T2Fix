@@ -271,6 +271,7 @@ find Resources/mods/t2water/FAM/WATERHW -type f -name '*in*' | while read FILE; 
 done
 rm -rf Resources/mods/t2water/RES
 cp -p cache/t2water_ambush.jpg Resources/mods/t2water/images
+cp -p patches/t2water/*.mtl Resources/mods/t2water/FAM/WATERHW/
 apply_patch Resources/mods/t2water ../../../patches/t2water.patch
 # EP
 mkdir -p cache/EP
