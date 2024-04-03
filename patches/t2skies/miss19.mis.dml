@@ -1,0 +1,22 @@
+DML1
+
+// T2x skies - Trials That Shape Us (miss19.mis)
+FINGERPRINT
+{
+	1820 [-219 -140 1]
+	1285 [-219 -262 8]
+	1729 [-96 -233 -4]
+	1549 [-113 -132 17]
+	801 [-103 -22 7]
+	150 [-301 -119 -5]
+	637 [-242 -171 42]
+	1591 [-209 -234 31]
+	QVAR "goal_target_1" == 525
+}
+
+// cloud deck
+TagBlock "CLOUDOBJVAR"
+{
+	"Texture" clouds95
+	"Alpha" 0.5
+}

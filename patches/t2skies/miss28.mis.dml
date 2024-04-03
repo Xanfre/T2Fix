@@ -1,0 +1,35 @@
+DML1
+
+// T2x skies -  Grand Hotel (miss28.mis)
+FINGERPRINT
+{
+	375 [533 143 -18]
+	669 [639 -87 -12]
+	1946 [611 58 -38]
+	2053 [634 -190 -18]
+	720 [640 56 -9]
+	530 [484 83 -18]
+	2386 [482 61 7]
+	939 [788 98 -18]
+	QVAR "goal_target_0" == 1074
+}
+
+// celestial
+TagBlock "CELOBJVAR1"
+{
+	"Enable Fog" 0
+	"Texture" pmoon09
+}
+
+// cloud deck
+TagBlock "CLOUDOBJVAR"
+{
+	"Texture" clouds75
+}
+
+// distant art
+TagBlock "DISTOBJVAR"
+{
+	"Texture #1" distcit
+	"Texture #2" distcit
+}

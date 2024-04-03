@@ -1,0 +1,28 @@
+DML1
+
+// T2x skies - Down Among Dead Men (miss24.mis)
+FINGERPRINT
+{
+	1027 [-235 -46 42]
+	1517 [-433 106 68]
+	1774 [-237 136 67]
+	1545 [-361 35 42]
+	1811 [-340 49 36]
+	265 [-344 136 107]
+	1738 [-218 -35 36]
+	1093 [-223 23 52]
+	QVAR "goal_target_6" == 1235
+}
+
+// celestial
+TagBlock "CELOBJVAR1"
+{
+	"Enable Fog" 0
+	"Texture" pmoon07
+}
+
+// cloud deck
+TagBlock "CLOUDOBJVAR"
+{
+	"Texture" clouds75
+}

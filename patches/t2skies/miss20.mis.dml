@@ -1,0 +1,36 @@
+DML1
+
+// T2x skies - While the City Sleeps (miss20.mis)
+FINGERPRINT
+{
+	1319 [-242 511 -1]
+	151 [-259 323 -1]
+	1373 [-86 8 13]
+	312 [-335 351 0]
+	883 [-256 464 2]
+	773 [-317 453 -1]
+	1290 [-233 378 -9]
+	1124 [-221 556 -4]
+	QVAR "goal_target_0" == 2245
+}
+
+// celestial
+TagBlock "CELOBJVAR1"
+{
+	"Enable Fog" 0
+	"Texture" pmoon11
+}
+
+// cloud deck
+TagBlock "CLOUDOBJVAR"
+{
+	"Texture" clouds95
+	"Alpha" 0.7
+}
+
+// distant art
+TagBlock "DISTOBJVAR"
+{
+	"Texture #1" distcit
+	"Texture #2" distcit
+}

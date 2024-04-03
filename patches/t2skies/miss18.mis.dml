@@ -1,0 +1,21 @@
+DML1
+
+// T2x skies - Unexpected Shelter (miss18.mis)
+FINGERPRINT
+{
+	168 [-241 77 -40]
+	1718 [392 636 -73]
+	1353 [25 112 -50]
+	748 [41 332 -49]
+	105 [-97 101 -27]
+	1691 [212 389 -77]
+	1894 [-125 16 -38]
+	1716 [-224 34 -36]
+	QVAR "goal_target_2" == 424
+}
+
+// cloud deck
+TagBlock "CLOUDOBJVAR"
+{
+	"Texture" clouds95
+}

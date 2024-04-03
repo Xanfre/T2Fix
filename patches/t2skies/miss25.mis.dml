@@ -1,0 +1,35 @@
+DML1
+
+// T2x skies - Art of Deception (miss25.mis)
+FINGERPRINT
+{
+	720 [465 205 -59]
+	748 [198 394 -55]
+	650 [381 433 -67]
+	1329 [391 364 -51]
+	731 [224 75 -55]
+	479 [463 199 -61]
+	372 [356 322 -50]
+	756 [48 51 -51]
+	QVAR "goal_target_3" == 163
+}
+
+// celestial
+TagBlock "CELOBJVAR1"
+{
+	"Enable Fog" 0
+	"Texture" pmoon05
+}
+
+// cloud deck
+TagBlock "CLOUDOBJVAR"
+{
+	"Texture" clouds75
+}
+
+// distant art
+TagBlock "DISTOBJVAR"
+{
+	"Texture #1" citcoun
+	"Texture #2" citcoun
+}

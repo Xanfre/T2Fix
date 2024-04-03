@@ -1,0 +1,35 @@
+DML1
+
+// T2x skies - Question of Knowledge (miss23.mis)
+FINGERPRINT
+{
+	1253 [-160 107 -24]
+	1304 [-111 158 -24]
+	1950 [-200 -1 -24]
+	54 [-38 16 -34]
+	43 [-109 164 -14]
+	746 [-100 187 -33]
+	609 [-94 200 -33]
+	1275 [-254 30 -34]
+	QVAR "goal_target_7" == 1200
+}
+
+// celestial
+TagBlock "CELOBJVAR1"
+{
+	"Enable Fog" 0
+	"Texture" pmoon05
+}
+
+// cloud deck
+TagBlock "CLOUDOBJVAR"
+{
+	"Texture" clouds75
+}
+
+// distant art
+TagBlock "DISTOBJVAR"
+{
+	"Texture #1" citcoun
+	"Texture #2" citcoun
+}

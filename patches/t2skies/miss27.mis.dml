@@ -1,0 +1,35 @@
+DML1
+
+// T2x skies - Ill Repute (miss27.mis)
+FINGERPRINT
+{
+	631 [-274 57 -32]
+	1755 [-242 -169 16]
+	1113 [-184 -41 -35]
+	1077 [-303 -5 -31]
+	1379 [-113 16 6]
+	1009 [-232 -156 -2]
+	831 [-267 10 -35]
+	1734 [-217 -21 -34]
+	QVAR "goal_target_0" == 1151
+}
+
+// celestial
+TagBlock "CELOBJVAR1"
+{
+	"Enable Fog" 0
+	"Texture" pmoon08
+}
+
+// cloud deck
+TagBlock "CLOUDOBJVAR"
+{
+	"Texture" clouds75
+}
+
+// distant art
+TagBlock "DISTOBJVAR"
+{
+	"Texture #1" distcit
+	"Texture #2" distcit
+}

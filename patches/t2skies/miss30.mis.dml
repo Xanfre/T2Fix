@@ -1,0 +1,28 @@
+DML1
+
+// T2x skies -  Betrayal (miss30.mis)
+FINGERPRINT
+{
+	674 [24 234 -2]
+	210 [333 124 57]
+	343 [179 62 41]
+	820 [-1 -124 -2]
+	1242 [166 54 42]
+	1072 [232 348 -25]
+	963 [-62 -149 7]
+	1040 [239 229 -22]
+	NAME 196 "Beasty"
+}
+
+// celestial
+TagBlock "CELOBJVAR1"
+{
+	"Enable Fog" 0
+	"Texture" pmoon09
+}
+
+// cloud deck
+TagBlock "CLOUDOBJVAR"
+{
+	"Texture" clouds75
+}

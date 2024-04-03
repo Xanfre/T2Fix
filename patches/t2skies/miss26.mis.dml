@@ -1,0 +1,22 @@
+DML1
+
+// T2x skies -  Into the Fray (miss26.mis)
+FINGERPRINT
+{
+	932 [-253 -103 24]
+	647 [-309 -117 31]
+	359 [-192 -338 27]
+	1368 [-436 -179 18]
+	889 [-278 -242 15]
+	1001 [-285 -79 20]
+	498 [-369 -157 22]
+	490 [-387 -111 38]
+	QVAR "goal_target_7" == 966
+}
+
+// cloud deck
+TagBlock "CLOUDOBJVAR"
+{
+	"Texture" clouds75
+	"Alpha" 0.2
+}

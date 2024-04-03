@@ -1,0 +1,22 @@
+DML1
+
+// T2x skies -  Cure (miss29.mis)
+FINGERPRINT
+{
+	1247 [9 -74 71]
+	1428 [94 37 78]
+	646 [-427 -12 67]
+	910 [-162 52 85]
+	1022 [-189 51 81]
+	1876 [-170 90 84]
+	1701 [-142 -188 88]
+	1858 [-161 -217 88]
+	QVAR "goal_target_0" == 1998
+}
+
+// cloud deck
+TagBlock "CLOUDOBJVAR"
+{
+	"Texture" clouds75
+	"Alpha" 0.7
+}
