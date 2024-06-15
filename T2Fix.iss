@@ -4,7 +4,15 @@
 ; Version Information
 #define FName "T2Fix"
 #define FLongName "Thief 2 Fixer"
-#define FVer "1.27e"
+#ifndef FVer
+#define FVer "1.0"
+#endif
+#ifndef FVIVer
+#define FVIVer "1.0.0.0"
+#endif
+#ifndef OBFSuffix
+#define OBFSuffix
+#endif
 
 ; Language File Processing Routines
 #include "lang.iss"
@@ -13,17 +21,20 @@
 #if Ver < 0x06000000
 #pragma message "Building with IS5 Compatibility"
 #define IS5
+#if Len(OBFSuffix) == 0
+#define OBFSuffix "_legacy"
+#endif
 #endif
 
 ; Define basic setup characteristics.
 [Setup]
 AppName={#FLongName}
 AppVersion={#FVer}
-VersionInfoVersion=1.2.7.5
+VersionInfoVersion={#FVIVer}
 #ifndef Mods
-OutputBaseFilename={#FName}_{#FVer}
+OutputBaseFilename={#FName}_{#FVer}{#OBFSuffix}
 #else
-OutputBaseFilename={#FName}_{#FVer}_with_mods
+OutputBaseFilename={#FName}_{#FVer}_with_mods{#OBFSuffix}
 #endif
 ;Compression=lzma2/ultra64
 Compression=none
@@ -1588,7 +1599,6 @@ begin
   if WizardIsComponentSelected('osm') and WizardIsComponentSelected('mods\thief2fixed') then begin
     if not WizardForm.ComponentsList.ItemEnabled[8] then begin
       WizardForm.ComponentsList.ItemEnabled[8] := True;
-      Invalidate := True;
     end;
   { Disable them otherwise. }
   end else begin

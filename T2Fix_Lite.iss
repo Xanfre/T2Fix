@@ -4,7 +4,15 @@
 ; Version Information
 #define FName "T2Fix Lite"
 #define FLongName "Thief 2 Fixer Lite"
-#define FVer "1.27e"
+#ifndef FVer
+#define FVer "1.0"
+#endif
+#ifndef FVIVer
+#define FVIVer "1.0.0.0"
+#endif
+#ifndef OBFSuffix
+#define OBFSuffix
+#endif
 
 ; Language File Processing Routines
 #include "lang.iss"
@@ -13,14 +21,17 @@
 #if Ver < 0x06000000
 #pragma message "Building with IS5 Compatibility"
 #define IS5
+#if Len(OBFSuffix) == 0
+#define OBFSuffix "_legacy"
+#endif
 #endif
 
 ; Define basic setup characteristics.
 [Setup]
 AppName={#FLongName}
 AppVersion={#FVer}
-VersionInfoVersion=1.2.7.5
-OutputBaseFilename=T2Fix_Lite_{#FVer}
+VersionInfoVersion={#FVIVer}
+OutputBaseFilename=T2Fix_Lite_{#FVer}{#OBFSuffix}
 Compression=lzma2/ultra64
 DefaultDirName=C:\Games\Thief 2 The Metal Age
 SetupIconFile=T2.ico
