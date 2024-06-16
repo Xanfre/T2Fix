@@ -1599,6 +1599,10 @@ begin
   if WizardIsComponentSelected('osm') and WizardIsComponentSelected('mods\thief2fixed') then begin
     if not WizardForm.ComponentsList.ItemEnabled[8] then begin
       WizardForm.ComponentsList.ItemEnabled[8] := True;
+      { Select the Interactive Candles if the mods category was checked. }
+      if (TNewCheckListBox(Sender).ItemIndex = 5) and (WizardForm.ComponentsList.State[5] = cbGrayed) then
+        WizardForm.ComponentsList.CheckItem(8, coCheck);
+      Invalidate := True;
     end;
   { Disable them otherwise. }
   end else begin
