@@ -235,6 +235,8 @@ cp -p patches/Thief2Fixed/obj/txt/* Resources/mods/Thief2\ Fixed/Obj/txt/
 cp -p patches/Thief2Fixed/obj/txt16/* Resources/mods/Thief2\ Fixed/Obj/Txt16/
 cp -p patches/Thief2Fixed/mesh/*.bin Resources/mods/Thief2\ Fixed/Mesh/
 cp -p patches/Thief2Fixed/mesh/txt16/* Resources/mods/Thief2\ Fixed/Mesh/txt16/
+mkdir -p Resources/mods/Thief2\ Fixed/Intrface/english
+cp -p patches/Thief2Fixed/intrface/english/CONTROLS.STR Resources/mods/Thief2\ Fixed/Intrface/english/
 for i in miss11 miss15; do apply_binpatch Resources/mods/Thief2\ Fixed/$i.mis Resources/mods/Thief2\ Fixed/$i.mis patches/Thief2Fixed/$i.patch; done
 # Carry Body Mod
 mkdir -p Resources/mods/CarryBody
