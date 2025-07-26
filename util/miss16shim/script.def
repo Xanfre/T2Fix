@@ -1,3 +1,0 @@
-LIBRARY script.osm
-EXPORTS
-	_ScriptModuleInit@20 =ScriptModuleInit@20

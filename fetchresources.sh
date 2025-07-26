@@ -117,9 +117,9 @@ curl_fetch "libmp3lame-${LAME_VER}x86.zip" "http://rarewares.org/files/mp3/libmp
 # Helpers
 curl_fetch "7z${_7Z_VER}-extra.7z" "https://7-zip.org/a/7z${_7Z_VER}-extra.7z" db3a1cbe57a26fac81b65c6a2d23feaecdeede3e4c1fe8fb93a7b91d72d1094c
 curl_fetch "oggdecV${OGGDEC_VER}.zip" "https://www.rarewares.org/files/ogg/oggdecV${OGGDEC_VER}.zip" 8180bafd818da3ddd8a56e0d0612561ff0d8964810c9d3876423f9c1b8190bfe
-# Utilities (oldfm and miss16shim)
-if ! test -f ./util/oldfm/oldfm.exe || ! test -f ./util/miss16shim/miss16.osm; then
-	read -p "Utilities (oldfm or miss16shim) were not found. Build them now? [y/N] " CHOICE
+# Utilities (oldfm)
+if ! test -f ./util/oldfm/oldfm.exe; then
+	read -p "Utilities (oldfm) were not found. Build them now? [y/N] " CHOICE
 	case $CHOICE in
 		[yY])
 			./util/build.sh
@@ -128,7 +128,7 @@ if ! test -f ./util/oldfm/oldfm.exe || ! test -f ./util/miss16shim/miss16.osm; t
 			abort "Utilities not built. Please build them before continuing."
 			;;
 	esac
-	if ! test -f ./util/oldfm/oldfm.exe || ! test -f ./util/miss16shim/miss16.osm; then
+	if ! test -f ./util/oldfm/oldfm.exe; then
 		abort "Utilities failed to build!"
 	fi
 fi
@@ -149,8 +149,6 @@ extract t2_v127/mp.zip Resources/multiplayer/
 for i in DEFAULT.BND MENUS.CFG cam.cfg; do cp -p config/$i Resources/config/; done
 cp -p patches/advanced/*.dml Resources/advanced/
 for i in gen.osm miss12.osm miss15.osm; do apply_binpatch Resources/multiplayer/$i Resources/multiplayer/$i patches/multiplayer/$i.patch; done
-mv Resources/multiplayer/miss16.osm Resources/multiplayer/miss16_aux.osm
-cp -p util/miss16shim/miss16.osm Resources/multiplayer/
 # DromEd
 mkdir -p Resources/dromed
 extract t2_v127/editor.zip Resources/dromed

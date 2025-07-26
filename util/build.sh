@@ -66,17 +66,5 @@ if test -f ./oldfm.exe; then
 fi
 nmake "-f Makefile-vc.mak" && echo "oldfm built successfully." || abort "oldfm failed to build!"
 
-echo "Building miss16shim..."
-cd ../miss16shim/lg
-if test -f ./lg.lib; then
-	nmake "-f Makefile-vc.mak clean" || abort "Failed to clean before building miss16shim!"
-fi
-nmake "-f Makefile-vc.mak" || echo "miss16shim failed to build!"
-cd ..
-if test -f ./miss16.osm; then
-	nmake "-f Makefile-vc.mak clean" || abort "Failed to clean before building miss16shim!"
-fi
-nmake "-f Makefile-vc.mak" && echo "miss16shim built successfully." || abort "miss16shim failed to build!"
-
 echo
 
