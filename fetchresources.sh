@@ -76,7 +76,7 @@ curl_fetch ddfix.zip https://github.com/Xanfre/ddfix/releases/download/1.5.13-20
 curl_fetch thief2-118.zip http://aluigi.altervista.org/patches/thief2-118.zip 1692d4c9aa0ea4cf99b2c668e0ff664e4846f6c2007c542eb494b07108757414
 curl_fetch oldlgvid.zip "https://drive.google.com/uc?export=download&id=1V3_1ZLUoht_SO7MWcOyx_UR11F8N5xok" b94c257cd97219bb62405647a2c899dbcf01169e95cdb2ce3397f855991a1537
 # NVScript
-curl_fetch NVScript-T2.zip https://github.com/Xanfre/nvscript/releases/download/v1.3.1/NVScript-T2.zip 7cd394f45e08528c74ff3239e81be46444855291b6f1de9ee9f2369b117bb09f
+curl_fetch NVScript-T2.zip https://github.com/Xanfre/nvscript/releases/download/v1.3.2/NVScript-T2.zip 0c49069b059f73b3e36073d2e1181cf074228a1ea0a951682e69cdf4fc712b50
 # tnhScript
 curl_fetch tnhscript21-final.zip https://whoopdedo.org/tnhscript21-final.zip a86ce9ade83956d72ae1aeac2251c69ceb3521e20df527cc4423d333dc48b219
 # Public Scripts
