@@ -148,7 +148,6 @@ extract t2_v127/contrib.zip Resources/newdark/
 extract t2_v127/mp.zip Resources/multiplayer/
 for i in DEFAULT.BND MENUS.CFG cam.cfg; do cp -p config/$i Resources/config/; done
 cp -p patches/advanced/*.dml Resources/advanced/
-for i in gen.osm miss12.osm miss15.osm; do apply_binpatch Resources/multiplayer/$i Resources/multiplayer/$i patches/multiplayer/$i.patch; done
 # DromEd
 mkdir -p Resources/dromed
 extract t2_v127/editor.zip Resources/dromed
