@@ -92,7 +92,7 @@ curl_fetch "AM16's_Thief2_Fixed_${T2FIXED_VER}.zip" $(grep -o "https://download.
 # Carry Body Mod
 curl_fetch CarryBodyThief2.zip http://catmanofiowa.com/RSoul/CarryBodyThief2.zip f211fb7d21f79bd0bad368c212b61c0f9e8d46030ad6d71254a8aee8125aafa0
 # Interactive Candles Mod
-curl_fetch T2Candles_03may2024.7z "https://drive.google.com/uc?export=download&id=18guJ9gtBW1FqkbdNQbGQcS97AfytGPI_" 3f5c109eaf55105e5854b55caa25a600bcb04a1445d594b1fcc8fb92f5842762
+curl_fetch T2Candles_12dec2024.7z "https://drive.google.com/uc?export=download&id=18--Urt17aNx2c2-Bo1LwVosfIOU5cTzr" 5deae55a7a0ff2cf21241975c77116a3ac6bf335d1b4444f3083e0a59fc6f4b0
 # t2skies
 curl_fetch t2skies.zip https://darkfate.org/view/details/files/misc_stuff/jermi/t2skies.zip e02109c75e57f133e76ffc30fa5e58c38fef163c561a298dd2074d6942223b6c
 curl_fetch t2skies.jpg https://darkfate.org/view/details/files/misc_stuff/jermi/screenshots/t2skies.jpg 560d2c2393a0df3dd700da0b481da152faf9f3d79ea47f612471e305386bed90
@@ -247,7 +247,7 @@ rm -rf Resources/mods/CarryBody/CarryBodyThief2
 apply_patch Resources/mods/CarryBody ../../../patches/carrybody.patch
 # Interactive Candles Mod
 mkdir -p Resources/mods/Candles
-extract T2Candles_03may2024.7z Resources/mods/Candles
+extract T2Candles_12dec2024.7z Resources/mods/Candles
 apply_patch Resources/mods/Candles ../../../patches/candles.patch
 # t2skies
 mkdir -p Resources/mods/t2skies/images
