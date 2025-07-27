@@ -16,3 +16,52 @@ ObjProp 1894 "KeyDst"
 {
     "LockID" 14
 }
+
+// Move ambient markers to the real entrances of Angelwatch
+ObjProp 1696 "Position"
+{
+	"Location" -332.0, 194.0, 34.195
+}
+ObjProp 1736 "Position"
+{
+	"Location" -382.365, 210.023, 32.6611
+}
+Create 1696
+{
+	ObjProp "Position"
+	{
+		"Location" -365.698, 185.8, 49.4614
+	}
+}
+Create 1696
+{
+	ObjProp "Position"
+	{
+		"Location" -380.447, 190.219, 67.4614
+	}
+	ObjProp "AmbientHacked"
+	{
+		"Radius" 4
+	}
+}
+Create 1696
+{
+	ObjProp "Position"
+	{
+		"Location" -383.54, 195.39, 87.7114
+	}
+}
+Create 1696
+{
+	ObjProp "Position"
+	{
+		"Location" -427.625, 213.553, 70.4343
+	}
+}
+Create 1736
+{
+	ObjProp "Position"
+	{
+		"Location" -427.625, 224.803, 70.4343
+	}
+}
