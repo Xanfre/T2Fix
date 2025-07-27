@@ -62,17 +62,3 @@ ObjProp "FernPlant" "RenderAlpha" = 0.9999
 +Link "HolyH2OArrow" "HolyH2OCore" "Corpse"
 {
 }
-// Fix weapon deselect mouse sensitivity issue.
-CreateArch "MetaProperty" "M-T2FWeaponFix"
-{
-    +ObjProp "Scripts"
-    {
-        "Script 0" T2FWeaponFix
-        "Script 1" ""
-        "Script 2" ""
-        "Script 3" ""
-        "Don't Inherit" false
-    }
-}
-MetaProp "Blackjack" "M-T2FWeaponFix"
-MetaProp "Sword" "M-T2FWeaponFix"
