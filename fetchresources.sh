@@ -22,7 +22,7 @@ fi
 
 OGGENC_VER="2.88-1.3.7-generic"
 OGGDEC_VER="1.10.1"
-OPENAL_VER="1.23.1"
+OPENAL_VER="1.24.3"
 LAME_VER="3.100"
 _7Z_VER="2500"
 T2FIXED_VER="1.3b"
@@ -105,7 +105,7 @@ curl_fetch Thief\ 2\ English\ Subtitles\ \(Only\ voiced\ ingame\ and\ video\ lin
 # T2FMDML
 curl_fetch "T2FMDML_${T2FMDML_VER}.zip" "https://github.com/Xanfre/T2FMDML/releases/download/${T2FMDML_VER}/T2FMDML_${T2FMDML_VER}.zip" 065610582a76ddec60f15b922c80f1f0a11589a59cc7e6ae019eb13c3cd9570a
 # OpenAL Soft
-curl_fetch "openal-soft-${OPENAL_VER}-bin.zip" "https://openal-soft.org/openal-binaries/openal-soft-${OPENAL_VER}-bin.zip" ea8bc36fd7fa05f64e13400d20886de753a227202a4ea3781913489a26b36fc6
+curl_fetch "openal-soft-${OPENAL_VER}-bin.zip" "https://openal-soft.org/openal-binaries/openal-soft-${OPENAL_VER}-bin.zip" 03c8c0c0bcdba9d3fb54b0d3c2f9a565f81b3e2a19a538dd394f9b8cb6caaa22
 # libmp3lame
 curl_fetch "libmp3lame-${LAME_VER}x86.zip" "http://rarewares.org/files/mp3/libmp3lame-${LAME_VER}x86.zip" 75690f5c187eb5e79d24cd3d884890f5fd991e29a5375f336ea099124b7cbc09
 # Helpers
