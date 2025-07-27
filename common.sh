@@ -36,7 +36,7 @@ curl_fetch()
 	while :; do
 		if ! test -f "cache/${FILE}"; then
 			echo "Downloading ${FILE}..."
-			curl -LR -o "cache/${FILE}" "$2" && echo "Downloaded ${FILE}." || abort "${FILE} could not be fetched!"
+			curl -LRk -o "cache/${FILE}" "$2" && echo "Downloaded ${FILE}." || abort "${FILE} could not be fetched!"
 		fi
 		echo "${SHA256}" "cache/${FILE}" | sha256sum -c --status && echo "${FILE} SHA256 matches ${SHA256}" && break
 		read -p "${FILE} SHA256 is not recognized. Remove the file and download again? [y/N] " CHOICE
