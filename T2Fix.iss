@@ -173,7 +173,7 @@ Source: "Resources\patch118\res.7z"; DestDir: "{tmp}"; Components: newdark; Chec
 Source: "Resources\Helper\oggdec.exe"; DestDir: "{tmp}"; Components: newdark and mods\t2seep; Flags: ignoreversion deleteafterinstall
 #endif
 Source: "Resources\Helper\7za.exe"; DestDir: "{tmp}"; Components: newdark; AfterInstall: GameConfig; Flags: ignoreversion deleteafterinstall
-; NewDark 1.27
+; NewDark
 Source: "Resources\newdark\*"; DestDir: "{app}"; Components: newdark; Flags: ignoreversion recursesubdirs createallsubdirs
 ; Optional libraries
 Source: "Resources\libs\OpenAL32.dll"; DestDir: "{app}"; Components: newdark; Tasks: oalsoft; Flags: ignoreversion
@@ -183,7 +183,7 @@ Source: "Resources\advanced\miss1.mis.dml"; DestDir: "{app}"; Components: newdar
 Source: "Resources\advanced\miss2.mis.dml"; DestDir: "{app}"; Components: newdark; Check: IsAdvOpChecked(8); Flags: ignoreversion
 Source: "Resources\advanced\miss4.mis.dml"; DestDir: "{app}"; Components: newdark; Check: IsAdvOpChecked(8); Flags: ignoreversion
 Source: "Resources\advanced\dark.gam.dml"; DestDir: "{app}"; Components: newdark; Check: IsAdvOpChecked(9); Flags: ignoreversion
-; DromEd 1.27
+; DromEd
 Source: "Resources\dromed\*"; DestDir: "{app}"; Components: dromed; Flags: ignoreversion
 ; DromEd Config Files and Tools (unnecessary if also installing the toolkit)
 Source: "Resources\dromedtk\Tools\3ds_to_bin\3ds\Workshop\BSP.exe"; DestDir: "{app}"; Components: dromed and not dromed\toolkit; Flags: ignoreversion
