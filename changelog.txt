@@ -1,25 +1,24 @@
 T2Fix Changelog
 
 next
--Included a minor mission fix
-    -Fix misplaced ambient markers at the entrances to Angelwatch in Life of
-     the Party
--Added a NewDark-compatible LgScript distribution
--Updated NVScript to 1.3.0
--Updated OpenAL Soft to 1.23.1
+-Updated all core files to NewDark 1.28-20250515
+-Updated NVScript to 1.3.2
+-Updated OpenAL Soft to 1.24.3
 -Updated various components in the DromEd Basic Toolkit
     -Updated GoalMaster to 1.01
     -Updated ConvMaster to 2.0.1
     -Replaced DEOCI with BinMaster
 -Updated ddfix to 1.5.13
--NVScript is now compatible with Windows 2000
+-Updated the Interactive Candles mod to 12dec2024
+-Added a NewDark-compatible LgScript distribution
+-Included a minor mission fix
+    -Fix misplaced ambient markers at the entrances to Angelwatch in Life of
+     the Party
 -It is now possible to use FMSel with the legacy executables
--The multiplayer scripts can now be safely used with the singleplayer
- executable
--It is now possible to complete the final mission with the multiplayer script
- modules
--Fixed the mouse sensitivity issue when deselecting an active weapon
 -Fixed water arrow culpability
+-Changes to the Wizard Form
+    -The advanced options page now always displays during setup
+    -Added 'Reduce Camera Jitter' to the advanced options page
 
 v1.27e
 -Added the Dark Mod Manager component
