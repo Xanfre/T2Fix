@@ -305,6 +305,7 @@ var
 #ifdef Mods
   AdvOp12: TNewCheckBox;
 #endif
+  AdvOp13: TNewCheckBox;
 #ifndef IS5
   LastHoverIndex: Integer;
   CompHovering: Boolean;
@@ -378,6 +379,7 @@ begin
 #ifdef Mods
     12: Result := AdvOp12.Checked;
 #endif
+    13: Result := AdvOp13.Checked;
   else
     Result := False;
   end;
@@ -1522,10 +1524,14 @@ begin
     StringChangeEx(U, ';new_mantle' + #13#10, 'new_mantle' + #13#10, True);
   A := U;
   SaveStringToFile(ExpandConstant('{app}\cam_ext.cfg'), A, False);
+  if AdvOp13.Checked then
+    SaveStringToFile(ExpandConstant('{app}\cam_ext.cfg'), #13#10 +
+      '; prevent camera jitter when crossing portals' + #13#10 +
+      'small_portal_repel' + #13#10, True);
 #ifdef Mods
   { Configure subtitles if chosen. }
   if WizardIsComponentSelected('mods\subtitles') then
-    SaveStringToFile (ExpandConstant('{app}\cam_ext.cfg'), #13#10 +
+    SaveStringToFile(ExpandConstant('{app}\cam_ext.cfg'), #13#10 +
       '; enable and configure subtitles' + #13#10 + 
       'enable_subtitles' + #13#10 +
       'subtitles_bg_color 0 0 0 0' + #13#10 +
@@ -1614,6 +1620,7 @@ begin
     AdvOp5.Enabled := False;
     AdvOp6.Enabled := False;
     AdvOp7.Enabled := False;
+    AdvOp13.Enabled := False;
   end else if not WizardIsTaskSelected('nomodifycfg') and (TasksState[4] <> WizardForm.TasksList.State[4]) then begin
     WizardForm.TasksList.ItemEnabled[1] := True;
     WizardForm.TasksList.ItemEnabled[2] := True;
@@ -1626,6 +1633,7 @@ begin
     AdvOp5.Enabled := True;
     AdvOp6.Enabled := True;
     AdvOp7.Enabled := True;
+    AdvOp13.Enabled := True;
   end;
   if WizardIsTaskSelected('vprehigh') and (TasksState[1] <> WizardForm.TasksList.State[1]) then begin
     AdvOp1.Checked := True;
@@ -1634,6 +1642,7 @@ begin
     AdvOp4.Checked := True;
     AdvOp5.Checked := True;
     AdvOp6.Checked := True;
+    AdvOp13.Checked := True;
   end else if WizardIsTaskSelected('vpremed') and (TasksState[2] <> WizardForm.TasksList.State[2]) then begin
     AdvOp1.Checked := False;
     AdvOp2.Checked := False;
@@ -1641,6 +1650,7 @@ begin
     AdvOp4.Checked := True;
     AdvOp5.Checked := False;
     AdvOp6.Checked := False;
+    AdvOp13.Checked := True;
   end else if WizardIsTaskSelected('vprelow') and (TasksState[3] <> WizardForm.TasksList.State[3]) then begin
     AdvOp1.Checked := False;
     AdvOp2.Checked := False;
@@ -1648,6 +1658,7 @@ begin
     AdvOp4.Checked := False;
     AdvOp5.Checked := False;
     AdvOp6.Checked := False;
+    AdvOp13.Checked := True;
   end;
   { Update the state of the selected Tasks. }
   for I := 0 to WizardForm.TasksList.Items.Count - 1 do begin
@@ -1783,41 +1794,47 @@ begin
   AdvOp1.Checked := False;
   AdvOp1.Parent := AdvPage.Surface;
   AdvOp2 := TNewCheckBox.Create(AdvPage);
-  AdvOp2.Top:= ScaleY(60);
+  AdvOp2.Top:= ScaleY(55);
   AdvOp2.Width := AdvPage.SurfaceWidth div 2;
   AdvOp2.Caption := CustomMessage('AdvancedOp2');
   AdvOp2.Checked := False;
   AdvOp2.Parent := AdvPage.Surface;
   AdvOp3 := TNewCheckBox.Create(AdvPage);
-  AdvOp3.Top:= ScaleY(90);
+  AdvOp3.Top:= ScaleY(80);
   AdvOp3.Width := AdvPage.SurfaceWidth div 2;
   AdvOp3.Caption := CustomMessage('AdvancedOp3');
   AdvOp3.Checked := True;
   AdvOp3.Parent := AdvPage.Surface;
   AdvOp4 := TNewCheckBox.Create(AdvPage);
-  AdvOp4.Top:= ScaleY(120);
+  AdvOp4.Top:= ScaleY(105);
   AdvOp4.Width := AdvPage.SurfaceWidth div 2;
   AdvOp4.Caption := CustomMessage('AdvancedOp4');
   AdvOp4.Checked := False;
   AdvOp4.Parent := AdvPage.Surface;
   AdvOp5 := TNewCheckBox.Create(AdvPage);
-  AdvOp5.Top:= ScaleY(150);
+  AdvOp5.Top:= ScaleY(130);
   AdvOp5.Width := AdvPage.SurfaceWidth div 2;
   AdvOp5.Caption := CustomMessage('AdvancedOp5');
   AdvOp5.Checked := False;
   AdvOp5.Parent := AdvPage.Surface;
   AdvOp6 := TNewCheckBox.Create(AdvPage);
-  AdvOp6.Top:= ScaleY(180);
+  AdvOp6.Top:= ScaleY(155);
   AdvOp6.Width := AdvPage.SurfaceWidth div 2;
   AdvOp6.Caption := CustomMessage('AdvancedOp6');
   AdvOp6.Checked := False;
   AdvOp6.Parent := AdvPage.Surface;
   AdvOp7 := TNewCheckBox.Create(AdvPage);
-  AdvOp7.Top:= ScaleY(210);
+  AdvOp7.Top:= ScaleY(180);
   AdvOp7.Width := AdvPage.SurfaceWidth div 2;
   AdvOp7.Caption := CustomMessage('AdvancedOp7');
   AdvOp7.Checked := True;
   AdvOp7.Parent := AdvPage.Surface;
+  AdvOp13 := TNewCheckBox.Create(AdvPage);
+  AdvOp13.Top:= ScaleY(205);
+  AdvOp13.Width := AdvPage.SurfaceWidth div 2;
+  AdvOp13.Caption := CustomMessage('AdvancedOp13');
+  AdvOp13.Checked := False;
+  AdvOp13.Parent := AdvPage.Surface;
   AdvOp8 := TNewCheckBox.Create(AdvPage);
   AdvOp8.Top:= ScaleY(30);
   AdvOp8.Left := AdvPage.SurfaceWidth div 2;
@@ -1826,21 +1843,21 @@ begin
   AdvOp8.Checked := False;
   AdvOp8.Parent := AdvPage.Surface;
   AdvOp9 := TNewCheckBox.Create(AdvPage);
-  AdvOp9.Top:= ScaleY(60);
+  AdvOp9.Top:= ScaleY(55);
   AdvOp9.Left := AdvPage.SurfaceWidth div 2;
   AdvOp9.Width := AdvPage.SurfaceWidth div 2;
   AdvOp9.Caption := CustomMessage('AdvancedOp9');
   AdvOp9.Checked := False;
   AdvOp9.Parent := AdvPage.Surface;
   AdvOp10 := TNewCheckBox.Create(AdvPage);
-  AdvOp10.Top:= ScaleY(90);
+  AdvOp10.Top:= ScaleY(80);
   AdvOp10.Left := AdvPage.SurfaceWidth div 2;
   AdvOp10.Width := AdvPage.SurfaceWidth div 2;
   AdvOp10.Caption := CustomMessage('AdvancedOp10');
   AdvOp10.Checked := False;
   AdvOp10.Parent := AdvPage.Surface;
   AdvOp11 := TNewCheckBox.Create(AdvPage);
-  AdvOp11.Top:= ScaleY(120);
+  AdvOp11.Top:= ScaleY(105);
   AdvOp11.Left := AdvPage.SurfaceWidth div 2;
   AdvOp11.Width := AdvPage.SurfaceWidth div 2;
   AdvOp11.Caption := CustomMessage('AdvancedOp11');
@@ -1850,7 +1867,7 @@ begin
   AdvOp11.Enabled := False;
 #ifdef Mods
   AdvOp12 := TNewCheckBox.Create(AdvPage);
-  AdvOp12.Top:= ScaleY(150);
+  AdvOp12.Top:= ScaleY(130);
   AdvOp12.Left := AdvPage.SurfaceWidth div 2;
   AdvOp12.Width := AdvPage.SurfaceWidth div 2;
   AdvOp12.Caption := CustomMessage('AdvancedOp12');
@@ -1885,6 +1902,7 @@ begin
 #else
   WizardForm.ComponentsDiskSpaceLabel.Anchors := [akLeft, akBottom];
 #endif
+  AdvOp13.Anchors := [akLeft, akTop];
 #endif
 #ifdef Mods
   { Modify default layout for components selection page. }

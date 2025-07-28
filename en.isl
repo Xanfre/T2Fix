@@ -109,6 +109,7 @@ AdvancedOp8=Disable Training Scripts
 AdvancedOp9=Enable Legacy Gamesys Exploits
 AdvancedOp10=Always Install 1.18 Resources
 AdvancedOp11=Enable DromEd Hardware Rendering
+AdvancedOp13=Reduce Camera Jitter
 
 ; *** T2Fix component/task names
 CompNewDark=NewDark
