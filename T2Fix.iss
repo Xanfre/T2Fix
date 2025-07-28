@@ -293,7 +293,6 @@ var
   NeedsMisPatch: Boolean;
   InstGame: TNewCheckBox;
   PrevCompBut: TNewButton;
-  AdvSel: Boolean;
   AdvPage: TWizardPage;
   AdvOp1: TNewCheckBox;
   AdvOp2: TNewCheckBox;
@@ -309,7 +308,6 @@ var
 #ifdef Mods
   AdvOp12: TNewCheckBox;
 #endif
-  AdvBut: TNewButton;
 #ifndef IS5
   LastHoverIndex: Integer;
   CompHovering: Boolean;
@@ -1189,14 +1187,6 @@ begin
   Confirm := not ImmediateExit;
 end;
 
-{ Skip the advanced options page unless the 'Advanced' button was clicked. }
-function ShouldSkipPage(PageID: Integer): Boolean;
-begin
-  Result := False;
-  if (PageID = AdvPage.ID) and not AdvSel then
-    Result := True;
-end;
-
 { Handle tasks to be executed when the wizard page has changed. }
 procedure CurPageChanged(CurPageID: Integer);
 var
@@ -1205,10 +1195,6 @@ begin
   if PrevCompBut.Visible and (CurPageID <> wpSelectComponents) and not InitialPage then begin
     PrevCompBut.Visible := False;
     PrevCompBut.Enabled := False;
-  end;
-  if AdvBut.Visible and (CurPageID <> wpSelectTasks) then begin
-    AdvBut.Visible := False;
-    AdvBut.Enabled := False;
   end;
   if (CurPageID = wpSelectComponents) then begin
     PrevCompBut.Visible := True;
@@ -1225,8 +1211,6 @@ begin
       WizardForm.TasksList.ItemEnabled[3] := False;
       WizardForm.TasksList.Invalidate;
     end;
-    AdvBut.Visible := True;
-    AdvBut.Enabled := True;
     { Enable the eleventh advanced option if DromEd selected. }
     if WizardIsComponentSelected('dromed') then begin
       AdvOp11.Visible := True;
@@ -1713,14 +1697,6 @@ begin
     FileExists(ExpandConstant('{app}\ddfix.dll')));
 end;
 
-{ Open the Advanced Options page and hide the 'Advanced' and 'Next' buttons. }
-procedure AdvButClick(Sender: TObject);
-begin
-  AdvSel := True;
-  WizardForm.NextButton.OnClick(nil);
-  AdvSel := False;
-end;
-
 { Set up various modifications to the wizard form. }
 procedure InitializeWizard();
 begin
@@ -1890,16 +1866,6 @@ begin
   AdvOp12.Visible := False;
   AdvOp12.Enabled := False;
 #endif
-  { Set up the 'Configuration Options' button. }
-  AdvBut := TNewButton.Create(WizardForm);
-  AdvBut.Caption := CustomMessage('AdvancedButton');
-  AdvBut.Left := WizardForm.InfoAfterPage.Left + (WizardForm.ClientWidth - (WizardForm.CancelButton.Left + WizardForm.CancelButton.Width));
-  AdvBut.Top := WizardForm.NextButton.Top;
-  AdvBut.Height := WizardForm.NextButton.Height;
-  AdvBut.Width := WizardForm.NextButton.Width * 2;
-  AdvBut.Parent := WizardForm.NextButton.Parent;
-  AdvBut.Visible := False;
-  AdvBut.Enabled := False;
 #ifndef IS5
   { Set up the anchors on the wizard form components. }
   InstGame.Anchors := [akRight, akLeft, akTop];
@@ -1926,7 +1892,6 @@ begin
 #else
   WizardForm.ComponentsDiskSpaceLabel.Anchors := [akLeft, akBottom];
 #endif
-  AdvBut.Anchors := [akLeft, akBottom];
 #endif
 #ifdef Mods
   { Modify default layout for components selection page. }
@@ -1948,7 +1913,6 @@ begin
 #endif
   WizardForm.TasksList.OnClickCheck := @TasksClickCheck;
   PrevCompBut.OnClick := @PrevCompButClick;
-  AdvBut.OnClick := @AdvButClick;
   { The wizard form starts on the initial page. }
   InitialPage := True;
 end;
