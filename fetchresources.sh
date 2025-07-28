@@ -186,6 +186,7 @@ cp -p patches/olddark/OldDark_readme.txt Resources/olddark/
 cp -p config/[cC][fF][gG]* Resources/olddark/OLDSV/
 cp -p Resources/config/cam.cfg Resources/olddark/old.cfg
 sed -i "s|darkinst|oldinst|" Resources/olddark/old.cfg
+sed -i "s|;GameConfig=cam.cfg|GameConfig=old.cfg|" Resources/olddark/ddfix.ini
 cp -p util/oldfm/oldfm.exe Resources/olddark/
 cp -p config/oldfm.cfg Resources/olddark/
 # Squirrel
