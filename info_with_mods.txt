@@ -38,8 +38,8 @@ Patches and Modifications Included:
 Official Thief 2 v1.18 Patch
 http://www.thief-thecircle.com/media/patches/
 
-NewDark 1.27 and DromEd 1.27
-https://www.ttlg.com/forums/showthread.php?t=146448
+NewDark 1.28-20250515 (including DromEd and the multiplayer beta)
+https://www.ttlg.com/forums/showthread.php?t=152974
 
 DromEd Basic Toolkit 1.14 by AntiMatter_16
 https://www.ttlg.com/forums/showthread.php?t=141708
@@ -56,7 +56,7 @@ T2 Carry Body Mod by R Soul
 https://www.ttlg.com/forums/showthread.php?t=145616
 
 T2 Interactive Candles by voodoo47
-https://www.ttlg.com/forums/showthread.php?t=131106&p=2392449
+https://www.ttlg.com/forums/showthread.php?t=149669&p=2521906
 
 t2skies by jermi
 https://www.ttlg.com/forums/showthread.php?t=131652
@@ -75,9 +75,6 @@ https://www.ttlg.com/forums/showthread.php?t=148560
 
 T2FMDML Release 4
 https://www.ttlg.com/forums/showthread.php?t=149949
-
-Thief 2 Multiplayer Beta
-https://www.ttlg.com/forums/showthread.php?t=146448
 
 Legacy Thief 2 Executables
 
