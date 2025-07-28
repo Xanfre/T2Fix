@@ -55,9 +55,6 @@ InfoBeforeFile=info_with_mods.txt
 #endif
 Uninstallable=no
 WizardStyle=modern
-#ifndef IS5
-MinVersion=6.0
-#endif
 
 ; Define files to be included within the setup executable.
 [Files]
@@ -391,11 +388,7 @@ end;
 procedure ImmediateFClose();
 begin
   ImmediateExit := True;
-  try
-    Abort;
-  except
-    MainForm.Close;
-  end;
+  WizardForm.Close;
 end;
 
 { Show dialogs prompting for the second CD if necessary. }

@@ -45,9 +45,6 @@ DisableProgramGroupPage=yes
 DisableReadyPage=yes
 Uninstallable=no
 WizardStyle=modern
-#ifndef IS5
-MinVersion=6.0
-#endif
 
 ; Define files to be included within the setup executable.
 [Files]
