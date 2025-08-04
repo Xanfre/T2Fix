@@ -75,9 +75,9 @@ curl_fetch NVScript-T2.zip https://github.com/Xanfre/nvscript/releases/download/
 curl_fetch tnhscript21-final.zip https://whoopdedo.org/tnhscript21-final.zip a86ce9ade83956d72ae1aeac2251c69ceb3521e20df527cc4423d333dc48b219
 # Public Scripts
 curl_fetch pubscripts21-final.zip https://whoopdedo.org/pubscripts21-final.zip 7b8f26029ad090024f91745be7197bd6e97778bdba49485a9a61e881c61d9be3
-curl_fetch pubscripts22.zip https://github.com/Xanfre/publicscripts/releases/download/2.2-20230917/pubscripts22.zip 056f79dd41934c8a9d160fbfc1b3afff624a52663324cac044ddcb4e26005b1a
+curl_fetch pubscripts22.zip https://github.com/Xanfre/publicscripts/releases/download/2.2-20250803/pubscripts22.zip f383f37e9b5b0410f0d354d6cde6c9b711fc40525b3ad8f504d96d26765ce02d
 # LgScript
-curl_fetch lgscript1.zip https://github.com/Xanfre/lgscript/releases/download/1.0-20230917/lgscript1.zip 86cb2f04b2e4f50b366ce882926e17190454191a6a7af6eba74ddf40087114bb
+curl_fetch lgscript1.zip https://github.com/Xanfre/lgscript/releases/download/1.0-20250803/lgscript1.zip a0587d5d0036ec32f215df793aad2e5d730308f81827a831b6c23db60dd529aa
 # DMM
 curl_fetch dmm.exe https://github.com/pshjt/dmm/releases/download/v1.1.1/dmm.exe 6533e8149b6b2a7845ee1b05c06dd514d2b5442150b187295436ccaa60f9803e
 # AM16's Thief2 Fixed
