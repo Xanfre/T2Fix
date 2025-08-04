@@ -31,4 +31,5 @@ $(srcdir)\oldfm.obj: oldfm.c
 
 oldfm.exe: $(OBJS)
 	$(link) $(LDFLAGS_ALL) -out:$@ $(OBJS) $(LIBS)
+	mt -manifest oldfm.exe.manifest -outputresource:oldfm.exe;#1
 
