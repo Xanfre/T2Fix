@@ -9,8 +9,8 @@ if test -f ./config.sh; then
 	. ./config.sh
 fi
 
-INST_VER="1.27e"
-INST_VI_VER="1.2.7.5"
+INST_VER="1.28 (2025-08-04)"
+INST_VI_VER="1.28"
 
 iscc()
 {
@@ -21,7 +21,7 @@ iscc()
 	ARGS=$1
 	NAME=$2
 	echo "Building ${NAME} installer..."
-	$WINE "$ISPATH" -Qp -DFVer=$INST_VER -DFVIVer=$INST_VI_VER $ARGS && echo "${NAME} built successfully." || abort "${NAME} failed to build!"
+	$WINE "$ISPATH" -Qp -DFVer="$INST_VER" -DFVIVer="$INST_VI_VER" $ARGS && echo "${NAME} built successfully." || abort "${NAME} failed to build!"
 }
 
 iscc5()
@@ -31,7 +31,7 @@ iscc5()
 	ARGS=$1
 	NAME=$2
 	echo "Building legacy ${NAME} installer..."
-	$WINE "$IS5PATH" -Qp -DFVer=$INST_VER -DFVIVer=$INST_VI_VER $ARGS && echo "Legacy ${NAME} built successfully." || abort "Legacy ${NAME} failed to build!"
+	$WINE "$IS5PATH" -Qp -DFVer="$INST_VER" -DFVIVer="$INST_VI_VER" $ARGS && echo "Legacy ${NAME} built successfully." || abort "Legacy ${NAME} failed to build!"
 }
 
 echo "Checking for prerequisites..."

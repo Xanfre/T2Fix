@@ -7,6 +7,7 @@
 #ifndef FVer
 #define FVer "1.0"
 #endif
+#define FVerNS StringChange(FVer, " ", "")
 #ifndef FVIVer
 #define FVIVer "1.0.0.0"
 #endif
@@ -31,8 +32,12 @@
 AppName={#FLongName}
 AppVersion={#FVer}
 VersionInfoVersion={#FVIVer}
-OutputBaseFilename=T2Fix_Lite_{#FVer}{#OBFSuffix}
+OutputBaseFilename=T2Fix_Lite_{#FVerNS}{#OBFSuffix}
+#ifdef DEBUG
+Compression=none
+#else
 Compression=lzma2/ultra64
+#endif
 DefaultDirName=C:\Games\Thief 2 The Metal Age
 SetupIconFile=T2.ico
 WizardSmallImageFile=T2s.bmp

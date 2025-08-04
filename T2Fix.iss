@@ -7,6 +7,7 @@
 #ifndef FVer
 #define FVer "1.0"
 #endif
+#define FVerNS StringChange(FVer, " ", "")
 #ifndef FVIVer
 #define FVIVer "1.0.0.0"
 #endif
@@ -32,12 +33,15 @@ AppName={#FLongName}
 AppVersion={#FVer}
 VersionInfoVersion={#FVIVer}
 #ifndef Mods
-OutputBaseFilename={#FName}_{#FVer}{#OBFSuffix}
+OutputBaseFilename={#FName}_{#FVerNS}{#OBFSuffix}
 #else
-OutputBaseFilename={#FName}_{#FVer}_with_mods{#OBFSuffix}
+OutputBaseFilename={#FName}_{#FVerNS}_with_mods{#OBFSuffix}
 #endif
-;Compression=lzma2/ultra64
+#ifdef DEBUG
 Compression=none
+#else
+Compression=lzma2/ultra64
+#endif
 DefaultDirName=C:\Games\Thief 2 The Metal Age
 SetupIconFile=T2.ico
 WizardSmallImageFile=T2s.bmp
@@ -1833,7 +1837,7 @@ begin
   AdvOp13.Top:= ScaleY(205);
   AdvOp13.Width := AdvPage.SurfaceWidth div 2;
   AdvOp13.Caption := CustomMessage('AdvancedOp13');
-  AdvOp13.Checked := False;
+  AdvOp13.Checked := True;
   AdvOp13.Parent := AdvPage.Surface;
   AdvOp8 := TNewCheckBox.Create(AdvPage);
   AdvOp8.Top:= ScaleY(30);
