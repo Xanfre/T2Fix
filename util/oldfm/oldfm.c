@@ -18,11 +18,7 @@
 #define DIRSEP "\\"
 #define MAX_PATH_BUF MAX_PATH
 #define S(s) S_(s)
-#ifdef _MSC_VER
-#define S_(s) L#s
-#else
 #define S_(s) L##s
-#endif
 #else
 #include <fmsel.h>
 #include <limits.h>
@@ -137,13 +133,13 @@ int main(void)
 				{
 					success = StartGame(&exit);
 					if (success == OFM_RET_ERR)
-						ShowError(S("FMSel closed normally and the active FM"
-							" was modified, but the game could not be started"
-							" or exited abnormally."), OFM_ERR_FATAL);
+						ShowError(S("FMSel closed normally and the active FM")
+							S(" was modified, but the game could not be")
+							S(" started or exited abnormally."), OFM_ERR_FATAL);
 				}
 				else
-					ShowError(S("FMSel closed normally, but the active FM"
-						" could not be modified."), OFM_ERR_FATAL);
+					ShowError(S("FMSel closed normally, but the active FM")
+						S(" could not be modified."), OFM_ERR_FATAL);
 				break;
 			// Exit the program otherwise.
 			case kSelFMRet_ExitGame:
@@ -152,7 +148,8 @@ int main(void)
 				// Show as a warning even though this impacts the return code.
 				if (OFM_RET_ERR == success)
 					ShowError(S("FMSel closed normally, but the active FM"
-						" could not be cleared when exiting."), OFM_ERR_WARN);
+						S(" could not be cleared when exiting.")),
+						OFM_ERR_WARN);
 				break;
 		}
 	}
