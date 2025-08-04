@@ -19,6 +19,9 @@
 #define MAX_PATH_BUF MAX_PATH
 #define S(s) S_(s)
 #define S_(s) L##s
+#ifdef _MSC_VER
+#pragma comment(linker,"\"/manifestdependency:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' processorArchitecture='*' publicKeyToken='6595b64144ccf1df' language='*'\"")
+#endif
 #else
 #include <fmsel.h>
 #include <limits.h>
