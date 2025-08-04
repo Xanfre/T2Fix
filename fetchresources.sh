@@ -66,7 +66,7 @@ curl_fetch GoalMaster.7z "https://drive.google.com/uc?export=download&id=1J-a75q
 curl_fetch BinMaster1.0.2.zip "https://drive.google.com/uc?export=download&id=1q5JCwCsHzu9eclBD93u-70UWeIHQEXgZ" 7a7e706b85a0a595bf63273b9840d1ca4750e9be523502a6d1d497db9e27b664
 curl_fetch ConvMaster2.0.1.zip "https://drive.google.com/uc?export=download&id=1diK_Kx2LHH_lxjTnAA0a4QH34-lO6Lkv" d12e70aa90bdf66e49dc50045abd911885e1b62fb503ae697bf35315a42bc012
 # OldDark
-curl_fetch ddfix.zip https://github.com/Xanfre/ddfix/releases/download/1.5.13-20230904/ddfix.zip 89465226adb6ac813f7fa279c9dac72ea65fc749a634c115111074a23707aeb4
+curl_fetch ddfix.zip https://github.com/Xanfre/ddfix/releases/download/1.5.13-20230904/ddfix.zip bf417b91dad2df353d14279a259d5f4160f98abba754082d6b03f937fa44ee7c
 curl_fetch thief2-118.zip http://aluigi.altervista.org/patches/thief2-118.zip 1692d4c9aa0ea4cf99b2c668e0ff664e4846f6c2007c542eb494b07108757414
 curl_fetch oldlgvid.zip "https://drive.google.com/uc?export=download&id=1V3_1ZLUoht_SO7MWcOyx_UR11F8N5xok" b94c257cd97219bb62405647a2c899dbcf01169e95cdb2ce3397f855991a1537
 # NVScript
