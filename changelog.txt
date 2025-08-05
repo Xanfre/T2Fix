@@ -1,7 +1,7 @@
 T2Fix Changelog
 
-v1.28 (2025-08-04)
--Updated all core files to NewDark 1.28-20250515
+v1.27 (2025-08-04) and v1.28 (2025-08-04)
+-Updated all core files to NewDark 1.28-20250515 (v1.28 (2025-08-04) only)
 -Updated NVScript to 1.3.2
 -Updated OpenAL Soft to 1.24.3
 -Updated various components in the DromEd Basic Toolkit
