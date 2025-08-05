@@ -943,7 +943,7 @@ begin
     DelTree(ExpandConstant('{app}\MODS\t2skies'), True, True, True);
   end;
   if not WizardIsComponentSelected('mods\t2water') and DirExists(ExpandConstant('{app}\MODS\t2water')) then begin
-    SetFilenameCaption(CustomMessage('T2Water'));
+    SetFilenameCaption(CustomMessage('CompT2Water'));
     DelTree(ExpandConstant('{app}\MODS\t2water'), True, True, True);
   end;
   if not WizardIsComponentSelected('mods\t2seep') and DirExists(ExpandConstant('{app}\MODS\NewT2SFX')) then begin
