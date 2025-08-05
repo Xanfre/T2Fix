@@ -53,9 +53,9 @@ AppendDefaultDirName=no
 DisableWelcomePage=no
 DisableProgramGroupPage=yes
 #ifndef Mods
-InfoBeforeFile=info.txt
+InfoBeforeFile=info_{#FVIVer}.txt
 #else
-InfoBeforeFile=info_with_mods.txt
+InfoBeforeFile=info_{#FVIVer}_with_mods.txt
 #endif
 Uninstallable=no
 WizardStyle=modern

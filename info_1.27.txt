@@ -1,4 +1,4 @@
-T2Fix 1.28 (2025-08-04)
+T2Fix 1.27 (2025-08-04)
 An Unofficial Comprehensive Patch for Thief 2
 
 More information and updates:
@@ -23,7 +23,7 @@ Windows 2000 or above is required.
 
 The supported game localizations are English, German, and French. Setup should automatically detect the appropriate language.
 
-To install additional mods, you can use the included Dark Mod Manager. Alternatively, you can manually edit your mod paths in cam_mod.ini, located in the same directory as the game executable.
+To install mods, place the files wherever you wish and add either the full or relative paths to their locations in cam_mod.ini, which is located in your install directory.
 
 To uninstall or install additional components, simply run the patcher again and select the desired combination.
 
@@ -38,43 +38,11 @@ Patches and Modifications Included:
 Official Thief 2 v1.18 Patch
 http://www.thief-thecircle.com/media/patches/
 
-NewDark 1.28-20250515 (including DromEd and the multiplayer beta)
-https://www.ttlg.com/forums/showthread.php?t=152974
+NewDark 1.27 (including DromEd and the multiplayer beta)
+https://www.ttlg.com/forums/showthread.php?t=146448
 
 DromEd Basic Toolkit 1.14 by AntiMatter_16
 https://www.ttlg.com/forums/showthread.php?t=141708
-
-Common Script Modules by Nameless Voice and Telliamed
-https://www.ttlg.com/forums/showthread.php?t=134166
-https://dromed.whoopdedo.org/public_scripts/index
-https://dromed.whoopdedo.org/tnhscript/index
-
-Thief2 Fixed 1.3b by AntiMatter_16
-https://www.ttlg.com/forums/showthread.php?t=141121
-
-T2 Carry Body Mod by R Soul
-https://www.ttlg.com/forums/showthread.php?t=145616
-
-T2 Interactive Candles by voodoo47
-https://www.ttlg.com/forums/showthread.php?t=149669&p=2521906
-
-t2skies by jermi
-https://www.ttlg.com/forums/showthread.php?t=131652
-
-t2water by jermi
-https://www.ttlg.com/forums/showthread.php?t=131984
-
-Thief Enhancement Pack by Nameless Voice
-https://www.ttlg.com/forums/showthread.php?t=118999
-
-Thief 2 Sound Effects Enhancement Pack by Child of Karras
-https://www.ttlg.com/forums/showthread.php?t=119405
-
-Thief 2 Subtitles by Taffingtaffer
-https://www.ttlg.com/forums/showthread.php?t=148560
-
-T2FMDML Release 4
-https://www.ttlg.com/forums/showthread.php?t=149949
 
 Legacy Thief 2 Executables
 
