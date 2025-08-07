@@ -103,7 +103,7 @@ char g_FMName[MAX_CFG_BUF] = "";
  * Return value: The game's exit code on success and OFM_RET_ERR on failure.
  */
 #ifdef _WIN32
-int wmain(void)
+int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PWSTR pCmdLine, int nCmdShow)
 #else
 int main(void)
 #endif
