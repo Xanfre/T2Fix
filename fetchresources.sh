@@ -88,6 +88,7 @@ curl_fetch dmm.exe https://github.com/pshjt/dmm/releases/download/v1.1.1/dmm.exe
 curl_fetch "AM16's_Thief2_Fixed_${T2FIXED_VER}.zip" "https://drive.usercontent.google.com/download?export=download&id=1Ob6pMBSkae8mqxP_QUnEf-h0YeoXYN39&confirm=t" 39545018017256ebc7195fe0b6f1ff7a4fdb7f18fdfde8dc636b90d237525130
 # Carry Body Mod
 curl_fetch CarryBodyThief2.zip http://catmanofiowa.com/RSoul/CarryBodyThief2.zip f211fb7d21f79bd0bad368c212b61c0f9e8d46030ad6d71254a8aee8125aafa0
+curl_fetch CarryBodyT2x.7z "https://drive.google.com/uc?export=download&id=12MQ6whODmdc8StSHhSoUMwO8PvTjBneo" 57c2d7f781466ca381b4e269d643a00797ed5f0c96e22ff18580a0d2be3c2ce2
 # Interactive Candles Mod
 curl_fetch T2Candles_12dec2024.7z "https://drive.google.com/uc?export=download&id=18--Urt17aNx2c2-Bo1LwVosfIOU5cTzr" 5deae55a7a0ff2cf21241975c77116a3ac6bf335d1b4444f3083e0a59fc6f4b0
 # t2skies
@@ -265,6 +266,7 @@ mv Resources/mods/CarryBody/CarryBodyThief2/CarryBody/* Resources/mods/CarryBody
 mv Resources/mods/CarryBody/CarryBodyThief2/cb_T2_readme.txt Resources/mods/CarryBody/readme.txt
 rm -rf Resources/mods/CarryBody/CarryBodyThief2
 apply_patch Resources/mods/CarryBody ../../../patches/carrybody.patch
+extract CarryBodyT2x.7z Resources/mods/CarryBody
 # Interactive Candles Mod
 mkdir -p Resources/mods/Candles
 extract T2Candles_12dec2024.7z Resources/mods/Candles
