@@ -26,42 +26,72 @@ ObjProp 1736 "Position"
 {
 	"Location" -382.365, 210.023, 32.6611
 }
-Create 1696
+Create -131
 {
-	ObjProp "Position"
+	+ObjProp "Position"
 	{
 		"Location" -365.698, 185.8, 49.4614
 	}
+	+ObjProp "AmbientHacked"
+	{
+		"Radius" 8
+		"Flags" Environmental
+		"Schema Name" m11hum
+		"Aux Schema 1" m11thump
+	}
 }
-Create 1696
+Create -131
 {
-	ObjProp "Position"
+	+ObjProp "Position"
 	{
 		"Location" -380.447, 190.219, 67.4614
 	}
-	ObjProp "AmbientHacked"
+	+ObjProp "AmbientHacked"
 	{
 		"Radius" 4
+		"Flags" Environmental
+		"Schema Name" m11hum
+		"Aux Schema 1" m11thump
 	}
 }
-Create 1696
+Create -131
 {
-	ObjProp "Position"
+	+ObjProp "Position"
 	{
 		"Location" -383.54, 195.39, 87.7114
 	}
+	+ObjProp "AmbientHacked"
+	{
+		"Radius" 8
+		"Flags" Environmental
+		"Schema Name" m11hum
+		"Aux Schema 1" m11thump
+	}
 }
-Create 1696
+Create -131
 {
-	ObjProp "Position"
+	+ObjProp "Position"
 	{
 		"Location" -427.625, 213.553, 70.4343
 	}
+	+ObjProp "AmbientHacked"
+	{
+		"Radius" 8
+		"Flags" Environmental
+		"Schema Name" m11hum
+		"Aux Schema 1" m11thump
+	}
 }
-Create 1736
+Create -131
 {
-	ObjProp "Position"
+	+ObjProp "Position"
 	{
 		"Location" -427.625, 224.803, 70.4343
+	}
+	+ObjProp "AmbientHacked"
+	{
+		"Radius" 8
+		"Flags" Environmental
+		"Schema Name" m11thump
 	}
 }
