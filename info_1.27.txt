@@ -1,4 +1,4 @@
-T2Fix 1.27 (2025-08-04)
+T2Fix 1.27 (2025-08-10)
 An Unofficial Comprehensive Patch for Thief 2
 
 More information and updates:
