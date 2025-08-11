@@ -215,7 +215,7 @@ cp -p Resources/config/cam.cfg Resources/olddark/old.cfg
 sed -i "s|darkinst|oldinst|" Resources/olddark/old.cfg
 sed -i "s|;GameConfig=cam.cfg|GameConfig=old.cfg|" Resources/olddark/ddfix.ini
 cp -p util/oldfm/oldfm.exe Resources/olddark/
-cp -p config/oldfm.cfg Resources/olddark/
+cp -p config/oldfm.ini Resources/olddark/
 # Squirrel
 mkdir -p Resources/osm/OSM
 cp -p Resources/newdark/squirrel.osm Resources/osm/OSM/

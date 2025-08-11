@@ -976,7 +976,7 @@ begin
     DeleteFile(ExpandConstant('{app}\thief2_no_ddfix.exe'));
     DeleteFile(ExpandConstant('{app}\thief2_ddfix.exe'));
     DeleteFile(ExpandConstant('{app}\oldfm.exe'));
-    DeleteFile(ExpandConstant('{app}\oldfm.cfg'));
+    DeleteFile(ExpandConstant('{app}\oldfm.ini'));
     DeleteFile(ExpandConstant('{app}\old.cfg'));
     DeleteFile(ExpandConstant('{app}\oldinst.cfg'));
     DeleteFile(ExpandConstant('{app}\ddfix.dll'));
