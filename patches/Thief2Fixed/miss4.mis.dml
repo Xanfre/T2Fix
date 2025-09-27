@@ -1,0 +1,19 @@
+DML1
+
+// Framed
+
+FINGERPRINT
+{
+    QVAR "T2origmis" == 1
+}
+
+-ObjProp 777 "PhysType"
+ObjProp 777 "Position"
+{
+	"Location" 19.3255, -30.7287, -46.268
+}
+ObjProp 777 "Scale" = 0.5, 0.5, 0.5
++ObjProp 777 "PhysType"
+{
+	"Type" OBB
+}
