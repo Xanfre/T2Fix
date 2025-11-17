@@ -1644,7 +1644,7 @@ begin
     AdvOp2.Checked := False;
     AdvOp3.Checked := True;
     AdvOp4.Checked := True;
-    AdvOp5.Checked := True;
+    AdvOp5.Checked := False;
     AdvOp6.Checked := True;
     AdvOp13.Checked := True;
   end else if WizardIsTaskSelected('vpremed') and (TasksState[2] <> WizardForm.TasksList.State[2]) then begin
