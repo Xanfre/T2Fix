@@ -1,4 +1,4 @@
-T2Fix 1.28 (2025-08-10)
+T2Fix 1.29
 An Unofficial Comprehensive Patch for Thief 2
 
 More information and updates:
@@ -38,8 +38,8 @@ Patches and Modifications Included:
 Official Thief 2 v1.18 Patch
 http://www.thief-thecircle.com/media/patches/
 
-NewDark 1.28-20250515 (including DromEd and the multiplayer beta)
-https://www.ttlg.com/forums/showthread.php?t=152974
+NewDark 1.29 (including DromEd and the multiplayer beta)
+https://www.ttlg.com/forums/showthread.php?t=153456
 
 DromEd Basic Toolkit 1.14 by AntiMatter_16
 https://www.ttlg.com/forums/showthread.php?t=141708

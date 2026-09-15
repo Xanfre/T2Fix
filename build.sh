@@ -9,8 +9,8 @@ if test -f ./config.sh; then
 	. ./config.sh
 fi
 
-INST_VER="1.28 (2025-08-10)"
-INST_VI_VER="1.28"
+INST_VER="1.29 ($(date +%Y-%m-%d))"
+INST_VI_VER="1.29"
 
 iscc()
 {
