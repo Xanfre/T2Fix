@@ -30,6 +30,7 @@ T2FMDML_VER="R4"
 
 echo "Checking for prerequisites..."
 check_command curl
+check_command gdown
 check_command 7z
 check_command patch
 check_command bspatch
@@ -59,12 +60,12 @@ mkdir -p cache
 # NewDark 1.29
 gdown_fetch t2_v129.zip "https://drive.google.com/uc?export=download&id=1hOOUT_WujRDAVY9e5UnFhK8cBeTq6qgL&export=download" c2de1addf3e61b81ec55de6b4df0154d42a174b0c2e9fce4cc3c768855183952
 # 1.18 Patch
-curl_fetch Thief_2_118_Patch_Resources.7z "https://drive.google.com/uc?export=download&id=1RenLiTV4EA28HVhZhgqHGdJFHLHyDsU_" 6e72889af72fab926197be07fb82307e3138522bcba1b248b94517dc1e27b1a6
+gdown_fetch Thief_2_118_Patch_Resources.7z "https://drive.google.com/uc?export=download&id=1RenLiTV4EA28HVhZhgqHGdJFHLHyDsU_" 6e72889af72fab926197be07fb82307e3138522bcba1b248b94517dc1e27b1a6
 # DromEd Basic Toolkit
-curl_fetch DromEd_Basic_1.14_\(Beta4\).zip "https://drive.usercontent.google.com/download?export=download&id=1_9kpAZUlHDTHpssLku5I0x7iSAaSCSmR&confirm=t" f06bce66e085829260d0117e10411d4aa04395a20cc06842dbb5f4794368374d
-curl_fetch GoalMaster.7z "https://drive.google.com/uc?export=download&id=1J-a75qRHua4G_U_DRpcDqX1dwl1vP7Wc" 8207065a21f6c48b6c9a8ac212a1cd78c97fa1e562969e4eec7a1c1a079ef28c
-curl_fetch BinMaster1.0.2.zip "https://drive.google.com/uc?export=download&id=1q5JCwCsHzu9eclBD93u-70UWeIHQEXgZ" 7a7e706b85a0a595bf63273b9840d1ca4750e9be523502a6d1d497db9e27b664
-curl_fetch ConvMaster2.0.1.zip "https://drive.google.com/uc?export=download&id=1diK_Kx2LHH_lxjTnAA0a4QH34-lO6Lkv" d12e70aa90bdf66e49dc50045abd911885e1b62fb503ae697bf35315a42bc012
+gdown_fetch DromEd_Basic_1.14_\(Beta4\).zip "https://drive.google.com/uc?export=download&id=1_9kpAZUlHDTHpssLku5I0x7iSAaSCSmR&confirm=t" f06bce66e085829260d0117e10411d4aa04395a20cc06842dbb5f4794368374d
+gdown_fetch GoalMaster.7z "https://drive.google.com/uc?export=download&id=1J-a75qRHua4G_U_DRpcDqX1dwl1vP7Wc" 8207065a21f6c48b6c9a8ac212a1cd78c97fa1e562969e4eec7a1c1a079ef28c
+gdown_fetch BinMaster1.0.2.zip "https://drive.google.com/uc?export=download&id=1q5JCwCsHzu9eclBD93u-70UWeIHQEXgZ" 7a7e706b85a0a595bf63273b9840d1ca4750e9be523502a6d1d497db9e27b664
+gdown_fetch ConvMaster2.0.1.zip "https://drive.google.com/uc?export=download&id=1diK_Kx2LHH_lxjTnAA0a4QH34-lO6Lkv" d12e70aa90bdf66e49dc50045abd911885e1b62fb503ae697bf35315a42bc012
 # OldDark
 curl_fetch ddfix.zip https://github.com/Xanfre/ddfix/releases/download/1.5.13-20230904/ddfix.zip bf417b91dad2df353d14279a259d5f4160f98abba754082d6b03f937fa44ee7c
 curl_fetch thief2-118.zip http://aluigi.altervista.org/patches/thief2-118.zip 1692d4c9aa0ea4cf99b2c668e0ff664e4846f6c2007c542eb494b07108757414
@@ -81,27 +82,27 @@ curl_fetch lgscript1.zip https://github.com/Xanfre/lgscript/releases/download/1.
 # DMM
 curl_fetch dmm.exe https://github.com/pshjt/dmm/releases/download/v1.1.1/dmm.exe 6533e8149b6b2a7845ee1b05c06dd514d2b5442150b187295436ccaa60f9803e
 # AM16's Thief2 Fixed
-curl_fetch "AM16's_Thief2_Fixed_${T2FIXED_VER}.zip" "https://drive.usercontent.google.com/download?export=download&id=1Ob6pMBSkae8mqxP_QUnEf-h0YeoXYN39&confirm=t" 39545018017256ebc7195fe0b6f1ff7a4fdb7f18fdfde8dc636b90d237525130
+gdown_fetch "AM16's_Thief2_Fixed_${T2FIXED_VER}.zip" "https://drive.google.com/uc?export=download&id=1Ob6pMBSkae8mqxP_QUnEf-h0YeoXYN39&confirm=t" 39545018017256ebc7195fe0b6f1ff7a4fdb7f18fdfde8dc636b90d237525130
 # Carry Body Mod
-curl_fetch CarryBodyThief2.zip http://catmanofiowa.com/RSoul/CarryBodyThief2.zip f211fb7d21f79bd0bad368c212b61c0f9e8d46030ad6d71254a8aee8125aafa0
-curl_fetch CarryBodyT2x.7z "https://drive.google.com/uc?export=download&id=12MQ6whODmdc8StSHhSoUMwO8PvTjBneo" 57c2d7f781466ca381b4e269d643a00797ed5f0c96e22ff18580a0d2be3c2ce2
+gdown_fetch CarryBodyThief2.zip http://catmanofiowa.com/RSoul/CarryBodyThief2.zip f211fb7d21f79bd0bad368c212b61c0f9e8d46030ad6d71254a8aee8125aafa0
+gdown_fetch CarryBodyT2x.7z "https://drive.google.com/uc?export=download&id=12MQ6whODmdc8StSHhSoUMwO8PvTjBneo" 57c2d7f781466ca381b4e269d643a00797ed5f0c96e22ff18580a0d2be3c2ce2
 # Interactive Candles Mod
-curl_fetch T2Candles_12dec2024.7z "https://drive.google.com/uc?export=download&id=18--Urt17aNx2c2-Bo1LwVosfIOU5cTzr" 5deae55a7a0ff2cf21241975c77116a3ac6bf335d1b4444f3083e0a59fc6f4b0
+gdown_fetch T2Candles_12dec2024.7z "https://drive.google.com/uc?export=download&id=18--Urt17aNx2c2-Bo1LwVosfIOU5cTzr" 5deae55a7a0ff2cf21241975c77116a3ac6bf335d1b4444f3083e0a59fc6f4b0
 # t2skies
-curl_fetch t2skies.zip "https://drive.google.com/uc?export=download&id=1vYYUbmLtzlLot6e3pUGiwQTcq53bdWKi" e02109c75e57f133e76ffc30fa5e58c38fef163c561a298dd2074d6942223b6c
-curl_fetch t2skies.jpg "https://drive.google.com/uc?export=download&id=18m4H56dMYi2J0s4vrJ9ViyH4PHcg5-_Y" 560d2c2393a0df3dd700da0b481da152faf9f3d79ea47f612471e305386bed90
-curl_fetch t2skies_interference.jpg "https://drive.google.com/uc?export=download&id=1DiIuY2psg7f0uS3g0A_3unurcpCdKUsi" ad2bb28081b19a6db2c46143416fcf1b3c9de10ca9a3cc9cf178187ca2a09f14
-curl_fetch t2skies_masks.jpg "https://drive.google.com/uc?export=download&id=1ggPYS1RV-udwqa1Pc1V2WEJw1KiPCX7g" 80d99445e9ec3e0118eaf51f2564c9908fdef73499d486e37775eb7d1adea1a6
-curl_fetch distcit_desktop.jpg "https://drive.google.com/uc?export=download&id=1uIfzlhPfgJlDQ08VP8vpzgglnDosILJJ" 4cda9f6daf0b39dd88b643c72eb67ecac63118e4c0fc4de96da243c5555a17ba
+gdown_fetch t2skies.zip "https://drive.google.com/uc?export=download&id=1vYYUbmLtzlLot6e3pUGiwQTcq53bdWKi" e02109c75e57f133e76ffc30fa5e58c38fef163c561a298dd2074d6942223b6c
+gdown_fetch t2skies.jpg "https://drive.google.com/uc?export=download&id=18m4H56dMYi2J0s4vrJ9ViyH4PHcg5-_Y" 560d2c2393a0df3dd700da0b481da152faf9f3d79ea47f612471e305386bed90
+gdown_fetch t2skies_interference.jpg "https://drive.google.com/uc?export=download&id=1DiIuY2psg7f0uS3g0A_3unurcpCdKUsi" ad2bb28081b19a6db2c46143416fcf1b3c9de10ca9a3cc9cf178187ca2a09f14
+gdown_fetch t2skies_masks.jpg "https://drive.google.com/uc?export=download&id=1ggPYS1RV-udwqa1Pc1V2WEJw1KiPCX7g" 80d99445e9ec3e0118eaf51f2564c9908fdef73499d486e37775eb7d1adea1a6
+gdown_fetch distcit_desktop.jpg "https://drive.google.com/uc?export=download&id=1uIfzlhPfgJlDQ08VP8vpzgglnDosILJJ" 4cda9f6daf0b39dd88b643c72eb67ecac63118e4c0fc4de96da243c5555a17ba
 # t2water
-curl_fetch t2water.zip "https://drive.google.com/uc?export=download&id=1tvlqhOpwAv7njihVfkvoOHjdcOOOqIAH" 6830ca562424b177357727e49ed649effc04679e425f92c534828171a4d2a5c7
-curl_fetch t2water_ambush.jpg "https://drive.google.com/uc?export=download&id=10kSFaLnJHxAN9iPXxBK1S1qL10npv59G" 282c007a5cc7fc09b37a951e9ffba8816fdbcf3336fc9ba13559b205b61061a9
+gdown_fetch t2water.zip "https://drive.google.com/uc?export=download&id=1tvlqhOpwAv7njihVfkvoOHjdcOOOqIAH" 6830ca562424b177357727e49ed649effc04679e425f92c534828171a4d2a5c7
+gdown_fetch t2water_ambush.jpg "https://drive.google.com/uc?export=download&id=10kSFaLnJHxAN9iPXxBK1S1qL10npv59G" 282c007a5cc7fc09b37a951e9ffba8816fdbcf3336fc9ba13559b205b61061a9
 # EP
 curl_fetch ThiefEP1.zip https://web.archive.org/web/20101216230543/http://keepofmetalandgold.com/files/ThiefEP1.zip f600a2683e4335e7e3e91b173b422cd8d4cf0fa70c0e44430116d007c7fa4f27
 # Thief 2 Sound Effects Enhancement Pack
 curl_fetch Thief2SoundFXEnhancement.exe http://www.jaybmusic.net/Eidos/Thief2SoundFXEnhancement.exe 2bc8391b7d7b5cafa93aba9a87e3860da4af9c20da3249fcd329dc52b00b21e9
 # Thief 2 English Subtitles
-curl_fetch Thief\ 2\ English\ Subtitles\ \(Only\ voiced\ ingame\ and\ video\ lines\).rar "https://drive.google.com/uc?export=download&id=160DvutT7vbyOSgscSM76DKybAfczqUX_" 327d3cb2428099b85b2be9c62e090cc6fb41617f5826f90f556ad13304eac721
+gdown_fetch Thief\ 2\ English\ Subtitles\ \(Only\ voiced\ ingame\ and\ video\ lines\).rar "https://drive.google.com/uc?export=download&id=160DvutT7vbyOSgscSM76DKybAfczqUX_" 327d3cb2428099b85b2be9c62e090cc6fb41617f5826f90f556ad13304eac721
 # T2FMDML
 curl_fetch "T2FMDML_${T2FMDML_VER}.zip" "https://github.com/Xanfre/T2FMDML/releases/download/${T2FMDML_VER}/T2FMDML_${T2FMDML_VER}.zip" 065610582a76ddec60f15b922c80f1f0a11589a59cc7e6ae019eb13c3cd9570a
 # OpenAL Soft
