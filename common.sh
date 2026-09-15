@@ -51,6 +51,28 @@ curl_fetch()
 	done
 }
 
+gdown_fetch()
+{
+	FILE=$1
+	SHA256=$3
+	while :; do
+		if ! test -f "cache/${FILE}"; then
+			echo "Downloading ${FILE}..."
+			gdown -O "cache/${FILE}" "$2" && echo "Downloaded ${FILE}." || abort "${FILE} could not be fetched!"
+		fi
+		echo "${SHA256}" "cache/${FILE}" | sha256sum -c --status && echo "${FILE} SHA256 matches ${SHA256}" && break
+		read -p "${FILE} SHA256 is not recognized. Remove the file and download again? [y/N] " CHOICE
+		case $CHOICE in
+			[yY])
+				rm -f "cache/${FILE}"
+				;;
+			*)
+				abort "${FILE} SHA256 does not match ${SHA256}!"
+				;;
+		esac
+	done
+}
+
 extract()
 {
 	FILE=$1

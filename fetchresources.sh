@@ -56,8 +56,8 @@ fi
 
 echo "Fetching and verifying resources..."
 mkdir -p cache
-# NewDark 1.28-20250515
-curl_fetch t2_v128.zip "https://www.dropbox.com/scl/fo/o2l3jbxkoawlthypbr938/AHMfgT2WGhH3FKSkJK5bVuA/t2_v128_20250515.zip?rlkey=zohy6fv6ypuuaepc57juq41zx&dl=1" ef32611ed2ffc22d6b1501d7bd45c4a433c6d11f782e84531d8f150dc4ffc0f1
+# NewDark 1.29
+gdown_fetch t2_v129.zip "https://drive.google.com/uc?export=download&id=1hOOUT_WujRDAVY9e5UnFhK8cBeTq6qgL&export=download" c2de1addf3e61b81ec55de6b4df0154d42a174b0c2e9fce4cc3c768855183952
 # 1.18 Patch
 curl_fetch Thief_2_118_Patch_Resources.7z "https://drive.google.com/uc?export=download&id=1RenLiTV4EA28HVhZhgqHGdJFHLHyDsU_" 6e72889af72fab926197be07fb82307e3138522bcba1b248b94517dc1e27b1a6
 # DromEd Basic Toolkit
