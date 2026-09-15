@@ -24,7 +24,7 @@ OGGENC_VER="2.88-1.3.7-generic"
 OGGDEC_VER="1.10.1"
 OPENAL_VER="1.24.3"
 LAME_VER="3.100"
-_7Z_VER="2500"
+_7Z_VER="2603"
 T2FIXED_VER="1.3b"
 T2FMDML_VER="R4"
 
@@ -109,7 +109,7 @@ curl_fetch "openal-soft-${OPENAL_VER}-bin.zip" "https://openal-soft.org/openal-b
 # libmp3lame
 curl_fetch "libmp3lame-${LAME_VER}x86.zip" "http://rarewares.org/files/mp3/libmp3lame-${LAME_VER}x86.zip" 75690f5c187eb5e79d24cd3d884890f5fd991e29a5375f336ea099124b7cbc09
 # Helpers
-curl_fetch "7z${_7Z_VER}-extra.7z" "https://7-zip.org/a/7z${_7Z_VER}-extra.7z" 6376e5e79cef0b34f30f0710b36c4508a2df89c96ef5a2afb88ff8a76dafec11
+curl_fetch "7z${_7Z_VER}-extra.7z" "https://7-zip.org/a/7z${_7Z_VER}-extra.7z" 191894e6acb3647ffb69ce630479ff318523b2e2b9890aa7f05c1127c2e59b8f
 curl_fetch "oggdecV${OGGDEC_VER}.zip" "https://www.rarewares.org/files/ogg/oggdecV${OGGDEC_VER}.zip" 8180bafd818da3ddd8a56e0d0612561ff0d8964810c9d3876423f9c1b8190bfe
 # Utilities (oldfm)
 if ! test -f ./util/oldfm/oldfm.exe; then
