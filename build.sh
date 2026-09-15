@@ -9,13 +9,8 @@ if test -f ./config.sh; then
 	. ./config.sh
 fi
 
-if test -n "$USE_OLD_ND"; then
-INST_VER="1.27 (2025-08-10)"
-INST_VI_VER="1.27"
-else
 INST_VER="1.28 (2025-08-10)"
 INST_VI_VER="1.28"
-fi
 
 iscc()
 {
