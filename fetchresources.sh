@@ -131,21 +131,21 @@ echo "All resources fetched and verified."
 echo "Populating Resources directory..."
 mkdir -p Resources
 # NewDark
-mkdir -p cache/t2_v128
-extract t2_v128.zip cache/t2_v128 new_dark.zip\ contrib.zip\ editor.zip\ mp.zip\ EnableLAA.exe\ release_notes.txt\ troubleshooting.txt
+mkdir -p cache/t2_v129
+extract t2_v129.zip cache/t2_v129 new_dark.zip\ contrib.zip\ editor.zip\ mp.zip\ EnableLAA.exe\ release_notes.txt\ troubleshooting.txt
 for i in newdark config advanced multiplayer; do mkdir -p Resources/$i; done
-extract t2_v128/new_dark.zip Resources/newdark
+extract t2_v129/new_dark.zip Resources/newdark
 for i in cam_ext.cfg cam_mod.ini; do mv Resources/newdark/$i Resources/config/; done
 printf '\r\n;use high-quality object textures\r\nObjTextures16\r\nMeshTextures16\r\n' >> Resources/config/cam_ext.cfg
-for i in txt exe; do cp -p cache/t2_v128/*.$i Resources/newdark/; done
-extract t2_v128/contrib.zip Resources/newdark/
-extract t2_v128/mp.zip Resources/multiplayer/
+for i in txt exe; do cp -p cache/t2_v129/*.$i Resources/newdark/; done
+extract t2_v129/contrib.zip Resources/newdark/
+extract t2_v129/mp.zip Resources/multiplayer/
 for i in DEFAULT.BND MENUS.CFG cam.cfg; do cp -p config/$i Resources/config/; done
 cp -p patches/advanced/*.dml Resources/advanced/
 # DromEd
 mkdir -p Resources/dromed
-extract t2_v128/editor.zip Resources/dromed
-rm -rf cache/t2_v128
+extract t2_v129/editor.zip Resources/dromed
+rm -rf cache/t2_v129
 # Official 1.18 Patch
 mkdir -p Resources/patch118
 extract Thief_2_118_Patch_Resources.7z Resources/patch118
