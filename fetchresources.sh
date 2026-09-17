@@ -102,7 +102,7 @@ curl_fetch ThiefEP1.zip https://web.archive.org/web/20101216230543/http://keepof
 # Thief 2 Sound Effects Enhancement Pack
 curl_fetch Thief2SoundFXEnhancement.exe http://www.jaybmusic.net/Eidos/Thief2SoundFXEnhancement.exe 2bc8391b7d7b5cafa93aba9a87e3860da4af9c20da3249fcd329dc52b00b21e9
 # Thief 2 English Subtitles
-gdown_fetch Thief\ 2\ English\ Subtitles\ \(Only\ voiced\ ingame\ and\ video\ lines\).rar "https://drive.google.com/uc?export=download&id=160DvutT7vbyOSgscSM76DKybAfczqUX_" 327d3cb2428099b85b2be9c62e090cc6fb41617f5826f90f556ad13304eac721
+curl_fetch Thief2_English_Subtitles_v1.0.1.7z https://codeberg.org/SilverKeeper/thief2-subtitles/releases/download/v1.0.1/Thief2_English_Subtitles_v1.0.1.7z 49d2a51a24242b15e6079d4eeb03f4b90d31c1b9ae3d8502a092b8f4f58631bd
 # T2FMDML
 curl_fetch "T2FMDML_${T2FMDML_VER}.zip" "https://github.com/Xanfre/T2FMDML/releases/download/${T2FMDML_VER}/T2FMDML_${T2FMDML_VER}.zip" 065610582a76ddec60f15b922c80f1f0a11589a59cc7e6ae019eb13c3cd9570a
 # OpenAL Soft
@@ -292,8 +292,7 @@ ogg_encode Resources/mods/NewT2SFX/snd/Feet
 ogg_encode Resources/mods/NewT2SFX/snd/SFX
 # Subtitles
 mkdir -p Resources/mods/Subtitles
-extract Thief\ 2\ English\ Subtitles\ \(Only\ voiced\ ingame\ and\ video\ lines\).rar Resources/mods/Subtitles
-apply_patch Resources/mods/Subtitles ../../../patches/subtitles.patch
+extract Thief2_English_Subtitles_v1.0.1.7z Resources/mods/Subtitles
 # T2FMDML
 mkdir -p Resources/mods/T2FMDML
 extract "T2FMDML_${T2FMDML_VER}.zip" Resources/mods/T2FMDML
