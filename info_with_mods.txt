@@ -38,7 +38,7 @@ Patches and Modifications Included:
 Official Thief 2 v1.18 Patch
 http://www.thief-thecircle.com/media/patches/
 
-NewDark 1.29 (including DromEd and the multiplayer beta)
+NewDark 1.29 (including DromEd, the HWTL variant, and the multiplayer beta)
 https://www.ttlg.com/forums/showthread.php?t=153456
 
 DromEd Basic Toolkit 1.14 by AntiMatter_16

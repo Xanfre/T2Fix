@@ -217,17 +217,15 @@ Source: "Resources\mods\Subtitles\*"; DestDir: "{app}\MODS\Subtitles"; Component
 ; T2FMDML
 Source: "Resources\mods\T2FMDML\*"; DestDir: "{app}\MODS\T2FMDML"; Components: mods\fmdml; Flags: ignoreversion recursesubdirs createallsubdirs
 #endif
+; NewDark HWTL
+Source: "Resources\hwtl\*"; DestDir: "{app}"; Components: hwtl; Flags: ignoreversion recursesubdirs createallsubdirs
 ; NewDark Multiplayer
 Source: "Resources\multiplayer\*"; DestDir: "{app}"; Components: multiplayer; Flags: ignoreversion recursesubdirs createallsubdirs
 ; Legacy Executables
 Source: "Resources\olddark\*"; DestDir: "{app}"; Components: olddark; Flags: ignoreversion recursesubdirs createallsubdirs
 ; Config Files
 Source: "Resources\config\cam.cfg"; DestDir: "{app}"; Components: newdark; AfterInstall: ConfigureGeneral; Flags: ignoreversion onlyifdoesntexist
-#ifdef Mods
 Source: "Resources\config\cam_mod.ini"; DestDir: "{app}"; Components: newdark; BeforeInstall: CheckModIni; AfterInstall: ConfigureMods; Flags: ignoreversion
-#else
-Source: "Resources\config\cam_mod.ini"; DestDir: "{app}"; Components: newdark; Flags: ignoreversion onlyifdoesntexist
-#endif
 Source: "Resources\config\cam_ext.cfg"; DestDir: "{app}"; Components: newdark; Check: not WizardIsTaskSelected('nomodifycfg') or not FileExists(ExpandConstant('{app}\cam_ext.cfg')); AfterInstall: ConfigureVideo; Flags: ignoreversion
 
 [Languages]
@@ -238,6 +236,7 @@ Name: "english"; MessagesFile: "compiler:Default.isl,{#ProcessLanguage("en.isl")
 Name: "{commondesktop}\{cm:IconThief2}"; Filename: "{app}\thief2.exe"; Components: newdark; Tasks: iconthief2
 Name: "{commondesktop}\{cm:IconFMSel}"; Filename: "{app}\thief2.exe"; Parameters: "-fm"; Components: newdark; Tasks: iconthief2fm
 Name: "{commondesktop}\{cm:IconDromEd}"; Filename: "{app}\DromEd.exe"; Components: dromed; Tasks: icondromed2
+Name: "{commondesktop}\{cm:IconHWTL}"; Filename: "{app}\Thief2_hwtl.exe"; Components: hwtl; Tasks: iconhwtl
 Name: "{commondesktop}\{cm:IconMP}"; Filename: "{app}\Thief2MP.exe"; Components: multiplayer; Tasks: iconmultiplayer
 
 ; Define available components.
@@ -259,6 +258,7 @@ Name: "mods\t2seep"; Description: {cm:CompSound}; ExtraDiskSpaceRequired: 191601
 Name: "mods\subtitles"; Description: {cm:CompSubtitles}
 Name: "mods\fmdml"; Description: {cm:CompT2FMDML}
 #endif
+Name: "hwtl"; Description: {cm:CompHWTL}
 Name: "multiplayer"; Description: {cm:CompMP}
 Name: "olddark"; Description: {cm:CompLegacy}
 
@@ -278,6 +278,7 @@ Name: "cleanup"; Description: {cm:TaskCleanUp}; GroupDescription: {cm:TaskInst};
 Name: "iconthief2"; Description: {cm:TaskIconThief2}; GroupDescription: {cm:TaskIcon}; Components: newdark; Flags: unchecked
 Name: "iconthief2fm"; Description: {cm:TaskIconFMSel}; GroupDescription: {cm:TaskIcon}; Components: newdark; Flags: unchecked
 Name: "icondromed2"; Description: {cm:TaskIconDromEd}; GroupDescription: {cm:TaskIcon}; Components: dromed; Flags: unchecked
+Name: "iconhwtl"; Description: {cm:TaskIconHWTL}; GroupDescription: {cm:TaskIcon}; Components: hwtl; Flags: unchecked
 Name: "iconmultiplayer"; Description: {cm:TaskIconMP}; GroupDescription: {cm:TaskIcon}; Components: multiplayer; Flags: unchecked
 
 ; Pascal script for more thorough setup customization and work.
@@ -322,9 +323,7 @@ var
   TasksState: Array of TCheckBoxState;
   AdvVLabel: TLabel;
   AdvGLabel: TLabel;
-#ifdef Mods
   ModIniSettings: Array of String;
-#endif
   WinVer: Cardinal;
 
 #ifdef IS5
@@ -959,6 +958,15 @@ begin
     DelTree(ExpandConstant('{app}\MODS\T2FMDML'), True, True, True);
   end;
 #endif
+  if not WizardIsComponentSelected('hwtl') and FileExists(ExpandConstant('{app}\Thief2_hwtl.exe')) then begin
+    SetFilenameCaption(CustomMessage('CompHWTL'));
+    DeleteFile(ExpandConstant('{app}\Thief2_hwtl.exe'));
+    DeleteFile(ExpandConstant('{app}\Thief2_hwtl.log'));
+    DeleteFile(ExpandConstant('{app}\main.fxo'));
+    DeleteFile(ExpandConstant('{app}\postprocess.fxo'));
+    DeleteFile(ExpandConstant('{app}\doc\hwtl_variant.txt'));
+    DelTree(ExpandConstant('{app}\MODS\hwtl'), True, True, True);
+  end;
   if not WizardIsComponentSelected('multiplayer') and FileExists(ExpandConstant('{app}\Thief2MP.exe')) then begin
     SetFilenameCaption(CustomMessage('CompMP'));
     DeleteFile(ExpandConstant('{app}\Thief2MP.exe'));
@@ -1315,11 +1323,17 @@ begin
 #else
     3: CompDesc :=
 #endif
-      CustomMessage('CompMPDesc');
+      CustomMessage('CompHWTLDesc');
 #ifdef Mods
     16: CompDesc :=
 #else
     4: CompDesc :=
+#endif
+      CustomMessage('CompMPDesc');
+#ifdef Mods
+    17: CompDesc :=
+#else
+    5: CompDesc :=
 #endif
       CustomMessage('CompLegacyDesc');
 #ifndef IS5
@@ -1408,7 +1422,6 @@ begin
   end;
 end;
 
-#ifdef Mods
 { Check and remember the options set in cam_mod.ini. }
 procedure CheckModIni();
 var
@@ -1455,6 +1468,9 @@ begin
       StringChangeEx(U, ';no_unload_fmsel' + #13#10, ModIniSettings[4] + #13#10, True);
   end;
   Mods := '';
+  if WizardIsComponentSelected('hwtl') then
+    AddPath(Mods, '.\MODS\hwtl');
+#ifdef Mods
   if WizardIsComponentSelected('mods\candles') then
     AddPath(Mods, '.\MODS\Candles');
   if WizardIsComponentSelected('mods\carrybody') then
@@ -1475,10 +1491,12 @@ begin
     AddPath(Mods, '.\MODS\T2FMDML');
   if WizardIsComponentSelected('osm') then
     Insert('uber_mod_path .\OSM' + #13#10, U, Pos(';uber_mod_path mods\UpToDateOSMs+MyGemMod' + #13#10, U)+43);
+#endif
   if (Length(Mods) <> 0) then
     Insert('mod_path ' + Mods + #13#10, U, Pos(';mod_path MyBowMod+.\TexturePack' + #13#10, U)+34);
   A := U;
   SaveStringToFile(ExpandConstant('{app}\cam_mod.ini'), A, False);
+#ifdef Mods
   { Enable the improved meshes that come with Thief 2 Fixed if specified. }
   if WizardIsComponentSelected('mods\thief2fixed') and AdvOp12.Enabled and AdvOp12.Checked then begin
     DeleteFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Obj\blacjack.bin'));
@@ -1499,8 +1517,8 @@ begin
     RenameFile(ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\txt16\Disabled\swhand.tga'), ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\txt16\swhand.tga'));
     DelTree(ExpandConstant('{app}\MODS\Thief2 Fixed\Mesh\Disabled'), True, True, True);
   end;
-end;
 #endif
+end;
 
 { Configure settings in cam_ext.cfg. }
 procedure ConfigureVideo();
@@ -1695,12 +1713,19 @@ begin
 #else
     3,
 #endif
-    FileExists(ExpandConstant('{app}\Thief2MP.exe')));
+    FileExists(ExpandConstant('{app}\Thief2_hwtl.exe')));
   CheckComponent(
 #ifdef Mods
     16,
 #else
     4,
+#endif
+    FileExists(ExpandConstant('{app}\Thief2MP.exe')));
+  CheckComponent(
+#ifdef Mods
+    17,
+#else
+    5,
 #endif
     FileExists(ExpandConstant('{app}\ddfix.dll')));
 end;
