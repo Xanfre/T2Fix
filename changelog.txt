@@ -1,5 +1,15 @@
 T2Fix Changelog
 
+v1.29 (next)
+-Updated all core files to NewDark v1.29
+-Added a component for the new HWTL binaries
+-Updated NVScript to 1.3.7
+-Updated subtitles mod to 1.0.1
+-Included some minor mission fixes
+    -Fixed a room brushing error in First City Bank and Trust
+    -Fixed alarm button scaling in Framed
+-Postprocessing is now disabled on all video presets
+
 v1.27 (2025-08-10) and v1.28 (2025-08-10)
 -Updated t2skies to include mission-specific dbmods for Thief 2X
 -Updated dbmod for Life of the Party to prevent a crash that was occurring in
