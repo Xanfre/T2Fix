@@ -194,8 +194,9 @@ Source: "Resources\config\MENUS.CFG"; DestDir: "{app}"; Components: dromed and n
 Source: "Resources\config\DEFAULT.BND"; DestDir: "{app}"; Components: dromed and not dromed\toolkit; Flags: ignoreversion
 ; DromEd Basic Toolkit
 Source: "Resources\dromedtk\*"; DestDir: "{app}"; Components: dromed\toolkit; Flags: ignoreversion recursesubdirs createallsubdirs
-#ifdef Mods
+; Common Script Modules
 Source: "Resources\osm\*"; DestDir: "{app}"; Components: osm; Flags: ignoreversion recursesubdirs createallsubdirs
+#ifdef Mods
 ; Thief2 Fixed
 Source: "Resources\mods\Thief2 Fixed\*"; DestDir: "{app}\MODS\Thief2 Fixed"; Components: mods\thief2fixed; Flags: ignoreversion recursesubdirs createallsubdirs
 ; Dark Mod Manager
@@ -244,8 +245,8 @@ Name: "{commondesktop}\{cm:IconMP}"; Filename: "{app}\Thief2MP.exe"; Components:
 Name: "newdark"; Description: {cm:CompNewDark}; Types: custom; Flags: fixed
 Name: "dromed"; Description: {cm:CompDromEd}
 Name: "dromed\toolkit"; Description: {cm:CompDromEdTK}
-#ifdef Mods
 Name: "osm"; Description: {cm:CompScripts}
+#ifdef Mods
 Name: "dmm"; Description: {cm:CompDMM}
 Name: "mods"; Description: {cm:CompMods}
 Name: "mods\thief2fixed"; Description: {cm:CompT2F}
@@ -675,9 +676,7 @@ begin
   if WizardIsComponentSelected('olddark') then
     SaveStringToFile(ExpandConstant('{app}\oldinst.cfg'), Darkinst, False);
   if DirExists(ExpandConstant('{app}\OSM'))
-#ifdef Mods
     or WizardIsComponentSelected('osm')
-#endif
   then
     StringChangeEx(Darkinst, 'script_module_path .\', 'script_module_path .\OSM+.\', True);
   SaveStringToFile(ExpandConstant('{app}\darkinst.cfg'), Darkinst, False);
@@ -909,12 +908,12 @@ begin
     DelTree(ExpandConstant('{app}\Tools'), True, True, True);
     RemoveDir(ExpandConstant('{app}\Schema'));
   end;
-#ifdef Mods
   if not WizardIsComponentSelected('osm') and DirExists(ExpandConstant('{app}\OSM')) then begin
     SetFilenameCaption(CustomMessage('CompScripts'));
     DeleteFile(ExpandConstant('{app}\dh2.osl'));
     DelTree(ExpandConstant('{app}\OSM'), True, True, True);
   end;
+#ifdef Mods
   if not WizardIsComponentSelected('dmm') and FileExists(ExpandConstant('{app}\dmm.exe')) then begin
     SetFilenameCaption(CustomMessage('CompDMM'));
     DeleteFile(ExpandConstant('{app}\dmm.exe'));
@@ -1306,8 +1305,8 @@ begin
     0: CompDesc := CustomMessage('CompNewDarkDesc');
     1: CompDesc := CustomMessage('CompDromEdDesc');
     2: CompDesc := CustomMessage('CompDromEdTKDesc');
-#ifdef Mods
     3: CompDesc := CustomMessage('CompScriptsDesc');
+#ifdef Mods
     4: CompDesc := CustomMessage('CompDMMDesc');
     5: CompDesc := CustomMessage('CompModsDesc');
     6: CompDesc := CustomMessage('CompT2FDesc');
@@ -1321,19 +1320,19 @@ begin
     14: CompDesc := CustomMessage('CompT2FMDMLDesc');
     15: CompDesc := 
 #else
-    3: CompDesc :=
+    4: CompDesc :=
 #endif
       CustomMessage('CompHWTLDesc');
 #ifdef Mods
     16: CompDesc :=
 #else
-    4: CompDesc :=
+    5: CompDesc :=
 #endif
       CustomMessage('CompMPDesc');
 #ifdef Mods
     17: CompDesc :=
 #else
-    5: CompDesc :=
+    6: CompDesc :=
 #endif
       CustomMessage('CompLegacyDesc');
 #ifndef IS5
@@ -1489,9 +1488,9 @@ begin
     AddPath(Mods, '.\MODS\Subtitles');
   if WizardIsComponentSelected('mods\fmdml') then
     AddPath(Mods, '.\MODS\T2FMDML');
+#endif
   if WizardIsComponentSelected('osm') then
     Insert('uber_mod_path .\OSM' + #13#10, U, Pos(';uber_mod_path mods\UpToDateOSMs+MyGemMod' + #13#10, U)+43);
-#endif
   if (Length(Mods) <> 0) then
     Insert('mod_path ' + Mods + #13#10, U, Pos(';mod_path MyBowMod+.\TexturePack' + #13#10, U)+34);
   A := U;
@@ -1694,8 +1693,8 @@ procedure PrevCompButClick(Sender: TObject);
 begin
   CheckComponent(1, FileExists(ExpandConstant('{app}\DromEd.exe')));
   CheckComponent(2, DirExists(ExpandConstant('{app}\Tools')));
-#ifdef Mods
   CheckComponent(3, DirExists(ExpandConstant('{app}\OSM')));
+#ifdef Mods
   CheckComponent(4, FileExists(ExpandConstant('{app}\dmm.exe')));
   CheckComponent(6, DirExists(ExpandConstant('{app}\MODS\Thief2 Fixed')));
   CheckComponent(7, DirExists(ExpandConstant('{app}\MODS\CarryBody')));
@@ -1711,21 +1710,21 @@ begin
 #ifdef Mods
     15,
 #else
-    3,
+    4,
 #endif
     FileExists(ExpandConstant('{app}\Thief2_hwtl.exe')));
   CheckComponent(
 #ifdef Mods
     16,
 #else
-    4,
+    5,
 #endif
     FileExists(ExpandConstant('{app}\Thief2MP.exe')));
   CheckComponent(
 #ifdef Mods
     17,
 #else
-    5,
+    6,
 #endif
     FileExists(ExpandConstant('{app}\ddfix.dll')));
 end;

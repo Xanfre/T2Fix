@@ -92,6 +92,7 @@ CompNoneDesc=Position your mouse over a component to view its description.
 CompNewDarkDesc=Required files for the NewDark patch, which provides much better support for modern hardware.
 CompDromEdDesc=The NewDark-patched version of the DromEd mission editor.
 CompDromEdTKDesc=A toolkit for DromEd which includes improved menus and various utilities intended to aid in mapping and modding.
+CompScriptsDesc=Common script modules used in fan missions and mods. Includes NVScript, tnhScript, and the Public Scripts.
 CompHWTLDesc=A variant of NewDark that allows for more visual effects. Be warned that this is experimental and everything may not be fully operational.
 CompMPDesc=The latest beta release of the Thief 2 Multiplayer executable. Be warned that this is not in a finished state and everything may not be fully operational.
 CompLegacyDesc=Includes the original Thief 2 executables and the ddfix patch. While this will not affect the rest of the installation, it is not recommended for average users.
@@ -116,6 +117,7 @@ AdvancedOp13=Reduce Camera Jitter
 CompNewDark=NewDark
 CompDromEd=DromEd
 CompDromEdTK=DromEd Basic Toolkit
+CompScripts=Common Script Modules
 CompHWTL=Hardware Transforms And Lighting (Experimental)
 CompMP=Multiplayer (Experimental)
 CompLegacy=Legacy Executables
@@ -143,7 +145,6 @@ IconMP=Thief 2 Multiplayer
 ; ISPP Mods
 
 ; *** T2Fix Custom English Messages
-CompScriptsDesc=Common script modules used in fan missions and mods. Includes NVScript, tnhScript, and the Public Scripts.
 CompDMMDesc=An easy-to-use mod manager for NewDark that allows fine control over installed mods and mod priorities. Requires Windows Vista SP2 or newer.
 CompModsDesc=Game modifications.
 CompT2FDesc=Complete Thief 2 mission and resource patch. Fixes numerous issues present in the original missions and provides updated resources. This is highly recommended.
@@ -158,7 +159,6 @@ CompT2FMDMLDesc=A large collection of fixes for known issues in many Thief 2 fan
 AdvancedOp12=Enable Improved Arm Meshes
 
 ; *** T2Fix component/task names
-CompScripts=Common Script Modules
 CompDMM=Dark Mod Manager
 CompMods=Mods
 CompT2F=AM16's Thief2 Fixed
