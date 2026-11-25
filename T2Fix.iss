@@ -691,7 +691,7 @@ begin
     SetStatusCaption(CustomMessage('PatchConfig'));
     SetFilenameCaption(CustomMessage('ExtractingFiles'));
     { Extract patched resources. }
-    Execute(ExpandConstant('"{tmp}\7za.exe"'), ExpandConstant('x "{tmp}\p118res.7z" -o"{tmp}"'));
+    Execute(ExpandConstant('"{tmp}\7za.exe"'), ExpandConstant('x "{tmp}\res.7z" -o"{tmp}"'));
     { We can't write to read-only resources.
       So remove special file attributes on CRFs in .\RES. }
     Execute(ExpandConstant('"{sys}\attrib.exe"'), ExpandConstant('-R "{app}\RES\*.CRF"'));
