@@ -225,7 +225,7 @@ Source: "Resources\multiplayer\*"; DestDir: "{app}"; Components: multiplayer; Fl
 ; Legacy Executables
 Source: "Resources\olddark\*"; DestDir: "{app}"; Components: olddark; Flags: ignoreversion recursesubdirs createallsubdirs
 ; Config Files
-Source: "Resources\config\cam.cfg"; DestDir: "{app}"; Components: newdark; AfterInstall: ConfigureGeneral; Flags: ignoreversion onlyifdoesntexist
+Source: "Resources\config\cam.cfg"; DestDir: "{app}"; Components: newdark; AfterInstall: ConfigureGeneral; Flags: ignoreversion
 Source: "Resources\config\cam_mod.ini"; DestDir: "{app}"; Components: newdark; BeforeInstall: CheckModIni; AfterInstall: ConfigureMods; Flags: ignoreversion
 Source: "Resources\config\cam_ext.cfg"; DestDir: "{app}"; Components: newdark; Check: not WizardIsTaskSelected('nomodifycfg') or not FileExists(ExpandConstant('{app}\cam_ext.cfg')); AfterInstall: ConfigureVideo; Flags: ignoreversion
 
