@@ -1,5 +1,11 @@
 T2Fix Changelog
 
+v1.29 (2026-11-24)
+-Updated the sans mods distribution to include the common script modules
+    component
+-Updated configuration to set the mixer's default rate to 44100Hz
+-Fixed patched resources not being installed for some game distributions
+
 v1.29 (2026-09-16)
 -Updated all core files to NewDark v1.29
 -Added a component for the new HWTL binaries
